@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ct01atebsbvi7"]
 
 [ext_resource type="Texture2D" uid="uid://vauu7ickprh8" path="res://player/snake_arms.png" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://bwpdqgyw05m56" path="res://player/player.gd" id="1_rkbax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
 atlas = ExtResource("1_oul6g")
@@ -67,16 +68,37 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mq0dr"]
-size = Vector2(25, 58.5)
+size = Vector2(21.5, 48.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5sb0"]
+size = Vector2(10, 20)
 
 [node name="Player" type="CharacterBody2D" unique_id=278440191]
+script = ExtResource("1_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1384373694]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860374097]
 sprite_frames = SubResource("SpriteFrames_uagv5")
+autoplay = "default"
 frame_progress = 0.29390088
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676142568]
-position = Vector2(-2, 2.25)
+position = Vector2(-0.25, 7.25)
 shape = SubResource("RectangleShape2D_mq0dr")
+
+[node name="WallJumpLeft" type="Area2D" parent="." unique_id=305601959]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallJumpLeft" unique_id=118395920]
+position = Vector2(-16, 20)
+shape = SubResource("RectangleShape2D_g5sb0")
+
+[node name="WallJumpRight" type="Area2D" parent="." unique_id=1349002798]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallJumpRight" unique_id=1628692956]
+position = Vector2(15, 20)
+shape = SubResource("RectangleShape2D_g5sb0")
