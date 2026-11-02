@@ -9,10 +9,10 @@
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 metadata/_edit_lock_ = true
 
+[node name="Level" parent="World" unique_id=724246898 instance=ExtResource("3_feb5d")]
+
 [node name="Player" parent="World" unique_id=278440191 instance=ExtResource("1_e2o6t")]
 script = ExtResource("2_feb5d")
-
-[node name="Level" parent="World" unique_id=724246898 instance=ExtResource("3_feb5d")]
 
 [node name="UI" type="Control" parent="." unique_id=493688815]
 layout_mode = 3
