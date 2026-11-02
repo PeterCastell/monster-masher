@@ -1,5 +1,24 @@
 [gd_scene format=3 uid="uid://b3se8miahvu65"]
 
-[node name="Game" type="Node2D" unique_id=482128762]
+[ext_resource type="PackedScene" uid="uid://ct01atebsbvi7" path="res://player/player.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://bwpdqgyw05m56" path="res://player/player.gd" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://c3fdyjmrxnd8y" path="res://level/level.tscn" id="3_feb5d"]
 
-[node name="Player" type="Node2D" parent="." unique_id=1227808634]
+[node name="Game" type="Node" unique_id=1154497424]
+
+[node name="World" type="Node2D" parent="." unique_id=1718165157]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="World" unique_id=278440191 instance=ExtResource("1_e2o6t")]
+script = ExtResource("2_feb5d")
+
+[node name="Level" parent="World" unique_id=724246898 instance=ExtResource("3_feb5d")]
+
+[node name="UI" type="Control" parent="." unique_id=493688815]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
