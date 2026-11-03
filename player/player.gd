@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		jump_buffer_time = jump_buffer_duration
 	else:
 		jump_buffer_time -= delta
-	
+
 	if jump_buffer_time > 0:
 		if jump_coyote_time > 0:
 			jump_buffer_time = 0
