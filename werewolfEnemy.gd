@@ -2,10 +2,13 @@ extends CharacterBody2D
 
 const wind_up_time: float = 0.5
 const max_speed = 450
+const walk_speed = 50
+
 const ground_accel_hl = 0.8
 const wall_detect_offset = 32
 
 @onready var collision_shape = $CollisionShape2D
+@onready var player: Player = $"../../Player"
 
 # https://www.gdquest.com/tutorial/godot/design-patterns/finite-state-machine/
 
@@ -23,10 +26,14 @@ var current_gravity := base_gravity
 var dir: float = 1
 
 func _physics_process(delta: float) -> void:
-	if state == States.IDLE:
+	$Appearance/EnemySprite.modulate = Color.WHITE
+	
+	if state == States.CHASING:
 		# walk
 		velocity.x = util.hllerp(velocity.x, dir * max_speed, ground_accel_hl, delta)
+		move_and_slide()		
 	
+	elif state == States.IDLE:	
 		var space_state = get_world_2d().direct_space_state
 		# https://docs.godotengine.org/en/stable/tutorials/physics/ray-casting.html
 		# my first time doing this in Godot 
@@ -34,22 +41,37 @@ func _physics_process(delta: float) -> void:
 			Vector2(global_position.x, global_position.y),
 			Vector2(global_position.x + (((collision_shape.shape.size.x/2) + wall_detect_offset)*dir), global_position.y)
 		)
-		var result = space_state.intersect_ray(wallAhead)
+		
+		var wallBelow = PhysicsRayQueryParameters2D.create(
+			Vector2(global_position.x, global_position.y),
+			Vector2(global_position.x + (collision_shape.shape.size.x)*dir, global_position.y + (collision_shape.shape.size.y))
+		)
+		
+		var result = space_state.intersect_ray(wallAhead) or not space_state.intersect_ray(wallBelow)
+
 		if (result):
 			dir *= -1
-			$EnemySprite.scale.x *= dir
+		# walk	
+		velocity.x = dir * walk_speed
+	
+		move_and_slide()		
 		
-		move_and_slide()
-
+		if $Area2D.chase: 
+			set_state(States.CHARGING)
+		
+	elif state == States.CHARGING:	
+		dir = sign(player.global_position.x - global_position.x)
+		# temp
+		$Appearance/EnemySprite.modulate = Color.RED
+		if ($ChargeTimer.is_stopped()):
+			set_state(States.CHASING)	
+	
+	$Appearance.scale.x = dir
 	
 
 func set_state(new_state: int) -> void:
 	var previous_state := state
 	state = new_state
 
-	#if previous_state == States.IDLE:
-		#current_gravity = base_gravity
-	#
-	## check new state
-	#if state == States.CHASING:
-		#current_gravity = glide_gravity
+	if previous_state == States.IDLE:
+		$ChargeTimer.start(wind_up_time)

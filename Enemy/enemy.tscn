@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cd40bjdoh8ax"]
+
+[ext_resource type="Script" uid="uid://melxtf3atohx" path="res://werewolfEnemy.gd" id="1_am0pq"]
+[ext_resource type="Texture2D" uid="uid://c6tn0vqhencqk" path="res://Enemy/Dylan_O'Brien_in_2017_by_Gage_Skidmore.jpg" id="2_eqilm"]
+[ext_resource type="Script" uid="uid://b8yx0au3hg873" path="res://area_2d.gd" id="3_ncf7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
+size = Vector2(92, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flmph"]
+size = Vector2(218, 184)
+
+[node name="Enemy" type="Node2D" unique_id=2138027809]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1636331559]
+script = ExtResource("1_am0pq")
+
+[node name="Appearance" type="Node2D" parent="CharacterBody2D" unique_id=2056693875]
+
+[node name="EnemySprite" type="Sprite2D" parent="CharacterBody2D/Appearance" unique_id=1510869021]
+scale = Vector2(0.36999992, 0.23888892)
+texture = ExtResource("2_eqilm")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=663674281]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_5lrfx")
+debug_color = Color(0.3355893, 0.6225548, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=1203006564]
+script = ExtResource("3_ncf7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1273833367]
+shape = SubResource("RectangleShape2D_flmph")
+
+[node name="ChargeTimer" type="Timer" parent="CharacterBody2D" unique_id=2142249678]
+one_shot = true
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="_on_body_exited"]
