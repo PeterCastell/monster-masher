@@ -1,4 +1,9 @@
 extends Node
+class_name Game
+
+enum Organs {
+	WEREWOLF_CLAWS
+}
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_R):

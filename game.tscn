@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://0u6ag8c8c1ad" path="res://game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://c3fdyjmrxnd8y" path="res://level/level.tscn" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://cd40bjdoh8ax" path="res://Enemy/enemy.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://bm5vvxaeo3lq5" path="res://Organ/organ.tscn" id="5_7jktm"]
 
 [node name="Game" type="Node" unique_id=1154497424]
 script = ExtResource("1_ryrav")
@@ -17,14 +18,53 @@ tile_map_data = PackedByteArray("AAADAAEAAAAMABoAAAACAAEAAAAMABoAAAABAAEAAAAMABo
 
 [node name="Player" parent="World" unique_id=278440191 groups=["Player"] instance=ExtResource("1_e2o6t")]
 
-[node name="Enemy" parent="World" unique_id=2138027809 instance=ExtResource("4_fc0e3")]
+[node name="Enemy" parent="World" unique_id=2138027809 groups=["Enemy"] instance=ExtResource("4_fc0e3")]
 position = Vector2(515.62, -102)
 
-[node name="Enemy2" parent="World" unique_id=1735630568 instance=ExtResource("4_fc0e3")]
+[node name="CharacterBody2D" parent="World/Enemy" index="0" unique_id=1636331559 groups=["Enemy"]]
+
+[node name="Appearance" parent="World/Enemy/CharacterBody2D" index="0" unique_id=2056693875 groups=["Enemy"]]
+
+[node name="EnemySprite" parent="World/Enemy/CharacterBody2D/Appearance" index="0" unique_id=1510869021 groups=["Enemy"]]
+
+[node name="CollisionShape2D" parent="World/Enemy/CharacterBody2D" index="1" unique_id=663674281 groups=["Enemy"]]
+
+[node name="Area2D" parent="World/Enemy/CharacterBody2D" index="2" unique_id=1203006564 groups=["Enemy"]]
+
+[node name="CollisionShape2D" parent="World/Enemy/CharacterBody2D/Area2D" index="0" unique_id=1273833367 groups=["Enemy"]]
+
+[node name="RewindTimer" parent="World/Enemy/CharacterBody2D" index="3" unique_id=385163074 groups=["Enemy"]]
+
+[node name="ChargeTimer" parent="World/Enemy/CharacterBody2D" index="4" unique_id=2142249678 groups=["Enemy"]]
+
+[node name="Enemy2" parent="World" unique_id=1735630568 groups=["Enemy"] instance=ExtResource("4_fc0e3")]
 position = Vector2(263, 22)
+
+[node name="CharacterBody2D" parent="World/Enemy2" index="0" unique_id=1636331559 groups=["Enemy"]]
+
+[node name="Appearance" parent="World/Enemy2/CharacterBody2D" index="0" unique_id=2056693875 groups=["Enemy"]]
+
+[node name="EnemySprite" parent="World/Enemy2/CharacterBody2D/Appearance" index="0" unique_id=1510869021 groups=["Enemy"]]
+
+[node name="CollisionShape2D" parent="World/Enemy2/CharacterBody2D" index="1" unique_id=663674281 groups=["Enemy"]]
+
+[node name="Area2D" parent="World/Enemy2/CharacterBody2D" index="2" unique_id=1203006564 groups=["Enemy"]]
+
+[node name="CollisionShape2D" parent="World/Enemy2/CharacterBody2D/Area2D" index="0" unique_id=1273833367 groups=["Enemy"]]
+
+[node name="RewindTimer" parent="World/Enemy2/CharacterBody2D" index="3" unique_id=385163074 groups=["Enemy"]]
+
+[node name="ChargeTimer" parent="World/Enemy2/CharacterBody2D" index="4" unique_id=2142249678 groups=["Enemy"]]
+
+[node name="Die" parent="World/Enemy2" index="1" unique_id=767686788 groups=["Enemy"]]
 
 [node name="AmandasMarker2" type="Marker2D" parent="World" unique_id=1652021365]
 position = Vector2(-12, 72.795)
+
+[node name="Organ" parent="World" unique_id=290290771 instance=ExtResource("5_7jktm")]
+position = Vector2(-167.155, 0)
+
+[node name="OrgansFolder" type="Node" parent="World" unique_id=468090987]
 
 [node name="UI" type="Control" parent="." unique_id=493688815]
 layout_mode = 3
@@ -36,3 +76,6 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="AmandasMarker" type="Marker2D" parent="." unique_id=347590872]
+
+[editable path="World/Enemy"]
+[editable path="World/Enemy2"]
