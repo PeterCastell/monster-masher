@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cd40bjdoh8ax"]
 
 [ext_resource type="Script" uid="uid://melxtf3atohx" path="res://werewolfEnemy.gd" id="1_am0pq"]
-[ext_resource type="Script" uid="uid://bt8b3uxydqhv" path="res://Enemy/enemy.gd" id="1_eqilm"]
 [ext_resource type="Texture2D" uid="uid://c6tn0vqhencqk" path="res://Enemy/Dylan_O'Brien_in_2017_by_Gage_Skidmore.jpg" id="2_eqilm"]
 [ext_resource type="Script" uid="uid://b8yx0au3hg873" path="res://area_2d.gd" id="3_ncf7h"]
+[ext_resource type="Script" uid="uid://f5uy661juxms" path="res://Enemy/die.gd" id="4_eqilm"]
+[ext_resource type="Script" uid="uid://ieb7n81katbi" path="res://Enemy/enemy_info.gd" id="5_ncf7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
 size = Vector2(92, 75)
@@ -12,7 +13,6 @@ size = Vector2(92, 75)
 size = Vector2(470, 129)
 
 [node name="Enemy" type="Node2D" unique_id=2138027809]
-script = ExtResource("1_eqilm")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1636331559]
 script = ExtResource("1_am0pq")
@@ -43,7 +43,13 @@ one_shot = true
 [node name="ChargeTimer" type="Timer" parent="CharacterBody2D" unique_id=2142249678]
 one_shot = true
 
-[node name="Die" type="Node" parent="." unique_id=767686788]
+[node name="Die" type="Node" parent="CharacterBody2D" unique_id=767686788]
+script = ExtResource("4_eqilm")
+
+[node name="EnemyInfo" type="Node" parent="CharacterBody2D" unique_id=2085409435]
+script = ExtResource("5_ncf7h")
+can_squish = true
+launch_back_force = 1000.0
 
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="_on_body_exited"]

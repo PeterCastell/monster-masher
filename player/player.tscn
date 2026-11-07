@@ -73,32 +73,38 @@ size = Vector2(21.5, 48.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5sb0"]
 size = Vector2(10, 20)
 
-[node name="Player" type="CharacterBody2D" unique_id=278440191]
+[node name="Player" type="CharacterBody2D" unique_id=278440191 groups=["Player"]]
 script = ExtResource("1_rkbax")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1384373694]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1384373694 groups=["Player"]]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860374097]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860374097 groups=["Player"]]
 sprite_frames = SubResource("SpriteFrames_uagv5")
 autoplay = "default"
 frame_progress = 0.29390088
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676142568]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676142568 groups=["Player"]]
 position = Vector2(-0.25, 7.25)
 shape = SubResource("RectangleShape2D_mq0dr")
 
-[node name="WallJumpLeft" type="Area2D" parent="." unique_id=305601959]
+[node name="WallJumpLeft" type="Area2D" parent="." unique_id=305601959 groups=["Player"]]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallJumpLeft" unique_id=118395920]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallJumpLeft" unique_id=118395920 groups=["Player"]]
 position = Vector2(-16, 20)
 shape = SubResource("RectangleShape2D_g5sb0")
 
-[node name="WallJumpRight" type="Area2D" parent="." unique_id=1349002798]
+[node name="WallJumpRight" type="Area2D" parent="." unique_id=1349002798 groups=["Player"]]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallJumpRight" unique_id=1628692956]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallJumpRight" unique_id=1628692956 groups=["Player"]]
 position = Vector2(15, 20)
 shape = SubResource("RectangleShape2D_g5sb0")
+
+[node name="BottomCenter" type="Marker2D" parent="." unique_id=1036191703 groups=["Player"]]
+position = Vector2(0, 31)
+
+[node name="TopCenter" type="Marker2D" parent="." unique_id=433315242 groups=["Player"]]
+position = Vector2(0, -28)

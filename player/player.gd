@@ -9,6 +9,10 @@ const air_accel_hl = 0.5
 const air_friction_hl = 1
 const ground_friction_hl = 0.3
 const wall_friction_hl = 0.1
+const enemy_kill_range = 35
+const enemy_kill_jump = -300
+const enemy_above_jump = -100
+
 
 var can_wall_jump: bool = true
 var can_flutter: bool = true
@@ -23,12 +27,11 @@ var jump_coyote_time: float = 0
 const jump_buffer_duration = 0.15
 var jump_buffer_time: float = 0
 
-	
-func _physics_process(delta: float) -> void:
+func isKillingEnemy() -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var enemyBelow = PhysicsRayQueryParameters2D.create(
 		Vector2(global_position.x, global_position.y),
-		Vector2(global_position.x, global_position.y + 100)
+		Vector2(global_position.x, $BottomCenter.global_position.y + enemy_kill_range)
 	)
 	
 	var result = space_state.intersect_ray(enemyBelow)
@@ -37,9 +40,38 @@ func _physics_process(delta: float) -> void:
 		
 		if collider.is_in_group("Enemy"):
 			if result.normal.y < -0.7 and velocity.y > 0:
-				collider.die()
-				velocity.y = -300
+				var die_component = collider.get_node_or_null("Die")
 
+				if die_component:
+					die_component.die()
+				velocity.y = enemy_kill_jump
+				return true
+	return false
+
+func isBelowEnemy() -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var enemyBelow = PhysicsRayQueryParameters2D.create(
+		Vector2(global_position.x, global_position.y),
+		Vector2(global_position.x, $TopCenter.global_position.y - enemy_kill_range)
+	)
+	
+	var result = space_state.intersect_ray(enemyBelow)
+	if not result.is_empty():
+		var collider = result["collider"]
+		
+		if collider.is_in_group("Enemy"):
+				var info_component = collider.get_node_or_null("EnemyInfo")
+
+				if info_component.can_squish:	
+					collider.velocity.y = enemy_above_jump
+					velocity.x = info_component.launch_back_force * collider.dir
+				return true
+	return false
+
+
+func _physics_process(delta: float) -> void:
+	isKillingEnemy()
+	isBelowEnemy()
 	move_and_slide()		
 	if not is_on_floor():
 		velocity += Vector2.DOWN * gravity * delta

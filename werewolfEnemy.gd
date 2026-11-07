@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const gravity = 1200
-
+const player_kick_force = 800
 const wind_up_time: float = 1
 const rewind_time: float = 1.5
 
@@ -12,7 +12,8 @@ const ground_accel_hl = 0.8
 const wall_detect_offset = 32
 
 @onready var collision_shape = $CollisionShape2D
-@onready var player: Player = $"../../Player"
+@onready var player: Player = $"../../../Player"
+
 
 # https://www.gdquest.com/tutorial/godot/design-patterns/finite-state-machine/
 
@@ -25,21 +26,14 @@ var state: States = States.IDLE: set = set_state
 
 var dir: float = 1
 
-const ORGAN = preload("uid://bm5vvxaeo3lq5")
-@onready var organs_folder: Node = $"../../OrgansFolder"
-
-func die():
-	print("die")
-	var organ = ORGAN.instantiate()	
-	organs_folder.add_child(organ)
-	organ.global_position = global_position
-	
-	queue_free()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += Vector2.DOWN * gravity * delta
 		move_and_slide()
+		
+		
+	
 	$Appearance/EnemySprite.modulate = Color.WHITE
 	
 	if state == States.CHASING:
@@ -48,6 +42,8 @@ func _physics_process(delta: float) -> void:
 		# https://forum.godotengine.org/t/how-to-make-a-character2d-bounce-reflect-off-of-stuff/70523/6
 		var collision = move_and_collide(Vector2(util.hllerp(velocity.x, dir * max_speed, ground_accel_hl, delta), velocity.y))		
 		if collision:
+			if collision.get_collider().is_in_group("Player"):
+				player.velocity.x = player_kick_force * dir
 			velocity = velocity.bounce(collision.get_normal())
 			set_state(States.REWINDING)
 	elif state == States.IDLE:	
@@ -81,6 +77,7 @@ func _physics_process(delta: float) -> void:
 		dir = sign(player.global_position.x - global_position.x)
 		if dir == 0:
 			dir = 1
+		
 		# temp
 		$Appearance/EnemySprite.modulate = Color.RED
 		if ($ChargeTimer.is_stopped()):
