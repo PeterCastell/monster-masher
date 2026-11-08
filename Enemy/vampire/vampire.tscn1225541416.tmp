@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://w75no6sgvvy0"]
+
+[ext_resource type="Script" uid="uid://dm1ccljmqsffb" path="res://Enemy/vampire/vampire.gd" id="1_5uubd"]
+[ext_resource type="Texture2D" uid="uid://8yumc6pm16pi" path="res://Enemy/vampire/Screenshot 2026-11-07 212656.png" id="1_jvlcl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flmph"]
+radius = 35.014282
+
+[node name="Vampire" type="CharacterBody2D" unique_id=1566094273 groups=["enemy"]]
+script = ExtResource("1_5uubd")
+
+[node name="Appearance" type="Node2D" parent="." unique_id=184879819]
+
+[node name="Sprite2D" type="Sprite2D" parent="Appearance" unique_id=870028286]
+position = Vector2(4, -4)
+rotation = -3.1415925
+scale = Vector2(0.1, -0.1)
+texture = ExtResource("1_jvlcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=59495736]
+position = Vector2(3, -3)
+shape = SubResource("CircleShape2D_flmph")
+
+[node name="Die" type="Node" parent="." unique_id=1678180669]
+script = ExtResource("3_i3xdn")
+
+[node name="LeftLimit" type="Marker2D" parent="." unique_id=1821622494]
+position = Vector2(-280, 0)
+
+[node name="RightLimit" type="Marker2D" parent="." unique_id=680008472]
+position = Vector2(280, 0)

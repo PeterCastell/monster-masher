@@ -40,10 +40,7 @@ func isKillingEnemy() -> bool:
 		
 		if collider.is_in_group("Enemy"):
 			if result.normal.y < -0.7 and velocity.y >= 0:
-				var die_component = collider.get_node_or_null("Die")
-
-				if die_component:
-					die_component.die()
+				collider.die()
 				velocity.y = enemy_kill_jump
 				return true
 	return false
@@ -60,11 +57,11 @@ func isBelowEnemy() -> bool:
 		var collider = result["collider"]
 		
 		if collider.is_in_group("Enemy"):
-				var info_component = collider.get_node_or_null("EnemyInfo")
+				var enemy: Enemy = collider
 
-				if info_component.can_squish:	
+				if enemy.can_squish:	
 					collider.velocity.y = enemy_above_jump
-					velocity.x = info_component.launch_back_force * collider.dir
+					velocity.x = enemy.launch_back_force * collider.dir
 				return true
 	return false
 

@@ -1,4 +1,5 @@
-extends CharacterBody2D
+extends Enemy
+class_name Vampire
 
 var spd = 100
 var dir = 1

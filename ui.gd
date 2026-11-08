@@ -1,4 +1,5 @@
-extends Control
+extends CanvasLayer
+class_name UI
 
 var can_view_operation_screen = true
 var operation_toggled = false

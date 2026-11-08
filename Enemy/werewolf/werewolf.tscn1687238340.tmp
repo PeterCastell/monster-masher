@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cd40bjdoh8ax"]
+
+[ext_resource type="Script" uid="uid://melxtf3atohx" path="res://werewolf.gd" id="1_am0pq"]
+[ext_resource type="Texture2D" uid="uid://c6tn0vqhencqk" path="res://Enemy/werewolf/Dylan_O'Brien_in_2017_by_Gage_Skidmore.jpg" id="2_eqilm"]
+[ext_resource type="Script" uid="uid://b8yx0au3hg873" path="res://area_2d.gd" id="3_ncf7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
+size = Vector2(92, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flmph"]
+size = Vector2(470, 129)
+
+[sub_resource type="GDScript" id="GDScript_3hkgg"]
+script/source = "extends Node
+
+class_name Die
+const CLAWS = preload(\"uid://bm5vvxaeo3lq5\")
+const BAT = preload(\"uid://dfnxongo8fr16\")
+
+
+@onready var game: Game = $/root/Game
+
+
+func die():
+	print(\"die\")
+	var enemy: Enemy = get_parent()
+	
+	var organ = null
+	if enemy.organ_type == Game.Organs.WEREWOLF_CLAWS:
+		organ = CLAWS.instantiate()
+	elif enemy.organ_type == Game.Organs.BAT:
+		organ = BAT.instantiate()
+		
+	game.world.organs.add_child(organ)
+	organ.global_position = get_parent().global_position
+	
+	get_parent().get_parent().queue_free()
+"
+
+[node name="Werewolf" type="CharacterBody2D" unique_id=1636331559 groups=["enemy"]]
+script = ExtResource("1_am0pq")
+can_squish = true
+launch_back_force = 1000.0
+
+[node name="Appearance" type="Node2D" parent="." unique_id=2056693875]
+
+[node name="EnemySprite" type="Sprite2D" parent="Appearance" unique_id=1510869021]
+scale = Vector2(0.36999992, 0.23888892)
+texture = ExtResource("2_eqilm")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=663674281]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_5lrfx")
+debug_color = Color(0.3355893, 0.6225548, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1203006564]
+script = ExtResource("3_ncf7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1273833367]
+position = Vector2(63, -27.5)
+shape = SubResource("RectangleShape2D_flmph")
+
+[node name="RewindTimer" type="Timer" parent="." unique_id=385163074]
+one_shot = true
+
+[node name="ChargeTimer" type="Timer" parent="." unique_id=2142249678]
+one_shot = true
+
+[node name="Die" type="Node" parent="." unique_id=767686788]
+script = SubResource("GDScript_3hkgg")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
