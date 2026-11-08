@@ -1,4 +1,5 @@
-extends CharacterBody2D
+extends Enemy
+class_name Werewolf
 
 const gravity = 1200
 const player_kick_force = 800
@@ -14,7 +15,7 @@ const ground_accel_hl = 0.8
 const wall_detect_offset = 32
 
 @onready var collision_shape = $CollisionShape2D
-@onready var player: Player = $"../../../Player"
+@onready var player: Player = game.world.player
 
 
 # https://www.gdquest.com/tutorial/godot/design-patterns/finite-state-machine/
@@ -115,8 +116,8 @@ func _physics_process(delta: float) -> void:
 	$Appearance.scale.x = dir
 	
 
-func set_state(new_state: int) -> void:
-	var previous_state := state
+func set_state(new_state: States) -> void:
+	#var previous_state := state
 	state = new_state
 
 	if new_state == States.CHARGING:

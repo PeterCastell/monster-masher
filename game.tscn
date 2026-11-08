@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://ct01atebsbvi7" path="res://player/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://0u6ag8c8c1ad" path="res://game.gd" id="1_ryrav"]
+[ext_resource type="Script" uid="uid://u23t3bhkkv5h" path="res://world.gd" id="2_vef74"]
 [ext_resource type="PackedScene" uid="uid://c3fdyjmrxnd8y" path="res://level/level.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://dfnxongo8fr16" path="res://Organ/bat/bat.tscn" id="3_hve3p"]
 [ext_resource type="PackedScene" uid="uid://cd40bjdoh8ax" path="res://Enemy/werewolf/werewolf.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://w75no6sgvvy0" path="res://Enemy/vampire/vampire.tscn" id="4_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bm5vvxaeo3lq5" path="res://Organ/claws/claws.tscn" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://cmwyomexwa4t1" path="res://UI/Operation.png" id="7_eow3j"]
-[ext_resource type="Script" uid="uid://b4gjgt2m8vb8n" path="res://menu_manager.gd" id="7_j5wjh"]
+[ext_resource type="Script" uid="uid://b4gjgt2m8vb8n" path="res://ui.gd" id="7_j5wjh"]
 
 [sub_resource type="GDScript" id="GDScript_j5wjh"]
 script/source = "extends Node2D
@@ -52,8 +54,13 @@ _data = {
 
 [node name="Game" type="Node" unique_id=1154497424]
 script = ExtResource("1_ryrav")
+organ_scenes = Dictionary[int, PackedScene]({
+0: ExtResource("5_7jktm"),
+1: ExtResource("3_hve3p")
+})
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
+script = ExtResource("2_vef74")
 metadata/_edit_lock_ = true
 
 [node name="Level" parent="World" unique_id=724246898 instance=ExtResource("3_feb5d")]
@@ -67,61 +74,11 @@ tile_map_data = PackedByteArray("AAADAAEAAAAMABoAAAACAAEAAAAMABoAAAABAAEAAAAMABo
 [node name="Vampire" parent="World/Enemies" unique_id=1905199290 groups=["Enemy"] instance=ExtResource("4_ryrav")]
 position = Vector2(515.62, -256.695)
 
-[node name="CharacterBody2D" parent="World/Enemies/Vampire" index="0" unique_id=1566094273 groups=["Enemy"]]
-
-[node name="Appearance" parent="World/Enemies/Vampire/CharacterBody2D" index="0" unique_id=184879819 groups=["Enemy"]]
-
-[node name="Sprite2D" parent="World/Enemies/Vampire/CharacterBody2D/Appearance" index="0" unique_id=870028286 groups=["Enemy"]]
-
-[node name="CollisionShape2D" parent="World/Enemies/Vampire/CharacterBody2D" index="1" unique_id=59495736 groups=["Enemy"]]
-
-[node name="Die" parent="World/Enemies/Vampire/CharacterBody2D" index="2" unique_id=1678180669 groups=["Enemy"]]
-
-[node name="EnemyInfo" parent="World/Enemies/Vampire/CharacterBody2D" index="3" unique_id=264237679 groups=["Enemy"]]
-
-[node name="LeftLimit" parent="World/Enemies/Vampire/CharacterBody2D" index="4" unique_id=1821622494 groups=["Enemy"]]
-
-[node name="RightLimit" parent="World/Enemies/Vampire/CharacterBody2D" index="5" unique_id=680008472 groups=["Enemy"]]
-
 [node name="Enemy2" parent="World/Enemies" unique_id=1735630568 groups=["Enemy"] instance=ExtResource("4_fc0e3")]
 position = Vector2(263, 22)
 
-[node name="CharacterBody2D" parent="World/Enemies/Enemy2" index="0" unique_id=1636331559 groups=["Enemy"]]
-
-[node name="Appearance" parent="World/Enemies/Enemy2/CharacterBody2D" index="0" unique_id=2056693875 groups=["Enemy"]]
-
-[node name="EnemySprite" parent="World/Enemies/Enemy2/CharacterBody2D/Appearance" index="0" unique_id=1510869021 groups=["Enemy"]]
-
-[node name="CollisionShape2D" parent="World/Enemies/Enemy2/CharacterBody2D" index="1" unique_id=663674281 groups=["Enemy"]]
-
-[node name="Area2D" parent="World/Enemies/Enemy2/CharacterBody2D" index="2" unique_id=1203006564 groups=["Enemy"]]
-
-[node name="CollisionShape2D" parent="World/Enemies/Enemy2/CharacterBody2D/Area2D" index="0" unique_id=1273833367 groups=["Enemy"]]
-
-[node name="RewindTimer" parent="World/Enemies/Enemy2/CharacterBody2D" index="3" unique_id=385163074 groups=["Enemy"]]
-
-[node name="ChargeTimer" parent="World/Enemies/Enemy2/CharacterBody2D" index="4" unique_id=2142249678 groups=["Enemy"]]
-
-[node name="Die" parent="World/Enemies/Enemy2/CharacterBody2D" index="5" unique_id=767686788 groups=["Enemy"]]
-
 [node name="Enemy" parent="World/Enemies" unique_id=2138027809 groups=["Enemy"] instance=ExtResource("4_fc0e3")]
 position = Vector2(515.62, -102)
-
-[node name="CharacterBody2D" parent="World/Enemies/Enemy" index="0" unique_id=1636331559 groups=["Enemy"]]
-
-[node name="Appearance" parent="World/Enemies/Enemy/CharacterBody2D" index="0" unique_id=2056693875 groups=["Enemy"]]
-
-[node name="EnemySprite" parent="World/Enemies/Enemy/CharacterBody2D/Appearance" index="0" unique_id=1510869021 groups=["Enemy"]]
-
-[node name="CollisionShape2D" parent="World/Enemies/Enemy/CharacterBody2D" index="1" unique_id=663674281 groups=["Enemy"]]
-
-[node name="Area2D" parent="World/Enemies/Enemy/CharacterBody2D" index="2" unique_id=1203006564 groups=["Enemy"]]
-
-[node name="CollisionShape2D" parent="World/Enemies/Enemy/CharacterBody2D/Area2D" index="0" unique_id=1273833367 groups=["Enemy"]]
-
-[node name="RewindTimer" parent="World/Enemies/Enemy/CharacterBody2D" index="3" unique_id=385163074 groups=["Enemy"]]
-
-[node name="ChargeTimer" parent="World/Enemies/Enemy/CharacterBody2D" index="4" unique_id=2142249678 groups=["Enemy"]]
 
 [node name="AmandasMarker2" type="Marker2D" parent="World" unique_id=1652021365]
 position = Vector2(-12, 72.795)
@@ -130,7 +87,7 @@ position = Vector2(-12, 72.795)
 position = Vector2(-167.155, 0)
 script = SubResource("GDScript_j5wjh")
 
-[node name="OrgansFolder" type="Node" parent="World" unique_id=468090987]
+[node name="Organs" type="Node" parent="World" unique_id=468090987]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=833024100]
 script = ExtResource("7_j5wjh")
@@ -151,7 +108,3 @@ texture = ExtResource("7_eow3j")
 libraries/ = SubResource("AnimationLibrary_hve3p")
 
 [node name="AmandasMarker" type="Marker2D" parent="." unique_id=347590872]
-
-[editable path="World/Enemies/Vampire"]
-[editable path="World/Enemies/Enemy2"]
-[editable path="World/Enemies/Enemy"]
