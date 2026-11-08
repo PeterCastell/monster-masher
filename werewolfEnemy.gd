@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const gravity = 1200
 const player_kick_force = 800
+const minimal_player_kick_force = 300
+
 const wind_up_time: float = 1
 const rewind_time: float = 1.5
 
@@ -26,13 +28,23 @@ var state: States = States.IDLE: set = set_state
 
 var dir: float = 1
 
+func pushback_player():
+	var space_state = get_world_2d().direct_space_state
+	
+	var thingAhead = PhysicsRayQueryParameters2D.create(
+		Vector2(global_position.x, global_position.y),
+		Vector2(global_position.x + (((collision_shape.shape.size.x/2) + wall_detect_offset)*dir), global_position.y)
+	)
+	var result = space_state.intersect_ray(thingAhead) 
+	if not result.is_empty():
+		var collider = result["collider"]
+		if collider.is_in_group("Player"):
+			collider.velocity.x += minimal_player_kick_force*dir
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += Vector2.DOWN * gravity * delta
 		move_and_slide()
-		
-		
 	
 	$Appearance/EnemySprite.modulate = Color.WHITE
 	
@@ -43,10 +55,11 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(Vector2(util.hllerp(velocity.x, dir * max_speed, ground_accel_hl, delta), velocity.y))		
 		if collision:
 			if collision.get_collider().is_in_group("Player"):
-				player.velocity.x = player_kick_force * dir
+				player.velocity.x += player_kick_force * dir
 			velocity = velocity.bounce(collision.get_normal())
 			set_state(States.REWINDING)
 	elif state == States.IDLE:	
+		
 		if is_on_floor():
 			var space_state = get_world_2d().direct_space_state
 			# https://docs.godotengine.org/en/stable/tutorials/physics/ray-casting.html
@@ -67,16 +80,21 @@ func _physics_process(delta: float) -> void:
 				dir *= -1
 			# walk	
 			velocity.x = dir * walk_speed
+			pushback_player()
 		
 			move_and_slide()		
 			
 			if $Area2D.chase: 
 				set_state(States.CHARGING)
-			
+		else:
+			pushback_player()
+				
 	elif state == States.CHARGING:	
+		
 		dir = sign(player.global_position.x - global_position.x)
 		if dir == 0:
 			dir = 1
+		pushback_player()
 		
 		# temp
 		$Appearance/EnemySprite.modulate = Color.RED
@@ -86,6 +104,8 @@ func _physics_process(delta: float) -> void:
 	elif state == States.REWINDING:
 		$Appearance/EnemySprite.modulate = Color.BLUE
 		velocity.x = util.hllerp(velocity.x, -dir * max_speed, -ground_accel_hl, delta)
+		pushback_player()
+		
 		move_and_slide()		
 		if ($RewindTimer.is_stopped()):
 			set_state(States.IDLE)

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cd40bjdoh8ax"]
 
 [ext_resource type="Script" uid="uid://melxtf3atohx" path="res://werewolfEnemy.gd" id="1_am0pq"]
-[ext_resource type="Texture2D" uid="uid://c6tn0vqhencqk" path="res://Enemy/Dylan_O'Brien_in_2017_by_Gage_Skidmore.jpg" id="2_eqilm"]
+[ext_resource type="Texture2D" uid="uid://c6tn0vqhencqk" path="res://Enemy/werewolf/Dylan_O'Brien_in_2017_by_Gage_Skidmore.jpg" id="2_eqilm"]
 [ext_resource type="Script" uid="uid://b8yx0au3hg873" path="res://area_2d.gd" id="3_ncf7h"]
-[ext_resource type="Script" uid="uid://f5uy661juxms" path="res://Enemy/die.gd" id="4_eqilm"]
+[ext_resource type="Script" uid="uid://f5uy661juxms" path="res://Enemy/werewolf/die.gd" id="4_eqilm"]
 [ext_resource type="Script" uid="uid://ieb7n81katbi" path="res://Enemy/enemy_info.gd" id="5_ncf7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
@@ -12,7 +12,7 @@ size = Vector2(92, 75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flmph"]
 size = Vector2(470, 129)
 
-[node name="Enemy" type="Node2D" unique_id=2138027809]
+[node name="Werewolf" type="Node2D" unique_id=2138027809]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1636331559]
 script = ExtResource("1_am0pq")

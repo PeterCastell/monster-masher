@@ -2,7 +2,8 @@ extends Node
 class_name Game
 
 enum Organs {
-	WEREWOLF_CLAWS
+	WEREWOLF_CLAWS,
+	BAT,
 }
 
 func _process(delta):

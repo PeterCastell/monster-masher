@@ -3,8 +3,52 @@
 [ext_resource type="PackedScene" uid="uid://ct01atebsbvi7" path="res://player/player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://0u6ag8c8c1ad" path="res://game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://c3fdyjmrxnd8y" path="res://level/level.tscn" id="3_feb5d"]
-[ext_resource type="PackedScene" uid="uid://cd40bjdoh8ax" path="res://Enemy/enemy.tscn" id="4_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://bm5vvxaeo3lq5" path="res://Organ/organ.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://cd40bjdoh8ax" path="res://Enemy/werewolf/werewolf.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://w75no6sgvvy0" path="res://Enemy/vampire/vampire.tscn" id="4_ryrav"]
+[ext_resource type="PackedScene" uid="uid://bm5vvxaeo3lq5" path="res://Organ/claws/claws.tscn" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://cmwyomexwa4t1" path="res://UI/Operation.png" id="7_eow3j"]
+[ext_resource type="Script" uid="uid://b4gjgt2m8vb8n" path="res://menu_manager.gd" id="7_j5wjh"]
+
+[sub_resource type="GDScript" id="GDScript_j5wjh"]
+script/source = "extends Node2D
+"
+
+[sub_resource type="Animation" id="Animation_vef74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -653)]
+}
+
+[sub_resource type="Animation" id="Animation_hve3p"]
+resource_name = "slide_in"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 0.36602142),
+"update": 0,
+"values": [Vector2(0, -653), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mfdv2"]
+_data = {
+&"RESET": SubResource("Animation_vef74"),
+&"slide_in": SubResource("Animation_hve3p")
+}
 
 [node name="Game" type="Node" unique_id=1154497424]
 script = ExtResource("1_ryrav")
@@ -16,13 +60,31 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 0)
 tile_map_data = PackedByteArray("AAADAAEAAAAMABoAAAACAAEAAAAMABoAAAABAAEAAAAMABoAAAAAAAEAAAAMABoAAAD8/wEAAAAMABoAAAD9/wEAAAAMABoAAAD+/wEAAAAMABoAAAD//wEAAAAMABoAAAADAAIAAAACAAAAAAADAAMAAAACAAAAAAACAAMAAAACAAAAAAACAAIAAAACAAAAAAABAAIAAAACAAAAAAAAAAIAAAACAAAAAAD//wIAAAACAAAAAAD+/wIAAAACAAAAAAD9/wIAAAACAAAAAAD8/wIAAAACAAAAAAD8/wMAAAACAAAAAAD9/wMAAAACAAAAAAD+/wMAAAACAAAAAAD//wMAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAACAAAAAAAGAP//AAAMABoAAAAHAP//AAAMABoAAAD+//7/AAAMABoAAAD///7/AAAMABoAAAAAAP7/AAAMABoAAAAEAAEAAAAMABoAAAAFAAEAAAAMABoAAAAGAAEAAAACAAAAAAAGAAAAAAACAAAAAAAHAAAAAAACAAAAAAAHAAEAAAACAAAAAAAHAAIAAAACAAAAAAAGAAIAAAACAAAAAAAGAAMAAAACAAAAAAAFAAMAAAACAAAAAAAEAAIAAAACAAAAAAAFAAIAAAACAAAAAAAEAAMAAAACAAAAAAAHAAMAAAACAAAAAAAIAAAAAAACAAAAAAAJAAAAAAACAAAAAAAJAAEAAAACAAAAAAAJAAIAAAACAAAAAAAIAAIAAAACAAAAAAAIAAMAAAACAAAAAAAIAAEAAAACAAAAAAAJAAMAAAACAAAAAAAIAP//AAAMABoAAAAJAP//AAAMABoAAAD7//3/AAAMABoAAAD6//3/AAAMABoAAAD7//7/AAACAAAAAAD7////AAACAAAAAAD7/wAAAAACAAAAAAD7/wEAAAACAAAAAAD7/wIAAAACAAAAAAD7/wMAAAACAAAAAAD6/wMAAAACAAAAAAD6/wIAAAACAAAAAAD6/wEAAAACAAAAAAD6/wAAAAACAAAAAAD6////AAACAAAAAAD6//7/AAACAAAAAAD3//7/AAACAAAAAAD3////AAACAAAAAAD3/wAAAAACAAAAAAD3/wEAAAACAAAAAAD3/wIAAAACAAAAAAD3/wMAAAACAAAAAAD4//7/AAACAAAAAAD4////AAACAAAAAAD4/wAAAAACAAAAAAD4/wEAAAACAAAAAAD4/wIAAAACAAAAAAD4/wMAAAACAAAAAAD5//7/AAACAAAAAAD5////AAACAAAAAAD5/wAAAAACAAAAAAD5/wEAAAACAAAAAAD5/wIAAAACAAAAAAD5/wMAAAACAAAAAAD3//3/AAAMABoAAAD4//3/AAAMABoAAAD5//3/AAAMABoAAAD2//X/AAACAAAAAAD2//b/AAACAAAAAAD2//f/AAACAAAAAAD2//j/AAACAAAAAAD2//n/AAACAAAAAAD2//r/AAACAAAAAAD2//v/AAACAAAAAAD2//z/AAACAAAAAAD2//3/AAACAAAAAAD2//7/AAACAAAAAAD2////AAACAAAAAAD2/wAAAAACAAAAAAD2/wEAAAACAAAAAAD2/wIAAAACAAAAAAD2/wMAAAACAAAAAAD6//X/AAACAAAAAAD6//b/AAACAAAAAAD6//f/AAACAAAAAAD6//j/AAACAAAAAAD6//n/AAACAAAAAAD6//r/AAACAAAAAAD6//T/AAAMABoAAAD2//T/AAAMABoAAAD+//v/AAAMABoAAAD///v/AAAMABoAAAAFAPr/AAAMABoAAAAGAPr/AAAMABoAAAAHAPr/AAAMABoAAAD7//T/AAAMABoAAAD8//T/AAAMABoAAAD9//T/AAAMABoAAAD8//X/AAACAAAAAAD7//X/AAACAAAAAAD7//b/AAACAAAAAAD8//b/AAACAAAAAAD9//X/AAACAAAAAAD8//f/AAACAAAAAAD7//f/AAACAAAAAAD7//j/AAACAAAAAAAQAPz/AAABAAQAAAARAPz/AAABAAQAAAARAPv/AAABAAQAAAARAPr/AAABAAQAAAARAPn/AAABAAQAAAAQAPn/AAABAAQAAAAQAPr/AAABAAQAAAAQAPv/AAABAAQAAAATAPn/AAABAAQAAAATAPr/AAABAAQAAAATAPv/AAABAAQAAAATAPz/AAABAAQAAAAUAPz/AAABAAQAAAAUAPv/AAABAAQAAAAUAPr/AAABAAQAAAAUAPn/AAABAAQAAAASAPn/AAABAAQAAAASAPr/AAABAAQAAAAUAPj/AAABAAQAAAAUAPf/AAABAAQAAAAUAPb/AAABAAQAAAAUAPX/AAABAAQAAAATAPX/AAABAAQAAAASAPX/AAABAAQAAAARAPX/AAABAAQAAAARAPb/AAAYABAAAAAQAPb/AAAYABAAAAAQAPj/AAAYABAAAAAQAPX/AAABAAQAAAASAPj/AAAYABAAAAARAPj/AAAYABAAAAATAPj/AAAYABAAAAATAPf/AAAYABAAAAATAPb/AAAYABAAAAASAPb/AAAYABAAAAAPAPb/AAAYABAAAAAPAPf/AAAYABAAAAAPAPj/AAAYABAAAAAVAPb/AAABAAQAAAAWAPb/AAABAAQAAAAWAPf/AAABAAQAAAAWAPj/AAABAAQAAAAWAPn/AAABAAQAAAAWAPr/AAABAAQAAAAVAPr/AAABAAQAAAAVAPn/AAABAAQAAAAVAPj/AAABAAQAAAAVAPf/AAABAAQAAAASAPf/AAAYABAAAAARAPf/AAAYABAAAAAQAPf/AAAYABAAAAAhAPH/AAAeABIAAAAgAPH/AAAeABIAAAAfAPH/AAAeABIAAAAeAPH/AAAeABIAAAAeAPL/AAAeABIAAAAdAPL/AAAeABIAAAAdAPP/AAAeABIAAAAdAPT/AAAeABIAAAAdAPX/AAAeABIAAAAdAPb/AAAeABIAAAAdAPf/AAAeABIAAAAdAPj/AAAeABIAAAAeAPj/AAAeABIAAAAeAPn/AAAeABIAAAAfAPn/AAAeABIAAAAgAPn/AAAeABIAAAAhAPn/AAAeABIAAAAiAPn/AAAeABIAAAAiAPj/AAAeABIAAAAjAPj/AAAeABIAAAAjAPf/AAAeABIAAAAjAPb/AAAeABIAAAAiAPb/AAAeABIAAAAhAPb/AAAeABIAAAAgAPb/AAAeABIAAAAfAPb/AAAeABIAAAAeAPf/AAAeABIAAAAkAPL/AAAiABMAAAAlAPL/AAAiABMAAAAmAPL/AAAiABMAAAAnAPL/AAAiABMAAAAoAPL/AAAiABMAAAApAPL/AAAiABMAAAAqAPL/AAAiABMAAAArAPL/AAAiABMAAAArAPP/AAAiABMAAAAqAPT/AAAiABMAAAAqAPX/AAAiABMAAAAqAPb/AAAiABMAAAApAPf/AAAiABMAAAApAPj/AAAiABMAAAApAPn/AAAiABMAAAAoAPr/AAAiABMAAAAoAPv/AAAiABMAAAAoAPz/AAAiABMAAAAnAP3/AAAiABMAAAAnAP7/AAAiABMAAAAmAPb/AAAiABMAAAAnAPf/AAAiABMAAAAoAPf/AAAiABMAAAAqAPj/AAAiABMAAAArAPn/AAAiABMAAAAsAPn/AAAiABMAAAAtAPr/AAAiABMAAAA=")
 
-[node name="Player" parent="World" unique_id=278440191 groups=["Player"] instance=ExtResource("1_e2o6t")]
+[node name="Player" parent="World" unique_id=278440191 instance=ExtResource("1_e2o6t")]
 
 [node name="Enemies" type="Node2D" parent="World" unique_id=253994824]
 
+[node name="Vampire" parent="World/Enemies" unique_id=1905199290 groups=["Enemy"] instance=ExtResource("4_ryrav")]
+position = Vector2(515.62, -256.695)
+
+[node name="CharacterBody2D" parent="World/Enemies/Vampire" index="0" unique_id=1566094273 groups=["Enemy"]]
+
+[node name="Appearance" parent="World/Enemies/Vampire/CharacterBody2D" index="0" unique_id=184879819 groups=["Enemy"]]
+
+[node name="Sprite2D" parent="World/Enemies/Vampire/CharacterBody2D/Appearance" index="0" unique_id=870028286 groups=["Enemy"]]
+
+[node name="CollisionShape2D" parent="World/Enemies/Vampire/CharacterBody2D" index="1" unique_id=59495736 groups=["Enemy"]]
+
+[node name="Die" parent="World/Enemies/Vampire/CharacterBody2D" index="2" unique_id=1678180669 groups=["Enemy"]]
+
+[node name="EnemyInfo" parent="World/Enemies/Vampire/CharacterBody2D" index="3" unique_id=264237679 groups=["Enemy"]]
+
+[node name="LeftLimit" parent="World/Enemies/Vampire/CharacterBody2D" index="4" unique_id=1821622494 groups=["Enemy"]]
+
+[node name="RightLimit" parent="World/Enemies/Vampire/CharacterBody2D" index="5" unique_id=680008472 groups=["Enemy"]]
+
 [node name="Enemy2" parent="World/Enemies" unique_id=1735630568 groups=["Enemy"] instance=ExtResource("4_fc0e3")]
 position = Vector2(263, 22)
-script = null
 
 [node name="CharacterBody2D" parent="World/Enemies/Enemy2" index="0" unique_id=1636331559 groups=["Enemy"]]
 
@@ -40,11 +102,10 @@ script = null
 
 [node name="ChargeTimer" parent="World/Enemies/Enemy2/CharacterBody2D" index="4" unique_id=2142249678 groups=["Enemy"]]
 
-[node name="Die" parent="World/Enemies/Enemy2" index="1" unique_id=767686788 groups=["Enemy"]]
+[node name="Die" parent="World/Enemies/Enemy2/CharacterBody2D" index="5" unique_id=767686788 groups=["Enemy"]]
 
 [node name="Enemy" parent="World/Enemies" unique_id=2138027809 groups=["Enemy"] instance=ExtResource("4_fc0e3")]
 position = Vector2(515.62, -102)
-script = null
 
 [node name="CharacterBody2D" parent="World/Enemies/Enemy" index="0" unique_id=1636331559 groups=["Enemy"]]
 
@@ -67,19 +128,32 @@ position = Vector2(-12, 72.795)
 
 [node name="Organ" parent="World" unique_id=290290771 instance=ExtResource("5_7jktm")]
 position = Vector2(-167.155, 0)
+script = SubResource("GDScript_j5wjh")
 
 [node name="OrgansFolder" type="Node" parent="World" unique_id=468090987]
 
-[node name="UI" type="Control" parent="." unique_id=493688815]
-layout_mode = 3
+[node name="UI" type="CanvasLayer" parent="." unique_id=833024100]
+script = ExtResource("7_j5wjh")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI" unique_id=2050143217]
+modulate = Color(1, 1, 1, 0.18431373)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -653.0
+offset_bottom = -653.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
+texture = ExtResource("7_eow3j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=1911404739]
+active = false
+root_node = NodePath("")
+libraries/ = SubResource("AnimationLibrary_mfdv2")
 
 [node name="AmandasMarker" type="Marker2D" parent="." unique_id=347590872]
 
+[editable path="World/Enemies/Vampire"]
 [editable path="World/Enemies/Enemy2"]
 [editable path="World/Enemies/Enemy"]

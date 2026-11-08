@@ -39,7 +39,7 @@ func isKillingEnemy() -> bool:
 		var collider = result["collider"]
 		
 		if collider.is_in_group("Enemy"):
-			if result.normal.y < -0.7 and velocity.y > 0:
+			if result.normal.y < -0.7 and velocity.y >= 0:
 				var die_component = collider.get_node_or_null("Die")
 
 				if die_component:

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bm5vvxaeo3lq5"]
+
+[ext_resource type="Texture2D" uid="uid://dlvsnwq5aqlqf" path="res://Organ/claws/black-wolverine-claw-stainless-steel-tpu-handle-handheld.png" id="1_554ro"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flmph"]
+size = Vector2(34, 34)
+
+[node name="Claws" type="RigidBody2D" unique_id=52836476]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=638148352]
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("1_554ro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004827731]
+shape = SubResource("RectangleShape2D_flmph")

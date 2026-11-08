@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlvsnwq5aqlqf"
-path="res://.godot/imported/black-wolverine-claw-stainless-steel-tpu-handle-handheld.png-dbbd283d7e0775a04fc523842f8de92b.ctex"
+uid="uid://cmwyomexwa4t1"
+path="res://.godot/imported/Operation.png-5ecbab3dbde1db231b47254a94515f50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Organ/black-wolverine-claw-stainless-steel-tpu-handle-handheld.png"
-dest_files=["res://.godot/imported/black-wolverine-claw-stainless-steel-tpu-handle-handheld.png-dbbd283d7e0775a04fc523842f8de92b.ctex"]
+source_file="res://UI/Operation.png"
+dest_files=["res://.godot/imported/Operation.png-5ecbab3dbde1db231b47254a94515f50.ctex"]
 
 [params]
 
