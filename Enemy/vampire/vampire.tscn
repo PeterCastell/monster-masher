@@ -7,6 +7,8 @@
 radius = 35.014282
 
 [node name="Vampire" type="CharacterBody2D" unique_id=1566094273 groups=["enemy"]]
+collision_layer = 16
+collision_mask = 5
 script = ExtResource("1_5uubd")
 launch_back_force = 1000.0
 organ_type = 1

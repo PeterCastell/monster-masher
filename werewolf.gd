@@ -5,124 +5,118 @@ const gravity = 1200
 const player_kick_force = 800
 const minimal_player_kick_force = 300
 
-const wind_up_time: float = 1
-const rewind_time: float = 1.5
-
-const max_speed = 450
-const walk_speed = 50
-
-const ground_accel_hl = 0.8
-const wall_detect_offset = 32
+const wander_speed = 50
+const wander_speed_hl = 0.25
+const dash_speed = 450
+const dash_speed_hl = 0.5
+const dash_bounciness = 0.25
 
 @onready var collision_shape = $CollisionShape2D
 @onready var player: Player = game.world.player
 
+var timer: float
 
 # https://www.gdquest.com/tutorial/godot/design-patterns/finite-state-machine/
 
 # This enum lists all the possible states the character can be in.
-enum States {IDLE, CHARGING, CHASING, REWINDING}
+enum State {
+	Wandering,
+	Windup,
+	Dashing,
+	Stunned
+}
 
-var state: States = States.IDLE: set = set_state
+var state: State = State.Wandering
 
+var dir: int = 1 if randf() < 0.5 else -1
 
+var dir_to_player: int:
+	get: return sign(player.position.x - position.x)
 
-var dir: float = 1
-
-func pushback_player():
-	var space_state = get_world_2d().direct_space_state
+func on_collision(collision: KinematicCollision2D):
+	var collider = collision.get_collider()
 	
-	var thingAhead = PhysicsRayQueryParameters2D.create(
-		Vector2(global_position.x, global_position.y),
-		Vector2(global_position.x + (((collision_shape.shape.size.x/2) + wall_detect_offset)*dir), global_position.y)
-	)
-	var result = space_state.intersect_ray(thingAhead) 
-	if not result.is_empty():
-		var collider = result["collider"]
-		if collider.is_in_group("Player"):
-			collider.velocity.x += minimal_player_kick_force*dir
+	var is_wall: bool = abs(collision.get_angle() - PI/2) < PI/4
+
+	if state == State.Dashing:
+		if collider is Player:
+			collider.velocity.x += player_kick_force*dir_to_player
+			set_state(State.Stunned)
+		elif collider is TileMapLayer:
+			var normal := collision.get_normal()
+			if is_wall:
+				set_state(State.Stunned)
+				dir *= -1
+				velocity = velocity.slide(normal) - dash_bounciness * velocity.project(normal)
+				return true
+	
+	else:
+		if collider is Player:
+			collider.velocity.x += minimal_player_kick_force*dir_to_player
+		elif is_wall:
+			dir *= -1
+	
+	velocity = velocity.slide(collision.get_normal())
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += Vector2.DOWN * gravity * delta
-		move_and_slide()
+	velocity += Vector2.DOWN * gravity * delta
 	
+	$Appearance.scale.x = dir
 	$Appearance/EnemySprite.modulate = Color.WHITE
 	
-	if state == States.CHASING:
-		# walk
-		#velocity.x = util.hllerp(velocity.x, dir * max_speed, ground_accel_hl, delta)
-		# https://forum.godotengine.org/t/how-to-make-a-character2d-bounce-reflect-off-of-stuff/70523/6
-		var collision = move_and_collide(Vector2(util.hllerp(velocity.x, dir * max_speed, ground_accel_hl, delta), velocity.y))		
-		if collision:
-			if collision.get_collider().is_in_group("Player"):
-				player.velocity.x += player_kick_force * dir
-			velocity = velocity.bounce(collision.get_normal())
-			set_state(States.REWINDING)
-	elif state == States.IDLE:	
-		
-		if is_on_floor():
-			var space_state = get_world_2d().direct_space_state
-			# https://docs.godotengine.org/en/stable/tutorials/physics/ray-casting.html
-			# my first time doing this in Godot 
-			var wallAhead = PhysicsRayQueryParameters2D.create(
-				Vector2(global_position.x, global_position.y),
-				Vector2(global_position.x + (((collision_shape.shape.size.x/2) + wall_detect_offset)*dir), global_position.y)
-			)
-			
-			var wallBelow = PhysicsRayQueryParameters2D.create(
-				Vector2(global_position.x, global_position.y),
-				Vector2(global_position.x + (collision_shape.shape.size.x)*dir, global_position.y + (collision_shape.shape.size.y))
-			)
-			
-			var result = space_state.intersect_ray(wallAhead) or not space_state.intersect_ray(wallBelow)
-
-			if (result):
-				dir *= -1
-			# walk	
-			velocity.x = dir * walk_speed
-			pushback_player()
-		
-			move_and_slide()		
-			
-			if $Area2D.chase: 
-				set_state(States.CHARGING)
-		else:
-			pushback_player()
-				
-	elif state == States.CHARGING:	
-		
-		dir = sign(player.global_position.x - global_position.x)
-		if dir == 0:
-			dir = 1
-		pushback_player()
-		
-		# temp
-		$Appearance/EnemySprite.modulate = Color.RED
-		if ($ChargeTimer.is_stopped()):
-			set_state(States.CHASING)	
+	if state == State.Dashing:
+		velocity.x = util.hllerp(velocity.x, 0, dash_speed_hl, delta)
+		if abs(velocity.x) <= wander_speed:
+			set_state(State.Wandering)
 	
-	elif state == States.REWINDING:
+	elif state == State.Wandering:
+		var foot: RayCast2D = $LeftFoot if dir == -1 else $RightFoot
+		if !foot.is_colliding():
+			dir *= -1
+		
+		velocity.x = util.hllerp(velocity.x, dir * wander_speed, wander_speed_hl, delta)
+		
+		for body in $Vision.get_overlapping_bodies():
+			if body is Player and state == State.Wandering:
+				set_state(State.Windup)
+		
+	elif state == State.Windup:
+		velocity.x = util.hllerp(velocity.x, 0, wander_speed_hl, delta)
+		$Appearance/EnemySprite.modulate = Color.RED
+	
+	elif state == State.Stunned:
+		velocity.x = util.hllerp(velocity.x, 0, wander_speed_hl, delta)
 		$Appearance/EnemySprite.modulate = Color.BLUE
-		velocity.x = util.hllerp(velocity.x, -dir * max_speed, -ground_accel_hl, delta)
-		pushback_player()
-		
-		move_and_slide()		
-		if ($RewindTimer.is_stopped()):
-			set_state(States.IDLE)
-
-		
+	
+	var motion := velocity * delta
+	for i in 4:
+		var collision := move_and_collide(motion)
+		if not collision:
+			break
+		on_collision(collision)
+		motion = velocity * delta
 	
 	$Appearance.scale.x = dir
 	
 
-func set_state(new_state: States) -> void:
+func set_state(new_state: State) -> void:
 	#var previous_state := state
 	state = new_state
 
-	if new_state == States.CHARGING:
-		$ChargeTimer.start(wind_up_time)
+	if new_state == State.Windup:
+		dir = dir_to_player
+		$WindupTimer.start()
 	
-	if new_state == States.REWINDING:
-		$RewindTimer.start(rewind_time)
+	if new_state == State.Stunned:
+		$StunTimer.start()
 		
+	if new_state == State.Dashing:
+		velocity.x = dir * dash_speed
+
+
+func _on_windup_timer_timeout() -> void:
+	set_state(State.Dashing)
+
+
+func _on_stun_timer_timeout() -> void:
+	set_state(State.Wandering)

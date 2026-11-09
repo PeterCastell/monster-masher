@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://melxtf3atohx" path="res://werewolf.gd" id="1_am0pq"]
 [ext_resource type="Texture2D" uid="uid://c6tn0vqhencqk" path="res://Enemy/werewolf/Dylan_O'Brien_in_2017_by_Gage_Skidmore.jpg" id="2_eqilm"]
-[ext_resource type="Script" uid="uid://b8yx0au3hg873" path="res://area_2d.gd" id="3_ncf7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
 size = Vector2(92, 75)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flmph"]
-size = Vector2(470, 129)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq0dr"]
+size = Vector2(600, 68)
 
 [node name="Werewolf" type="CharacterBody2D" unique_id=1636331559 groups=["enemy"]]
+collision_layer = 16
+collision_mask = 5
 script = ExtResource("1_am0pq")
 can_squish = true
 launch_back_force = 1000.0
@@ -28,18 +29,32 @@ shape = SubResource("RectangleShape2D_5lrfx")
 debug_color = Color(0.3355893, 0.6225548, 0, 0.41960785)
 metadata/_edit_lock_ = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1203006564]
-script = ExtResource("3_ncf7h")
+[node name="LeftFoot" type="RayCast2D" parent="." unique_id=1987766542]
+position = Vector2(-46, 38)
+target_position = Vector2(0, 19)
+collision_mask = 2
+hit_from_inside = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1273833367]
-position = Vector2(63, -27.5)
-shape = SubResource("RectangleShape2D_flmph")
+[node name="RightFoot" type="RayCast2D" parent="." unique_id=2021545479]
+position = Vector2(46, 38)
+target_position = Vector2(0, 19)
+collision_mask = 2
+hit_from_inside = true
 
-[node name="RewindTimer" type="Timer" parent="." unique_id=385163074]
+[node name="Vision" type="Area2D" parent="." unique_id=866371600]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=1130136311]
+shape = SubResource("RectangleShape2D_mq0dr")
+
+[node name="WindupTimer" type="Timer" parent="." unique_id=1075734589]
+wait_time = 0.75
 one_shot = true
 
-[node name="ChargeTimer" type="Timer" parent="." unique_id=2142249678]
+[node name="StunTimer" type="Timer" parent="." unique_id=1531805250]
+wait_time = 1.5
 one_shot = true
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="timeout" from="WindupTimer" to="." method="_on_windup_timer_timeout"]
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

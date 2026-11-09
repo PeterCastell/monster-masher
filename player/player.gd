@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-const gravity = 1200
-const jump_speed = 650
+const gravity = 1000
+const jump_speed = 400
 const max_speed = 450
 const ground_accel_hl = 0.2
 const air_accel_hl = 0.5

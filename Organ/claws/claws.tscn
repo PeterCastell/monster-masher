@@ -6,6 +6,7 @@
 size = Vector2(34, 34)
 
 [node name="Claws" type="RigidBody2D" unique_id=52836476]
+collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=638148352]
 scale = Vector2(0.035, 0.035)

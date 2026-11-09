@@ -56,6 +56,14 @@ down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="General"
+2d_physics/layer_2="Terrain"
+2d_physics/layer_3="Player"
+2d_physics/layer_4="Organs"
+2d_physics/layer_5="Enemies"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
