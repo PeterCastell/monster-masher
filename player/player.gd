@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 const gravity = 1200
-const jump_speed = 650
+const jump_speed = 450
 const max_speed = 450
 const ground_accel_hl = 0.2
 const air_accel_hl = 0.5
@@ -26,6 +26,9 @@ var jump_coyote_time: float = 0
 
 const jump_buffer_duration = 0.15
 var jump_buffer_time: float = 0
+
+signal death
+
 
 func isKillingEnemy() -> bool:
 	var space_state = get_world_2d().direct_space_state

@@ -29,6 +29,7 @@ var state: States = States.IDLE: set = set_state
 
 var dir: float = 1
 
+
 func pushback_player():
 	var space_state = get_world_2d().direct_space_state
 	
@@ -40,7 +41,7 @@ func pushback_player():
 	if not result.is_empty():
 		var collider = result["collider"]
 		if collider.is_in_group("Player"):
-			collider.velocity.x += minimal_player_kick_force*dir
+			collider.velocity.x += minimal_player_kick_force * dir
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -59,6 +60,7 @@ func _physics_process(delta: float) -> void:
 				player.velocity.x += player_kick_force * dir
 			velocity = velocity.bounce(collision.get_normal())
 			set_state(States.REWINDING)
+			
 	elif state == States.IDLE:	
 		
 		if is_on_floor():
