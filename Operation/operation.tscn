@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cq0ago2h2ggig"]
+
+[ext_resource type="Script" uid="uid://btoylrdvig4mp" path="res://Operation/operation.gd" id="1_2d36f"]
+[ext_resource type="Texture2D" uid="uid://cmwyomexwa4t1" path="res://UI/Operation.png" id="1_3udfs"]
+[ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="1_jpkei"]
+
+[node name="Operation" type="Node2D" unique_id=1099148628]
+script = ExtResource("1_2d36f")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=733510791]
+position = Vector2(1.4999847, 0.5)
+scale = Vector2(8.9765625, 5.0390625)
+texture = ExtResource("1_jpkei")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=719100204]
+position = Vector2(-157.49998, -5.5000343)
+scale = Vector2(6.4365077, 9.430768)
+texture = ExtResource("1_3udfs")
+
+[node name="TempButtons" type="Node2D" parent="." unique_id=2030863196]
+
+[node name="CheckButton" type="CheckButton" parent="TempButtons" unique_id=354500632]
+offset_left = -77.0
+offset_top = -69.0
+offset_right = -33.0
+offset_bottom = -45.0
+focus_mode = 0
+text = "Wolf"
+
+[node name="CheckButton2" type="CheckButton" parent="TempButtons" unique_id=1084514034]
+offset_left = -76.0
+offset_top = -42.0
+offset_right = 8.0
+offset_bottom = -11.0
+focus_mode = 0
+text = "Vamp"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=691960923]
+
+[connection signal="toggled" from="TempButtons/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="TempButtons/CheckButton2" to="." method="_on_check_vamp_toggled"]

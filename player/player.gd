@@ -27,49 +27,20 @@ var jump_coyote_time: float = 0
 const jump_buffer_duration = 0.15
 var jump_buffer_time: float = 0
 
-func isKillingEnemy() -> bool:
-	var space_state = get_world_2d().direct_space_state
-	var enemyBelow = PhysicsRayQueryParameters2D.create(
-		Vector2(global_position.x, global_position.y),
-		Vector2(global_position.x, $BottomCenter.global_position.y + enemy_kill_range)
-	)
-	
-	var result = space_state.intersect_ray(enemyBelow)
-	if not result.is_empty():
-		var collider = result["collider"]
-		
-		if collider.is_in_group("Enemy"):
-			if result.normal.y < -0.7 and velocity.y >= 0:
-				collider.die()
-				velocity.y = enemy_kill_jump
-				return true
-	return false
+signal death
 
-func isBelowEnemy() -> bool:
-	var space_state = get_world_2d().direct_space_state
-	var enemyBelow = PhysicsRayQueryParameters2D.create(
-		Vector2(global_position.x, global_position.y),
-		Vector2(global_position.x, $TopCenter.global_position.y - enemy_kill_range)
-	)
-	
-	var result = space_state.intersect_ray(enemyBelow)
-	if not result.is_empty():
-		var collider = result["collider"]
-		
-		if collider.is_in_group("Enemy"):
-				var enemy: Enemy = collider
 
-				if enemy.can_squish:	
-					collider.velocity.y = enemy_above_jump
-					velocity.x = enemy.launch_back_force * collider.dir
-				return true
-	return false
 
 
 func _physics_process(delta: float) -> void:
-	isKillingEnemy()
-	isBelowEnemy()
-	move_and_slide()		
+	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is Enemy and PI - collision.get_angle() < PI/4:
+			collider.die()
+	
 	if not is_on_floor():
 		velocity += Vector2.DOWN * gravity * delta
 	

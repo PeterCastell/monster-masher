@@ -13,7 +13,7 @@ size = Vector2(600, 68)
 collision_layer = 16
 collision_mask = 5
 script = ExtResource("1_am0pq")
-can_squish = true
+can_squish_player = true
 launch_back_force = 1000.0
 
 [node name="Appearance" type="Node2D" parent="." unique_id=2056693875]

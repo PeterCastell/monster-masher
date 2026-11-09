@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-@export var can_squish : bool
+@export var can_squish_player : bool
 @export var launch_back_force : float
 @export var organ_type : Game.Organs
 

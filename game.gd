@@ -11,6 +11,8 @@ enum Organs {
 var world: World:
 	get: return $World
 
+var player: Player:
+	get: return world.player
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_R):

@@ -37,6 +37,10 @@ func on_collision(collision: KinematicCollision2D):
 	var collider = collision.get_collider()
 	
 	var is_wall: bool = abs(collision.get_angle() - PI/2) < PI/4
+	var is_floor: bool = PI - collision.get_angle() < PI/4
+
+	if collider is Player and can_squish_player and is_floor:
+		pass # TODO: kill the player
 
 	if state == State.Dashing:
 		if collider is Player:
