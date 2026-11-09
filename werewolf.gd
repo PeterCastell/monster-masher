@@ -74,9 +74,14 @@ func _physics_process(delta: float) -> void:
 			set_state(State.Wandering)
 	
 	elif state == State.Wandering:
-		var foot: RayCast2D = $LeftFoot if dir == -1 else $RightFoot
-		if !foot.is_colliding():
+		var ray: RayCast2D = $LeftFloorRay if dir < 0 else $RightFloorRay
+		if !ray.is_colliding():
 			dir *= -1
+		
+		ray = $LeftWallRay if dir < 0 else $RightWallRay
+		if ray.is_colliding():
+			dir *= -1
+		
 		
 		velocity.x = util.hllerp(velocity.x, dir * wander_speed, wander_speed_hl, delta)
 		
