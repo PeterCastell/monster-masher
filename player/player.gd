@@ -14,8 +14,8 @@ const enemy_kill_jump = -300
 const enemy_above_jump = -100
 
 
-var can_wall_jump: bool = true
-var can_flutter: bool = true
+var can_wall_jump: bool = false
+var can_flutter: bool = false
 
 const flutter_descent_speed = 100
 
@@ -27,7 +27,7 @@ var jump_coyote_time: float = 0
 const jump_buffer_duration = 0.15
 var jump_buffer_time: float = 0
 
-signal death
+#signal death
 
 
 

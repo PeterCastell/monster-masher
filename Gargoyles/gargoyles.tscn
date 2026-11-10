@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://i4s0x0qwnvvs"]
+
+[ext_resource type="Script" uid="uid://cuctruxvw1epy" path="res://Gargoyles/gargoyles.gd" id="1_f4tbe"]
+[ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_d4yl4"]
+[ext_resource type="Texture2D" uid="uid://doijo6vvfhgsd" path="res://Gargoyles/Screenshot 2026-11-09 233212.png" id="3_iddd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
+size = Vector2(126, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flmph"]
+size = Vector2(126, 22)
+
+[node name="GargoyleNode" type="Node2D" unique_id=1108776925]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1972146662]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-4.5474735e-13, 51.187492)
+scale = Vector2(0.376953, 1.6689452)
+texture = ExtResource("2_d4yl4")
+
+[node name="Gargoyle" type="CharacterBody2D" parent="." unique_id=648838131]
+script = ExtResource("1_f4tbe")
+
+[node name="Face" type="Sprite2D" parent="Gargoyle" unique_id=36206845]
+scale = Vector2(0.37278107, 0.42222223)
+texture = ExtResource("3_iddd2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gargoyle" unique_id=61235885]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_5lrfx")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="Gargoyle" unique_id=1163945837]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gargoyle/Area2D" unique_id=1231575858]
+position = Vector2(0, -68)
+shape = SubResource("RectangleShape2D_flmph")
+
+[node name="ResetSpot" type="Marker2D" parent="Gargoyle" unique_id=1868920236]
+position = Vector2(0, 155)
+
+[node name="Reset" type="Timer" parent="Gargoyle" unique_id=1233414410]
+one_shot = true
+
+[node name="StayUpTime" type="Timer" parent="Gargoyle" unique_id=430489080]
+one_shot = true
