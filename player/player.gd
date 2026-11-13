@@ -16,6 +16,8 @@ const enemy_above_jump = -100
 
 var can_wall_jump: bool = false
 var can_flutter: bool = false
+var can_dash: bool = false
+
 
 const flutter_descent_speed = 100
 
@@ -30,7 +32,13 @@ var jump_buffer_time: float = 0
 #signal death
 
 
-
+#var double_space_time = 0.0
+#const double_space_duration = 0.2
+const dash_speed: float = 800
+var dash_time: float = -1
+var dash_lock_y_time: float = -1
+var dash_lock_y_dur: float = 0.1
+const dash_duration: float = 0.6
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -41,13 +49,16 @@ func _physics_process(delta: float) -> void:
 		if collider is Enemy and PI - collision.get_angle() < PI/4:
 			collider.die()
 	
-	if not is_on_floor():
+	# dont use gravity when dashing
+	if not is_on_floor() and dash_lock_y_time < 0:
 		velocity += Vector2.DOWN * gravity * delta
 	
 	var input := Input.get_axis("left", "right")
-	
+	if (dash_lock_y_time > 0):
+		input = 0
+		
 	if input:
-		$AnimatedSprite2D.scale.x = sign(input)
+		$AnimatedSprite2D.scale.x = sign(input)  # dash depends on the direction of this
 	
 	if can_wall_jump and input < 0 and len($WallJumpLeft.get_overlapping_bodies()) > 0:
 		left_wall_jump_coyote_time = coyote_duration
@@ -66,6 +77,15 @@ func _physics_process(delta: float) -> void:
 	
 	var wall_jump_eligible := left_wall_jump_coyote_time > 0 or right_wall_jump_coyote_time > 0
 	
+	if Input.is_action_just_pressed("dash") and can_dash and dash_time < 0:
+		velocity.x = dash_speed * sign($AnimatedSprite2D.scale.x)
+		velocity.y = 0
+		dash_time = dash_duration
+		dash_lock_y_time = dash_lock_y_dur
+	else: 
+		dash_time -= delta
+		dash_lock_y_time -= delta
+		
 	if Input.is_action_just_pressed("up"):
 		jump_buffer_time = jump_buffer_duration
 	else:

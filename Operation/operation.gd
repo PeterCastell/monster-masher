@@ -16,3 +16,8 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 func _on_check_vamp_toggled(toggled_on: bool) -> void:
 	print("vamp")
 	player.can_flutter = toggled_on	
+
+
+func _on_check_dash_toggled(toggled_on: bool) -> void:
+	player.can_dash = toggled_on	
+	 # Replace with function body.

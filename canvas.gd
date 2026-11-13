@@ -4,7 +4,8 @@ class_name Canvas
 var can_view_operation_screen = true
 var operation_toggled = false
 
-
+var played = false
+@onready var start_lightning: ColorRect = $MainMenu/StartLightning
 
 func _ready():
 	# pause
@@ -23,7 +24,21 @@ func _process(delta: float) -> void:
 			operation_toggled = false
 
 func _on_play_button_pressed() -> void:
-	# TODO
-	get_tree().paused = false
+	start_lightning.visible = true
+	$Timer.start(0.25)
 	
-	$MainMenu.visible = false
+
+
+func _on_timer_timeout() -> void:
+	$FadeAnimator.play("fade")
+
+	
+
+
+func _on_fade_animator_animation_finished(anim_name: StringName) -> void:
+	if (anim_name == "fade" and  not played):
+		get_tree().paused = false
+		$MainMenu.visible = false
+		start_lightning.visible = false
+		$FadeAnimator.play_backwards("fade")
+		played = true

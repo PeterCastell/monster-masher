@@ -6,6 +6,60 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
 size = Vector2(198, 28)
 
+[sub_resource type="Animation" id="Animation_45bu8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hcyc2"]
+resource_name = "move"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(400, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v3faf"]
+resource_name = "move_ac"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(0.17075521, 0.17075521, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(400, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rhqbc"]
+_data = {
+&"RESET": SubResource("Animation_45bu8"),
+&"move": SubResource("Animation_hcyc2"),
+&"move_ac": SubResource("Animation_v3faf")
+}
+
 [node name="MovingPlatform" type="AnimatableBody2D" unique_id=247106820]
 script = ExtResource("1_45bu8")
 
@@ -16,3 +70,6 @@ texture = ExtResource("2_hcyc2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=153581293]
 shape = SubResource("RectangleShape2D_5lrfx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1796810717]
+libraries/ = SubResource("AnimationLibrary_rhqbc")
