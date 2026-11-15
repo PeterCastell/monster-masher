@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://vauu7ickprh8" path="res://player/snake_arms.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://bwpdqgyw05m56" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="PackedScene" uid="uid://bv3dfx0l2wila" path="res://Interactable/interacting_component.tscn" id="3_g1dw6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
 atlas = ExtResource("1_oul6g")
@@ -79,6 +80,8 @@ collision_mask = 17
 script = ExtResource("1_rkbax")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1384373694]
+offset = Vector2(0, -128)
+zoom = Vector2(0.75, 0.75)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860374097]
 sprite_frames = SubResource("SpriteFrames_uagv5")
@@ -110,3 +113,8 @@ position = Vector2(0, 31)
 
 [node name="TopCenter" type="Marker2D" parent="." unique_id=433315242]
 position = Vector2(0, -28)
+
+[node name="InteractingComponent" parent="." unique_id=1480727439 instance=ExtResource("3_g1dw6")]
+
+[node name="SpawnPartLocation" type="Marker2D" parent="." unique_id=1779831165]
+position = Vector2(0, -14)

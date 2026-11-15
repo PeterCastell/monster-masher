@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bm5vvxaeo3lq5"]
+
+[ext_resource type="Texture2D" uid="uid://dlvsnwq5aqlqf" path="res://Part/claws/black-wolverine-claw-stainless-steel-tpu-handle-handheld.png" id="1_554ro"]
+[ext_resource type="Script" uid="uid://d2ic57pahlrn1" path="res://Part/claws/claws.gd" id="1_ajqhv"]
+[ext_resource type="PackedScene" uid="uid://cybwehbavjawu" path="res://Interactable/interactable.tscn" id="2_ysh5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flmph"]
+size = Vector2(34, 34)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5lrfx"]
+radius = 28.160255
+
+[node name="Claws" type="RigidBody2D" unique_id=52836476]
+z_index = 9
+collision_layer = 8
+script = ExtResource("1_ajqhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=638148352]
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("1_554ro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004827731]
+shape = SubResource("RectangleShape2D_flmph")
+
+[node name="Interactable" parent="." unique_id=2110887254 instance=ExtResource("2_ysh5y")]
+interact_name = "claws"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=210364942]
+shape = SubResource("CircleShape2D_5lrfx")
+debug_color = Color(3.4894795e-06, 0.64872766, 0.18138453, 0.41960785)

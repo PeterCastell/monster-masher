@@ -4,6 +4,9 @@ class_name Canvas
 var can_view_operation_screen = true
 var operation_toggled = false
 
+var icon_holder: HBoxContainer:
+	get: return get_node_or_null("GUI/IconHolder") 
+	
 var played = false
 @onready var start_lightning: ColorRect = $MainMenu/StartLightning
 

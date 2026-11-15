@@ -1,16 +1,27 @@
 extends Node
 class_name Game
+static var instance: Game
 
-enum Organs {
+enum Parts {
 	WEREWOLF_CLAWS,
 	BAT,
+	NONE
 }
 
-@export var organ_scenes: Dictionary[Organs, PackedScene]
+@export var part_scenes: Dictionary[Parts, PackedScene]
 
+
+func _enter_tree() -> void:
+	instance = self
+	
+	
 var world: World:
 	get: return $World
 
+
+var canvas: Canvas:
+	get: return $UI/Canvas
+	
 var player: Player:
 	get: return world.player
 

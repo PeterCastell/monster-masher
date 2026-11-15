@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dg485oyxsde6g"]
+
+[ext_resource type="Texture2D" uid="uid://qsufbs4b5hkh" path="res://Assets/images.png" id="1_lkdvp"]
+[ext_resource type="Script" uid="uid://dinjar0gkpyn6" path="res://HeldItemGUI/held_item_gui.gd" id="2_de5li"]
+[ext_resource type="Texture2D" uid="uid://vr76adc0qw6i" path="res://Part/bat/0x0.png" id="2_iyvvg"]
+
+[node name="HeldItemGUI" type="TextureRect" unique_id=1644713169]
+texture = ExtResource("1_lkdvp")
+expand_mode = 3
+script = ExtResource("2_de5li")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1171638463]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.064516
+offset_top = -10.5
+offset_right = 18.064516
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_iyvvg")
+expand_mode = 3

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
+var held_part : Part = null
+
 const gravity = 1000
 const jump_speed = 400
 const max_speed = 450
@@ -40,6 +42,26 @@ var dash_lock_y_time: float = -1
 var dash_lock_y_dur: float = 0.1
 const dash_duration: float = 0.6
 
+
+var ctrl_time : float = 0
+const ctrl_target : float = 1
+
+@export var curr_room : Room
+
+func _ready() -> void:
+	curr_room.enter_room.call_deferred()
+
+func drop_item():
+	if (held_part != null):
+		held_part.drop_from_player($SpawnPartLocation.global_position)
+
+func spawn_part_from_player():
+	#var part = Game.instance.part_scenes[held_part].instantiate()
+	#Game.instance.world.parts.add_child(part)
+	#part.global_position = $SpawnPartLocation.global_position
+	#spawnedPart = part	
+	pass
+	
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
@@ -49,6 +71,16 @@ func _physics_process(delta: float) -> void:
 		if collider is Enemy and PI - collision.get_angle() < PI/4:
 			collider.die()
 	
+	if Input.is_action_pressed("reset"):
+		ctrl_time += delta
+	else:
+		ctrl_time = 0
+	if ctrl_time > ctrl_target:
+		curr_room.reset()
+	
+	if((held_part != null) and is_on_floor() and Input.is_action_pressed("drop_item")):
+		drop_item()	
+		
 	# dont use gravity when dashing
 	if not is_on_floor() and dash_lock_y_time < 0:
 		velocity += Vector2.DOWN * gravity * delta

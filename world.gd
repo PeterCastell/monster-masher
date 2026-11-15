@@ -2,8 +2,12 @@ extends Node2D
 class_name World
 
 
-var organs: Node:
-	get: return $Organs
+var parts: Node:
+	get: return $Parts
+
+
+var offScreenParts: Node:
+	get: return $OffScreenParts
 	
 var player: Player:
 	get: return $Player

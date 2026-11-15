@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dip75a3c7ehvg"
-path="res://.godot/imported/Operation.png-9933acf26ab4c43edb4910ceea4d892d.ctex"
+uid="uid://bxid48k3fed5b"
+path="res://.godot/imported/refresh-icon-design-vector.jpg-0796e4da83f7d03487b2cb9e46c333e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Organ/claws/Operation.png"
-dest_files=["res://.godot/imported/Operation.png-9933acf26ab4c43edb4910ceea4d892d.ctex"]
+source_file="res://Assets/refresh-icon-design-vector.jpg"
+dest_files=["res://.godot/imported/refresh-icon-design-vector.jpg-0796e4da83f7d03487b2cb9e46c333e0.ctex"]
 
 [params]
 
