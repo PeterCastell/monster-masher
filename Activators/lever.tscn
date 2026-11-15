@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ltkeujxsfa7x"]
+
+[ext_resource type="PackedScene" uid="uid://cybwehbavjawu" path="res://Interactable/interactable.tscn" id="1_eh5fp"]
+[ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_7n24h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flmph"]
+radius = 27.018513
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
+size = Vector2(42, 10)
+
+[node name="Lever" type="AnimatableBody2D" unique_id=985977039]
+
+[node name="Interactable" parent="." unique_id=2110887254 instance=ExtResource("1_eh5fp")]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1695562202]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_flmph")
+debug_color = Color(0, 0.6486601, 0.1836029, 0.41960785)
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1698672896]
+position = Vector2(0, 4)
+scale = Vector2(0.3359375, 0.0703125)
+texture = ExtResource("2_7n24h")
+
+[node name="LeverMovable" type="Sprite2D" parent="." unique_id=869758730]
+position = Vector2(-9.536743e-07, 9.536743e-07)
+rotation = -0.7853982
+scale = Vector2(0.035156246, 0.23046875)
+
+[node name="Knob" type="Sprite2D" parent="LeverMovable" unique_id=660964099]
+position = Vector2(-1.8119812e-05, -141.13371)
+scale = Vector2(1.5833331, 0.21610163)
+texture = ExtResource("2_7n24h")
+
+[node name="Handle" type="Sprite2D" parent="LeverMovable" unique_id=823015935]
+position = Vector2(0, -65.66132)
+scale = Vector2(1, 1.0287097)
+texture = ExtResource("2_7n24h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=235131525]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1146895120]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_5lrfx")

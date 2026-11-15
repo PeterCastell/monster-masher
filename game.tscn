@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://d0he356wbjm0o" path="res://operation_screen.gd" id="12_iotsf"]
 [ext_resource type="PackedScene" uid="uid://cq0ago2h2ggig" path="res://Operation/operation.tscn" id="12_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://bxid48k3fed5b" path="res://Assets/refresh-icon-design-vector.jpg" id="13_5b14r"]
+[ext_resource type="PackedScene" uid="uid://ltkeujxsfa7x" path="res://Activators/lever.tscn" id="13_36jdj"]
 [ext_resource type="PackedScene" uid="uid://cayt1haptdmqs" path="res://room/room.tscn" id="13_bnpwn"]
 [ext_resource type="Shader" uid="uid://dq10lsjhdovi0" path="res://fogShader.gdshader" id="15_e8heu"]
 [ext_resource type="Shader" uid="uid://cjoxnpdaq7gp2" path="res://lightning.gdshader" id="15_e36ub"]
@@ -2653,6 +2654,8 @@ position = Vector2(-3422, -627)
 
 [node name="PartSpawnPoint" parent="World/Rooms/Room2/PartSpawnPoints" parent_id_path=PackedInt32Array(1271343916, 1445065737) index="0" unique_id=146965731]
 part_type = 1
+
+[node name="Lever" parent="World/Rooms" unique_id=985977039 instance=ExtResource("13_36jdj")]
 
 [node name="OffScreenParts" type="Node2D" parent="World" unique_id=386731541]
 
