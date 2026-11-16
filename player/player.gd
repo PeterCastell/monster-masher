@@ -42,7 +42,7 @@ var dash_lock_y_time: float = -1
 var dash_lock_y_dur: float = 0.1
 const dash_duration: float = 0.6
 
-
+# to handle ctrl to reset puzzle
 var ctrl_time : float = 0
 const ctrl_target : float = 1
 
@@ -77,6 +77,7 @@ func _physics_process(delta: float) -> void:
 		ctrl_time = 0
 	if ctrl_time > ctrl_target:
 		curr_room.reset()
+		ctrl_time = 0
 	
 	if((held_part != null) and is_on_floor() and Input.is_action_pressed("drop_item")):
 		drop_item()	

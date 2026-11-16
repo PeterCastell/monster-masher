@@ -22,7 +22,12 @@ func enter_room():
 	current_spawn.spawnPlayer()
 
 func reset():
-	for child in $PartSpawnPoints:
+	Game.instance.player.drop_item()
+	for child in $PartSpawnPoints.get_children():
+		child.reset()
+	for child in $Activators.get_children():
+		child.reset()
+	for child in $Triggerables.get_children():
 		child.reset()
 	
 	# to do, reset hold stats

@@ -1,5 +1,7 @@
 extends Node2D
 
+# note: is_interactable doesnt work
+
 @onready var label: Label = $Label
 
 var current_interactions := []
@@ -20,7 +22,14 @@ func _process(delta: float) -> void:
 		current_interactions.sort_custom(_sort_by_nearest)
 		if current_interactions[0].is_interactable:
 			#label.text = current_interactions[0].interact_name
-			label.show()
+			var postfix = ""
+			if current_interactions[0].interact_group == "PART":
+				if Game.instance.player.held_part !=null:
+					postfix = " swap"
+				else:
+					postfix = " pick up"
+			label.text = "E" + postfix
+			label.show() 
 		else:
 			label.hide()
 	else:

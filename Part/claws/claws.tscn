@@ -10,10 +10,11 @@ size = Vector2(34, 34)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5lrfx"]
 radius = 28.160255
 
-[node name="Claws" type="RigidBody2D" unique_id=52836476]
+[node name="Claws" type="CharacterBody2D" unique_id=1149682820]
 z_index = 9
 collision_layer = 8
 script = ExtResource("1_ajqhv")
+metadata/_custom_type_script = "uid://d2ic57pahlrn1"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=638148352]
 scale = Vector2(0.035, 0.035)
