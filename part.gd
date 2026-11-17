@@ -11,6 +11,8 @@ var icon : Held_Item_Gui = null
 var used : bool = false
 var grv : float = 1000
 
+var is_alive : bool = true
+
 
 func _ready() -> void:
 	interactable.interact = pick_up
@@ -23,7 +25,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0.0   
 
 	move_and_slide()
-
+	
+	if global_position.y > 1000:
+		kill()
+		
+		
 func get_type() ->  Game.Parts:
 	print("abstract function")
 	return Game.Parts.WEREWOLF_CLAWS
@@ -56,5 +62,8 @@ func pick_up():
 	Game.instance.player.held_part = self
 	interactable.is_interactable = false
 	
-
 	#queue_free()
+
+func kill():
+	global_position = Game.instance.world.offScreenParts.global_position
+	Game.instance.bottom_ui_hint.text = "Hold CTRL to reset"

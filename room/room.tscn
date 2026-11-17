@@ -24,3 +24,5 @@ position = Vector2(358, -266)
 [node name="Activators" type="Node2D" parent="." unique_id=552165534]
 
 [node name="Triggerables" type="Node2D" parent="." unique_id=588297213]
+
+[node name="Spikes" type="Node2D" parent="." unique_id=1908287493]

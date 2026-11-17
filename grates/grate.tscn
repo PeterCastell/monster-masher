@@ -6,7 +6,8 @@ load_path = "res://.godot/imported/grate_albedo.png-41cac930afaddb0c6beaab8fa291
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
 
 [node name="Grate" type="StaticBody2D" unique_id=162422700]
-collision_mask = 4
+collision_layer = 64
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=620123166]
 scale = Vector2(0.17999971, 0.017)

@@ -22,13 +22,19 @@ func enter_room():
 	current_spawn.spawnPlayer()
 
 func reset():
+	for tween in get_tree().get_processed_tweens():
+		tween.kill()
 	Game.instance.player.drop_item()
 	for child in $PartSpawnPoints.get_children():
 		child.reset()
 	for child in $Activators.get_children():
 		child.reset()
-	for child in $Triggerables.get_children():
-		child.reset()
+	
+	Game.instance.bottom_ui_hint.text = ""
+
+	# activators reset triggerables actually ok
+	#for child in $Triggerables.get_children():
+		#child.reset()
 	
 	# to do, reset hold stats
 	enter_room()

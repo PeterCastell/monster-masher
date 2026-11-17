@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://kor34gar3d1w"]
+
+[ext_resource type="Script" uid="uid://cdeemaqhu3m2k" path="res://Triggerables/rising_wall.gd" id="1_wt8u6"]
+[ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_o4ge6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
+size = Vector2(236.25, 52.5)
+
+[node name="elevator" type="Node2D" unique_id=717193406]
+script = ExtResource("1_wt8u6")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=213036135]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=831543831]
+position = Vector2(-115.99999, 1)
+scale = Vector2(1.8359375, 0.421875)
+texture = ExtResource("2_o4ge6")
+centered = false
+
+[node name="Chains" type="Sprite2D" parent="AnimatableBody2D" unique_id=219798524]
+position = Vector2(-115.99999, -1.0000038)
+rotation = -1.0318018
+scale = Vector2(1.8451649, 0.06121203)
+texture = ExtResource("2_o4ge6")
+centered = false
+
+[node name="Chains2" type="Sprite2D" parent="AnimatableBody2D" unique_id=954429430]
+position = Vector2(111, 4)
+rotation = -2.132487
+scale = Vector2(1.8451653, 0.06121201)
+texture = ExtResource("2_o4ge6")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=525258301]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_5lrfx")
+debug_color = Color(0.798942, 0.37423036, 0.5193092, 0.41960785)

@@ -158,4 +158,4 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if position.y > 1000:
-		position = Vector2.ZERO
+		curr_room.reset()

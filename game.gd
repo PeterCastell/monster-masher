@@ -5,10 +5,12 @@ static var instance: Game
 enum Parts {
 	WEREWOLF_CLAWS,
 	BAT,
+	BROOM,
 	NONE
 }
 
 @export var part_scenes: Dictionary[Parts, PackedScene]
+@export var bottom_ui_hint : Label
 
 
 func _enter_tree() -> void:

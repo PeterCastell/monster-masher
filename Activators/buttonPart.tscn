@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dj42i5esxuehp"]
+
+[ext_resource type="Script" uid="uid://dmlotklh0svbw" path="res://Activators/button_part.gd" id="1_pbviu"]
+[ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_6pcco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
+size = Vector2(129, 44.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp288"]
+size = Vector2(129, 49)
+
+[node name="ButtonPart" type="Node2D" unique_id=1203900194]
+scale = Vector2(2, 2)
+script = ExtResource("1_pbviu")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=316419794]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=295950089]
+position = Vector2(0, -21)
+scale = Vector2(1, 0.3400004)
+texture = ExtResource("2_6pcco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1335273261]
+position = Vector2(0, -21.375)
+shape = SubResource("RectangleShape2D_5lrfx")
+
+[node name="Detector" type="Area2D" parent="AnimatableBody2D" unique_id=961204809]
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Detector" unique_id=2046296795]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_qp288")
+debug_color = Color(0.6039388, 0.532929, 0.2852789, 0.41960785)
+
+[node name="Base" type="Sprite2D" parent="." unique_id=472489708]
+scale = Vector2(1.1000005, 0.079999566)
+texture = ExtResource("2_6pcco")

@@ -13,6 +13,7 @@ radius = 28.160255
 [node name="Claws" type="CharacterBody2D" unique_id=1149682820]
 z_index = 9
 collision_layer = 8
+collision_mask = 129
 script = ExtResource("1_ajqhv")
 metadata/_custom_type_script = "uid://d2ic57pahlrn1"
 

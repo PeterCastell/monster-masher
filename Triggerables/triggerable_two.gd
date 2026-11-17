@@ -1,4 +1,4 @@
-extends AnimatableBody2D
+extends Node2D
 
 class_name Triggerable
 

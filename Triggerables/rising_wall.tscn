@@ -6,15 +6,23 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
 size = Vector2(128.5, 329)
 
-[node name="RisingWall" type="AnimatableBody2D" unique_id=1561803427]
+[node name="RisingWall" type="Node2D" unique_id=705945485]
 script = ExtResource("1_oigfv")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=831543831]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1551159104]
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=831543831]
 scale = Vector2(1, 2.5585938)
 texture = ExtResource("2_3pbe4")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=525258301]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=525258301]
 position = Vector2(64, 165)
 shape = SubResource("RectangleShape2D_5lrfx")
 debug_color = Color(0.798942, 0.37423036, 0.5193092, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1005081420]
+position = Vector2(60, -1)
+scale = Vector2(-1.5958076, 0.12978208)
+texture = ExtResource("2_3pbe4")

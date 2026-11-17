@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://du6kife5vgngd"]
+
+[ext_resource type="PackedScene" uid="uid://dj42i5esxuehp" path="res://Activators/buttonPart.tscn" id="1_mfi57"]
+[ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_5byp8"]
+
+[node name="Button" type="Node2D" unique_id=619135785]
+
+[node name="ButtonPart" parent="." unique_id=1649173349 instance=ExtResource("1_mfi57")]
+
+[node name="BaseSprite" type="Sprite2D" parent="." unique_id=1912039159]
+modulate = Color(0.29, 0.29, 0.29, 1)
+scale = Vector2(2.293351, 0.19178095)
+texture = ExtResource("2_5byp8")
