@@ -29,16 +29,25 @@ func _process(delta: float) -> void:
 func _on_play_button_pressed() -> void:
 	start_lightning.visible = true
 	$Timer.start(0.25)
-
-func _on_timer_timeout() -> void:
+	await $Timer.timeout
 	$FadeAnimator.play("fade")
+	await $FadeAnimator.animation_finished
+	get_tree().paused = false
+	$MainMenu.visible = false
+	start_lightning.visible = false
+	$FadeAnimator.play_backwards("fade")
+	played = true
+	Game.instance.enter_level(0)
 
-
-func _on_fade_animator_animation_finished(anim_name: StringName) -> void:
-	if (anim_name == "fade" and not played):
-		get_tree().paused = false
-		$MainMenu.visible = false
-		start_lightning.visible = false
-		$FadeAnimator.play_backwards("fade")
-		played = true
-		Game.instance.enter_level(0)
+#func _on_timer_timeout() -> void:
+	#$FadeAnimator.play("fade")
+#
+#
+#func _on_fade_animator_animation_finished(anim_name: StringName) -> void:
+	#if (anim_name == "fade" and not played):
+		#get_tree().paused = false
+		#$MainMenu.visible = false
+		#start_lightning.visible = false
+		#$FadeAnimator.play_backwards("fade")
+		#played = true
+		#Game.instance.enter_level(0)
