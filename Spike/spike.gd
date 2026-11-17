@@ -7,6 +7,6 @@ class_name Spike
 func _physics_process(delta: float) -> void:
 	for body in area_2d.get_overlapping_bodies():
 		if body is Player:
-			Game.instance.player.curr_room.reset()
+			body.kill()
 		elif body is Part:
 			body.kill()

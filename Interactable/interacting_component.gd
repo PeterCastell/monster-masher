@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var label: Label = $Label
 
-var current_interactions := []
+var current_interactions : Array[Interactable] = []
 var can_interact := true
 
 func _input(event: InputEvent):
@@ -13,7 +13,8 @@ func _input(event: InputEvent):
 			can_interact = false
 			label.hide()
 			
-			await current_interactions[0].interact.call()
+			current_interactions[0].interacted.emit()
+			#await current_interactions[0].
 			
 			can_interact = true
 			

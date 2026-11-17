@@ -5,7 +5,6 @@ class_name World
 var parts: Node:
 	get: return $Parts
 
-
 var offScreenParts: Node:
 	get: return $OffScreenParts
 	

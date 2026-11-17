@@ -1,7 +1,4 @@
 extends Node2D
-
 class_name PlayerSpawnPoint
 
-func spawnPlayer() -> void:
-	Game.instance.player.global_position = $SpawnLocation.global_position
-	
+@onready var spawn_location: Vector2 = $SpawnLocation.global_position

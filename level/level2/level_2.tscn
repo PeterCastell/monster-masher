@@ -1,0 +1,133 @@
+[gd_scene format=4 uid="uid://bw0skd8dla8k8"]
+
+[ext_resource type="PackedScene" uid="uid://b0ips500up8u4" path="res://level/level_tilemap.tscn" id="1_ex7qr"]
+[ext_resource type="Script" uid="uid://hm7tbmj7wyuv" path="res://level/level.gd" id="1_yhj7x"]
+[ext_resource type="PackedScene" uid="uid://dj42i5esxuehp" path="res://Activators/buttonPart.tscn" id="4_6nilq"]
+[ext_resource type="PackedScene" uid="uid://ltkeujxsfa7x" path="res://Activators/lever.tscn" id="5_eo4t5"]
+[ext_resource type="PackedScene" uid="uid://b7wqnunvq53q" path="res://Triggerables/rising_wall.tscn" id="6_qpbu3"]
+[ext_resource type="PackedScene" uid="uid://kor34gar3d1w" path="res://Triggerables/elevator.tscn" id="7_yyfdd"]
+[ext_resource type="PackedScene" uid="uid://cbqsfaq3kdg8d" path="res://Spike/spike.tscn" id="8_1prom"]
+[ext_resource type="PackedScene" uid="uid://cff32x1ly44c8" path="res://OneWayPlatform/one_way_platform.tscn" id="9_ktfdf"]
+[ext_resource type="PackedScene" uid="uid://dky20xm2e4b1m" path="res://PlayerSpawnPoint/player_spawn_point.tscn" id="10_6lp2w"]
+[ext_resource type="PackedScene" uid="uid://bkfkekb2y2kpe" path="res://grates/grate.tscn" id="10_upitb"]
+[ext_resource type="PackedScene" uid="uid://d1pog1i3vl12w" path="res://PlayerExitPoint/player_exit.tscn" id="11_4wcru"]
+[ext_resource type="PackedScene" uid="uid://c2o1whvxgeof2" path="res://PartSpawnPoint/part_spawn_point.tscn" id="12_4wcru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nilq"]
+resource_local_to_scene = true
+size = Vector2(128.5, 329)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eo4t5"]
+resource_local_to_scene = true
+size = Vector2(128.5, 329)
+
+[node name="Level2" type="Node2D" unique_id=862776646 node_paths=PackedStringArray("spawn", "exit")]
+script = ExtResource("1_yhj7x")
+spawn = NodePath("PlayerSpawnPoint")
+exit = NodePath("PlayerExit")
+
+[node name="LevelTilemap" parent="." unique_id=724246898 instance=ExtResource("1_ex7qr")]
+tile_map_data = PackedByteArray("AAADAAEAAAAMABoAAAACAAEAAAAMABoAAAABAAEAAAAMABoAAAAAAAEAAAAMABoAAAD8/wEAAAAMABoAAAD9/wEAAAAMABoAAAD+/wEAAAAMABoAAAD//wEAAAAMABoAAAAEAAEAAAAMABoAAAAFAAEAAAAMABoAAAAGAAEAAAAMABoAAAAHAAEAAAAMABoAAAAJAAEAAAAMABoAAAAIAAEAAAAMABoAAAD7/wEAAAAMABoAAAD6/wEAAAAMABoAAAD3/wEAAAAMABoAAAD4/wEAAAAMABoAAAD5/wEAAAAMABoAAAD2/wEAAAAMABoAAAC4/wAAAAAMABoAAAC4/wEAAAAMABoAAAC5/wAAAAAMABoAAAC5/wEAAAAMABoAAAC6/wAAAAAMABoAAAC6/wEAAAAMABoAAAC7/wAAAAAMABoAAAC7/wEAAAAMABoAAAC8/wAAAAAMABoAAAC8/wEAAAAMABoAAAC9/wAAAAAMABoAAAC9/wEAAAAMABoAAAC+/wAAAAAMABoAAAC+/wEAAAAMABoAAAC//wAAAAAMABoAAAC//wEAAAAMABoAAADA/wAAAAAMABoAAADA/wEAAAAMABoAAADB/wAAAAAMABoAAADB/wEAAAAMABoAAADC/wAAAAAMABoAAADC/wEAAAAMABoAAADD/wAAAAAMABoAAADD/wEAAAAMABoAAADE/wAAAAAMABoAAADE/wEAAAAMABoAAADF/wAAAAAMABoAAADF/wEAAAAMABoAAADG/wAAAAAMABoAAADG/wEAAAAMABoAAADH/wAAAAAMABoAAADH/wEAAAAMABoAAADL/wAAAAAMABoAAADL/wEAAAAMABoAAADM/wAAAAAMABoAAADM/wEAAAAMABoAAADN/wAAAAAMABoAAADN/wEAAAAMABoAAADO//7/AAAMABoAAADO////AAAMABoAAADO/wAAAAAMABoAAADO/wEAAAAMABoAAADP/wAAAAAMABoAAADP/wEAAAAMABoAAADQ/wAAAAAMABoAAADQ/wEAAAAMABoAAADR/wAAAAAMABoAAADR/wEAAAAMABoAAADS/wAAAAAMABoAAADS/wEAAAAMABoAAADT/wAAAAAMABoAAADT/wEAAAAMABoAAADU/wAAAAAMABoAAADU/wEAAAAMABoAAADV/wAAAAAMABoAAADV/wEAAAAMABoAAADW/wAAAAAMABoAAADW/wEAAAAMABoAAADX//z/AAAMABoAAADX//3/AAAMABoAAADX/wAAAAAMABoAAADX/wEAAAAMABoAAADY//z/AAAMABoAAADY//3/AAAMABoAAADY/wAAAAAMABoAAADY/wEAAAAMABoAAADZ//z/AAAMABoAAADZ//3/AAAMABoAAADZ/wAAAAAMABoAAADZ/wEAAAAMABoAAADa//z/AAAMABoAAADa//3/AAAMABoAAADa/wAAAAAMABoAAADa/wEAAAAMABoAAADb//z/AAAMABoAAADb/wAAAAAMABoAAADb/wEAAAAMABoAAADc//z/AAAMABoAAADc/wAAAAAMABoAAADc/wEAAAAMABoAAADd////AAAMABoAAADd/wAAAAAMABoAAADd/wEAAAAMABoAAADe////AAAMABoAAADe/wAAAAAMABoAAADe/wEAAAAMABoAAADf////AAAMABoAAADf/wAAAAAMABoAAADf/wEAAAAMABoAAADg////AAAMABoAAADg/wAAAAAMABoAAADg/wEAAAAMABoAAADh////AAAMABoAAADh/wAAAAAMABoAAADh/wEAAAAMABoAAADi////AAAMABoAAADi/wAAAAAMABoAAADi/wEAAAAMABoAAADj////AAAMABoAAADj/wAAAAAMABoAAADj/wEAAAAMABoAAADk////AAAMABoAAADk/wAAAAAMABoAAADk/wEAAAAMABoAAADl////AAAMABoAAADl/wAAAAAMABoAAADl/wEAAAAMABoAAADm/wAAAAAMABoAAADm/wEAAAAMABoAAADn/wEAAAAMABoAAADo/wEAAAAMABoAAADp/wEAAAAMABoAAADq/wEAAAAMABoAAADr/wEAAAAMABoAAADs/wEAAAAMABoAAADt/wEAAAAMABoAAADu/wEAAAAMABoAAADv/wEAAAAMABoAAADw/wEAAAAMABoAAADx/wEAAAAMABoAAADy/wEAAAAMABoAAADz/wEAAAAMABoAAAD0/wEAAAAMABoAAAD1/wEAAAAMABoAAAAKAAEAAAAMABoAAAALAAEAAAAMABoAAAA=")
+
+[node name="ButtonPart" parent="." unique_id=2117801820 instance=ExtResource("4_6nilq")]
+position = Vector2(-4346, 17)
+scale = Vector2(2.0167203, 2)
+
+[node name="Lever" parent="." unique_id=2136716414 instance=ExtResource("5_eo4t5")]
+position = Vector2(-124, 56)
+
+[node name="Lever2" parent="." unique_id=844251526 instance=ExtResource("5_eo4t5")]
+position = Vector2(-74, 59)
+duration = 2.0
+
+[node name="Lever3" parent="." unique_id=1981005872 instance=ExtResource("5_eo4t5")]
+position = Vector2(-1978, -74)
+scale = Vector2(1.0003166, 0.938874)
+duration = 2.0
+
+[node name="Lever4" parent="." unique_id=715764513 instance=ExtResource("5_eo4t5")]
+position = Vector2(-3166, -135)
+scale = Vector2(1.0003166, 0.938874)
+duration = 2.0
+
+[node name="OneWayPlatform" parent="." unique_id=884585408 instance=ExtResource("9_ktfdf")]
+position = Vector2(-978, -50)
+
+[node name="Grate" parent="." unique_id=587356686 instance=ExtResource("10_upitb")]
+position = Vector2(-1243, -43)
+
+[node name="Grate2" parent="." unique_id=827010815 instance=ExtResource("10_upitb")]
+position = Vector2(-3836, -165)
+
+[node name="Spike" parent="." unique_id=1669764497 instance=ExtResource("8_1prom")]
+position = Vector2(-3849, -24)
+
+[node name="RisingWall" parent="." unique_id=139152258 instance=ExtResource("6_qpbu3")]
+position = Vector2(291, 125)
+
+[node name="RisingWall2" parent="." unique_id=1981635560 instance=ExtResource("6_qpbu3")]
+position = Vector2(615, 17)
+scale = Vector2(0.9987262, 0.9965926)
+
+[node name="Sprite2D" parent="RisingWall2/AnimatableBody2D" parent_id_path=PackedInt32Array(1981635560, 1551159104) index="0" unique_id=831543831]
+scale = Vector2(1.8410714, 2.5585938)
+
+[node name="CollisionShape2D" parent="RisingWall2/AnimatableBody2D" parent_id_path=PackedInt32Array(1981635560, 1551159104) index="1" unique_id=525258301]
+position = Vector2(125, 166)
+scale = Vector2(1.9545455, 1)
+shape = SubResource("RectangleShape2D_6nilq")
+
+[node name="Sprite2D" parent="RisingWall2" index="1" unique_id=1005081420]
+position = Vector2(118.15048, -1.0034297)
+scale = Vector2(2.0000608, 0.63202906)
+
+[node name="RisingWall3" parent="." unique_id=934992966 instance=ExtResource("6_qpbu3")]
+position = Vector2(-2419, -593)
+rotation = 1.5707964
+target = Vector2(0, -250)
+
+[node name="Sprite2D" parent="RisingWall3/AnimatableBody2D" parent_id_path=PackedInt32Array(934992966, 1551159104) index="0" unique_id=831543831]
+scale = Vector2(2.686576, 2.5585938)
+
+[node name="CollisionShape2D" parent="RisingWall3/AnimatableBody2D" parent_id_path=PackedInt32Array(934992966, 1551159104) index="1" unique_id=525258301]
+position = Vector2(173, 165)
+scale = Vector2(2.759976, 1)
+shape = SubResource("RectangleShape2D_eo4t5")
+
+[node name="Sprite2D" parent="RisingWall3" index="1" unique_id=1005081420]
+position = Vector2(174, -2.000005)
+scale = Vector2(2.6184878, 0.31863284)
+
+[node name="RisingWall4" parent="." unique_id=1407782295 instance=ExtResource("6_qpbu3")]
+position = Vector2(-4675, -14)
+
+[node name="elevator" parent="." unique_id=2048184964 instance=ExtResource("7_yyfdd")]
+position = Vector2(-3333, -118)
+target = Vector2(-200, 0)
+
+[node name="elevator2" parent="." unique_id=2133209440 instance=ExtResource("7_yyfdd")]
+position = Vector2(-3010, -56)
+target = Vector2(0, -400)
+duration_override = 4
+
+[node name="PlayerSpawnPoint" parent="." unique_id=1087440668 instance=ExtResource("10_6lp2w")]
+position = Vector2(-432, 43)
+
+[node name="PlayerExit" parent="." unique_id=1897218805 instance=ExtResource("11_4wcru")]
+position = Vector2(-621, -63)
+
+[node name="PartSpawnPoint" parent="." unique_id=146965731 instance=ExtResource("12_4wcru")]
+position = Vector2(188, -7)
+
+[node name="PartSpawnPoint2" parent="." unique_id=423697623 instance=ExtResource("12_4wcru")]
+position = Vector2(-2340, -352)
+part_type = 2
+
+[connection signal="pushed" from="ButtonPart" to="RisingWall4" method="rise"]
+[connection signal="flipped" from="Lever2" to="RisingWall2" method="rise"]
+[connection signal="flipped" from="Lever3" to="RisingWall3" method="rise"]
+[connection signal="flipped" from="Lever4" to="elevator" method="rise"]
+[connection signal="flipped" from="Lever4" to="elevator2" method="rise"]
+
+[editable path="RisingWall2"]
+[editable path="RisingWall3"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_3pbe4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
+resource_local_to_scene = true
 size = Vector2(128.5, 329)
 
 [node name="RisingWall" type="Node2D" unique_id=705945485]

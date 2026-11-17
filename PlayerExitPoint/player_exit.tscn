@@ -21,3 +21,5 @@ texture = ExtResource("1_lt8hm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1453564034]
 position = Vector2(0, 46)
 shape = SubResource("RectangleShape2D_5lrfx")
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

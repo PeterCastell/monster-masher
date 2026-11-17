@@ -1,5 +1,6 @@
 extends Node
 class_name Game
+
 static var instance: Game
 
 enum Parts {
@@ -12,14 +13,20 @@ enum Parts {
 @export var part_scenes: Dictionary[Parts, PackedScene]
 @export var bottom_ui_hint : Label
 
+@export var levels: Array[PackedScene]
 
-func _enter_tree() -> void:
+var level: Level = null
+var level_index: int = 0
+
+# to handle ctrl to reset puzzle
+var ctrl_time : float = 0
+const ctrl_target : float = 1
+
+func _init() -> void:
 	instance = self
-	
-	
+
 var world: World:
 	get: return $World
-
 
 var canvas: Canvas:
 	get: return $UI/Canvas
@@ -30,3 +37,29 @@ var player: Player:
 func _process(delta):
 	if Input.is_key_pressed(KEY_R):
 		get_tree().reload_current_scene()
+	
+	if Input.is_action_pressed("reset"):
+		ctrl_time += delta
+	else:
+		ctrl_time = 0
+	if ctrl_time > ctrl_target:
+		ctrl_time = 0
+		restart_level()
+
+
+func restart_level() -> void:
+	enter_level(level_index)
+
+func next_level() -> void:
+	if level_index+1 >= len(levels):
+		return # TODO return to title
+	enter_level(level_index + 1)
+
+func enter_level(index: int) -> void:
+	player.reset()
+	if level != null:
+		level.queue_free()
+	
+	level = levels[index].instantiate()
+	$World/Level.add_child(level)
+	level_index = index

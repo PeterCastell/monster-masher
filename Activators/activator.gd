@@ -11,13 +11,3 @@ var is_on : bool = false
 
 func activate() -> void:
 	print("abstract")
-
-func reset():
-	print("RESET called")
-	# bad code
-	var real_duration = duration
-	duration = 0
-	is_on = !starting_state
-	print("activate calling with ", is_on)
-	activate()
-	duration = real_duration

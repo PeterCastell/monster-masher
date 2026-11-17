@@ -19,12 +19,8 @@ func activate() -> void:
 		
 	else: 
 		tween.tween_property($AnimatableBody2D, "position", start_point ,duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-		
-	emit_signal("pushed", is_on, duration)
-		
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	reset()
+	
+	pushed.emit(is_on, duration)
 
 
 

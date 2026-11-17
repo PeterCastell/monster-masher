@@ -4,7 +4,7 @@ extends Activator
 
 signal flipped (is_on: bool, dur: float)
 
-@onready var interactable: Area2D = $Interactable
+@onready var interactable: Interactable = $Interactable
 
 func activate() -> void:
 	is_on = !is_on
@@ -22,5 +22,4 @@ func activate() -> void:
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	interactable.interact = activate
-	reset()
+	interactable.interacted.connect(activate)

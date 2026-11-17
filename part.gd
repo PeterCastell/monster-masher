@@ -4,7 +4,7 @@ class_name Part
 const HELD_ITEM_GUI = preload("uid://dg485oyxsde6g")
 
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var interactable: Area2D = $Interactable
+@onready var interactable: Interactable = $Interactable
 
 var icon : Held_Item_Gui = null
 
@@ -15,7 +15,7 @@ var is_alive : bool = true
 
 
 func _ready() -> void:
-	interactable.interact = pick_up
+	interactable.interacted.connect(pick_up)
 	interactable.interact_group = "PART"
 
 func _physics_process(delta: float) -> void:
@@ -41,17 +41,16 @@ func disable_ability() -> void:
 	print("abstract function")
 
 func drop_from_player(pos: Vector2):
+	Game.instance.world.parts.add_child(self)
 	Game.instance.player.held_part = null
 	global_position = pos
 	used = false
 	disable_ability()
-	interactable.is_interactable = true
 	icon.queue_free()
 	
 func pick_up():
-	# i want to keep the reference for the graves resetting
-	global_position = Game.instance.world.offScreenParts.global_position
 	used = true
+	get_parent().remove_child(self)
 	if (Game.instance.player.held_part != null):
 		Game.instance.player.drop_item()
 		
@@ -60,10 +59,9 @@ func pick_up():
 	icon.set_icon(sprite.texture)
 	give_ability()
 	Game.instance.player.held_part = self
-	interactable.is_interactable = false
 	
 	#queue_free()
 
 func kill():
-	global_position = Game.instance.world.offScreenParts.global_position
+	queue_free()
 	Game.instance.bottom_ui_hint.text = "Hold CTRL to reset"

@@ -1,0 +1,24 @@
+[gd_scene format=4 uid="uid://bxfh3r80gk2dp"]
+
+[ext_resource type="Script" uid="uid://hm7tbmj7wyuv" path="res://level/level.gd" id="1_khtho"]
+[ext_resource type="PackedScene" uid="uid://b0ips500up8u4" path="res://level/level_tilemap.tscn" id="2_vv0je"]
+[ext_resource type="PackedScene" uid="uid://c2o1whvxgeof2" path="res://PartSpawnPoint/part_spawn_point.tscn" id="3_we0m4"]
+[ext_resource type="PackedScene" uid="uid://dky20xm2e4b1m" path="res://PlayerSpawnPoint/player_spawn_point.tscn" id="4_ddgu5"]
+[ext_resource type="PackedScene" uid="uid://d1pog1i3vl12w" path="res://PlayerExitPoint/player_exit.tscn" id="5_juxix"]
+
+[node name="Level1" type="Node2D" unique_id=2123833430 node_paths=PackedStringArray("spawn", "exit")]
+script = ExtResource("1_khtho")
+spawn = NodePath("PlayerSpawnPoint")
+exit = NodePath("PlayerExit")
+
+[node name="LevelTilemap" parent="." unique_id=724246898 instance=ExtResource("2_vv0je")]
+tile_map_data = PackedByteArray("AAADAAEAAAAMABoAAAACAAEAAAAMABoAAAABAAEAAAAMABoAAAAAAAEAAAAMABoAAAD8/wEAAAAMABoAAAD9/wEAAAAMABoAAAD+/wEAAAAMABoAAAD//wEAAAAMABoAAAAGAP//AAAMABoAAAAHAP//AAAeACcAAAD+//7/AAAeACcAAAD///7/AAAeACcAAAAAAP7/AAAeACcAAAAEAAEAAAAMABoAAAAFAAEAAAAMABoAAAAGAAEAAAAMABoAAAAGAAAAAAAeACcAAAAHAAAAAAAeACcAAAAHAAEAAAAMABoAAAAIAAAAAAAeACcAAAAJAAAAAAAeACcAAAAJAAEAAAAMABoAAAAIAAEAAAAMABoAAAAIAP//AAAeACcAAAAJAP//AAAeACcAAAD7//3/AAACAAAAAAD7//7/AAACAAAAAAD7////AAACAAAAAAD7/wAAAAACAAAAAAD7/wEAAAAMABoAAAAGAPr/AAAMABoAAAD7//f/AAACAAAAAAD7//j/AAACAAAAAAD7//n/AAACAAAAAAD7//r/AAACAAAAAAD7//v/AAACAAAAAAD7//z/AAACAAAAAAD8//7/AAAeACcAAAD8////AAAeACcAAAD8/wAAAAAeACcAAAD9//7/AAAeACcAAAD9////AAAeACcAAAD9/wAAAAAeACcAAAD+////AAAeACcAAAD+/wAAAAAeACcAAAD/////AAAeACcAAAD//wAAAAAeACcAAAAAAP//AAAeACcAAAAAAAAAAAAeACcAAAABAP7/AAAeACcAAAABAP//AAAeACcAAAABAAAAAAAeACcAAAACAP7/AAAeACcAAAACAP//AAAeACcAAAACAAAAAAAeACcAAAADAP7/AAAeACcAAAADAP//AAAeACcAAAADAAAAAAAeACcAAAAEAP7/AAAeACcAAAAEAP//AAAeACcAAAAEAAAAAAAeACcAAAAFAP7/AAAeACcAAAAFAP//AAAeACcAAAAFAAAAAAAeACcAAAAGAPv/AAAMABoAAAAGAPz/AAAMABoAAAAGAP3/AAAMABoAAAAGAP7/AAAMABoAAAAHAP7/AAAeACcAAAAIAP7/AAAeACcAAAAJAP7/AAAMABoAAAAKAP7/AAAMABoAAAAKAP//AAAeACcAAAAKAAAAAAAeACcAAAAKAAEAAAAMABoAAAALAP7/AAAMABoAAAALAP//AAAeACcAAAALAAAAAAAeACcAAAALAAEAAAAMABoAAAAMAPf/AAACAAAAAAAMAPj/AAACAAAAAAAMAPn/AAACAAAAAAAMAPr/AAACAAAAAAAMAPv/AAACAAAAAAAMAPz/AAACAAAAAAAMAP3/AAACAAAAAAAMAP7/AAACAAAAAAAMAP//AAACAAAAAAAMAAAAAAACAAAAAAAMAAEAAAAMABoAAAA=")
+
+[node name="PartSpawnPoint" parent="." unique_id=146965731 instance=ExtResource("3_we0m4")]
+position = Vector2(260, 16)
+
+[node name="PlayerSpawnPoint" parent="." unique_id=1087440668 instance=ExtResource("4_ddgu5")]
+position = Vector2(-37, 15)
+
+[node name="PlayerExit" parent="." unique_id=1897218805 instance=ExtResource("5_juxix")]
+position = Vector2(669, -258)

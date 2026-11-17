@@ -1,4 +1,5 @@
 extends Area2D
+class_name Interactable
 # https://www.youtube.com/watch?v=pQINWFKc9_k
 
 @export var interact_name : String = ""
@@ -6,5 +7,4 @@ extends Area2D
 
 @export var is_interactable : bool = true
 
-var interact: Callable = func():
-	pass
+signal interacted
