@@ -37,17 +37,17 @@ shader_parameter/eye_color1 = Color(1, 1, 1, 1)
 shader_parameter/eye_color2 = Color(0.5294118, 0.627451, 0.68235296, 1)
 shader_parameter/closed_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1dw6"]
 atlas = ExtResource("2_g1dw6")
-region = Rect2(192, 192, 64, 64)
+region = Rect2(256, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjkh3"]
 atlas = ExtResource("2_g1dw6")
 region = Rect2(128, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
 atlas = ExtResource("2_g1dw6")
-region = Rect2(256, 192, 64, 64)
+region = Rect2(320, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
 atlas = ExtResource("2_g1dw6")
@@ -129,7 +129,7 @@ region = Rect2(0, 128, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yw30f")
+"texture": SubResource("AtlasTexture_g1dw6")
 }],
 "loop": 1,
 "name": &"claws_slide",
@@ -145,7 +145,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g6k8r")
+"texture": SubResource("AtlasTexture_yw30f")
 }],
 "loop": 1,
 "name": &"dash",
@@ -251,7 +251,7 @@ script = ExtResource("1_rkbax")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860374097]
 material = SubResource("ShaderMaterial_g1dw6")
 sprite_frames = SubResource("SpriteFrames_uagv5")
-animation = &"flutter"
+animation = &"claws_slide"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676142568]

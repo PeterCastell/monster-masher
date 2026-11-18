@@ -51,6 +51,7 @@ func drop_item():
 		held_part.drop_from_player($SpawnPartLocation.global_position)
 
 func reset():
+	velocity = Vector2.ZERO
 	if held_part != null:
 		var temp = held_part
 		held_part.drop_from_player(Vector2.ZERO)
