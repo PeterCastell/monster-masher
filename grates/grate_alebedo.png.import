@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvh4ugh5kcddw"
-path="res://.godot/imported/grate_albedo.png-41cac930afaddb0c6beaab8fa2914edb.ctex"
+uid="uid://m2xy80cya7j3"
+path="res://.godot/imported/grate_alebedo.png-66c4befddb37fe95b7d967fb0287713d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grates/grate_albedo.png"
-dest_files=["res://.godot/imported/grate_albedo.png-41cac930afaddb0c6beaab8fa2914edb.ctex"]
+source_file="res://grates/grate_alebedo.png"
+dest_files=["res://.godot/imported/grate_alebedo.png-66c4befddb37fe95b7d967fb0287713d.ctex"]
 
 [params]
 
