@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dsrv6n7xymryk" path="res://Spike/spike.png" id="2_dohfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
-size = Vector2(192, 57.03031)
+size = Vector2(182, 42.42426)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flmph"]
-size = Vector2(187, 54)
+size = Vector2(176, 54)
 
 [node name="Spike" type="StaticBody2D" unique_id=1438937012]
 script = ExtResource("1_dohfi")
@@ -18,12 +18,12 @@ scale = Vector2(1, 1.3199995)
 collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=128650561]
-position = Vector2(0, -8.060602)
+position = Vector2(1, -0.757576)
 shape = SubResource("RectangleShape2D_5lrfx")
 debug_color = Color(0.97977465, 0, 0.38915017, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201258018]
-position = Vector2(97.5, -27)
+position = Vector2(97, -27)
 shape = SubResource("RectangleShape2D_flmph")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1163332271]
