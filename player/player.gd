@@ -3,9 +3,9 @@ class_name Player
 
 var held_part : Part = null
 
-const gravity = 1000
-const jump_speed = 400
-const max_speed = 450
+const gravity = 1300
+const jump_speed = 650
+const max_speed = 500
 const ground_accel_hl = 0.2
 const air_accel_hl = 0.5
 const air_friction_hl = 1
@@ -63,14 +63,6 @@ func spawn_part_from_player():
 	pass
 	
 func _physics_process(delta: float) -> void:
-	move_and_slide()
-	
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider is Enemy and PI - collision.get_angle() < PI/4:
-			collider.die()
-	
 	
 	if((held_part != null) and is_on_floor() and Input.is_action_pressed("drop_item")):
 		drop_item()

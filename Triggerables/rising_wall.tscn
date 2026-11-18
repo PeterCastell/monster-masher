@@ -14,7 +14,7 @@ script = ExtResource("1_oigfv")
 collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=831543831]
-scale = Vector2(1, 2.5585938)
+scale = Vector2(1, 2.5625)
 texture = ExtResource("2_3pbe4")
 centered = false
 

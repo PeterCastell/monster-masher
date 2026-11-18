@@ -59,6 +59,8 @@ func next_level() -> void:
 func enter_level(index: int) -> void:
 	bottom_ui_hint.text = ""
 	player.reset()
+	for item in world.parts.get_children():
+		item.queue_free()
 	if level != null:
 		level.queue_free()
 	
