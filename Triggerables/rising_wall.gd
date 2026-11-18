@@ -3,7 +3,13 @@ extends Triggerable
 
 @export var duration_override : int = -1
 @export var does_ease : bool = true
-@export var normally_open: bool = false
+@export var normally_open: bool = false:
+	get: return normally_open
+	set(v):
+		normally_open = v
+		(func():
+			$AnimatableBody2D.position = Vector2.UP * length * 64 if !normally_open else Vector2.ZERO
+		).call_deferred()
 
 @export_range(2, 99, 1) var length: int:
 	get: return length
@@ -13,6 +19,8 @@ extends Triggerable
 			$AnimatableBody2D/NinePatchRect.size.y = length * 64
 			($AnimatableBody2D/CollisionShape2D.shape as RectangleShape2D).size.y = v * 64
 			$AnimatableBody2D/CollisionShape2D.position.y = v * 32
+			if !normally_open:
+				$AnimatableBody2D.position = Vector2.UP * length * 64
 		).call_deferred()
 @export_range(2, 5, 1) var width: int:
 	get: return width
