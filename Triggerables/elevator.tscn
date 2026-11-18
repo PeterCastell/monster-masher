@@ -1,20 +1,16 @@
 [gd_scene format=3 uid="uid://kor34gar3d1w"]
 
-[ext_resource type="Script" uid="uid://cdeemaqhu3m2k" path="res://Triggerables/rising_wall.gd" id="1_wt8u6"]
+[ext_resource type="Script" uid="uid://bvqa76ynltjp8" path="res://Triggerables/elevator.gd" id="1_r3pxe"]
 [ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_o4ge6"]
 [ext_resource type="Texture2D" uid="uid://dj0pf2fe147c6" path="res://Triggerables/elevator.png" id="2_ys68l"]
 [ext_resource type="Texture2D" uid="uid://4hjm51ml8a6s" path="res://Triggerables/chains.png" id="4_vd8pa"]
-[ext_resource type="Texture2D" uid="uid://c1om2kfmhgns3" path="res://Activators/monsterButton.png" id="5_r3pxe"]
+[ext_resource type="PackedScene" uid="uid://cd3ahk3klf3tx" path="res://Icon/icon.tscn" id="5_r3pxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
 size = Vector2(256, 31.125)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5lrfx"]
-atlas = ExtResource("5_r3pxe")
-region = Rect2(155, 11, 10, 10)
-
 [node name="elevator" type="Node2D" unique_id=717193406]
-script = ExtResource("1_wt8u6")
+script = ExtResource("1_r3pxe")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=213036135]
 
@@ -53,6 +49,5 @@ debug_color = Color(0.798942, 0.37423036, 0.5193092, 0.41960785)
 position = Vector2(0, -95)
 texture = ExtResource("4_vd8pa")
 
-[node name="Symbol" type="Sprite2D" parent="AnimatableBody2D" unique_id=1324350776]
+[node name="Icon" parent="AnimatableBody2D" unique_id=1022362824 instance=ExtResource("5_r3pxe")]
 position = Vector2(0, -170)
-texture = SubResource("AtlasTexture_5lrfx")
