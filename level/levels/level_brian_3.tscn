@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dwb87kh6j7oae"]
+
+[ext_resource type="Script" uid="uid://hm7tbmj7wyuv" path="res://level/level.gd" id="1_j0j8f"]
+[ext_resource type="PackedScene" uid="uid://b0ips500up8u4" path="res://level/level_tilemap.tscn" id="2_lnvem"]
+[ext_resource type="PackedScene" uid="uid://dky20xm2e4b1m" path="res://PlayerSpawnPoint/player_spawn_point.tscn" id="3_wdedg"]
+[ext_resource type="PackedScene" uid="uid://c2o1whvxgeof2" path="res://PartSpawnPoint/part_spawn_point.tscn" id="4_k2fkb"]
+[ext_resource type="PackedScene" uid="uid://d1pog1i3vl12w" path="res://PlayerExitPoint/player_exit.tscn" id="5_2unnl"]
+[ext_resource type="PackedScene" uid="uid://dj42i5esxuehp" path="res://Activators/buttonPart.tscn" id="6_s2wpk"]
+[ext_resource type="PackedScene" uid="uid://b7wqnunvq53q" path="res://Triggerables/rising_wall.tscn" id="7_ld24m"]
+[ext_resource type="PackedScene" uid="uid://bkfkekb2y2kpe" path="res://grates/grate.tscn" id="8_2gluj"]
+
+[node name="LevelBrian3" type="Node2D" unique_id=862776646 node_paths=PackedStringArray("spawn", "exit")]
+script = ExtResource("1_j0j8f")
+spawn = NodePath("PlayerSpawnPoint")
+exit = NodePath("PlayerExit")
+
+[node name="LevelTilemap" parent="." unique_id=724246898 instance=ExtResource("2_lnvem")]
+
+[node name="PlayerSpawnPoint" parent="." unique_id=1087440668 instance=ExtResource("3_wdedg")]
+position = Vector2(-471, 0)
+
+[node name="PartSpawnPoint" parent="PlayerSpawnPoint" unique_id=146965731 instance=ExtResource("4_k2fkb")]
+position = Vector2(296, -38)
+
+[node name="PlayerExit" parent="." unique_id=1897218805 instance=ExtResource("5_2unnl")]
+position = Vector2(-837, -338)
+
+[node name="ButtonPart" parent="." unique_id=1203900194 instance=ExtResource("6_s2wpk")]
+position = Vector2(-320, 0)
+
+[node name="RisingWall" parent="." unique_id=705945485 instance=ExtResource("7_ld24m")]
+position = Vector2(-512, -448)
+rotation = 3.1415927
+length = 3
+
+[node name="Grate" parent="." unique_id=162422700 instance=ExtResource("8_2gluj")]
+position = Vector2(-512, -256)
+size = 5
+
+[connection signal="pushed" from="ButtonPart" to="RisingWall" method="rise"]
