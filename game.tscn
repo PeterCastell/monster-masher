@@ -28,9 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://4s0nk2droxn4" path="res://Assets/button.png" id="19_f1jbl"]
 [ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="20_vaj68"]
 [ext_resource type="Script" uid="uid://dyb7wtjdnft7e" path="res://music.gd" id="23_vaj68"]
-[ext_resource type="AudioStream" uid="uid://w0webxmvr8l5" path="res://Assets/Audio/Intro_Piano_Scary_Castle.wav" id="25_vaj68"]
 [ext_resource type="AudioStream" uid="uid://oo75n2bhj3p5" path="res://Assets/Audio/thunderClap.mp3" id="26_5b14r"]
 [ext_resource type="AudioStream" uid="uid://uyxm6axdb2yp" path="res://Assets/Scary_Castle_Looped.wav" id="29_xfvwf"]
+[ext_resource type="AudioStream" uid="uid://bccpvqfuuippa" path="res://Assets/Scary_Castle_Menu_Loop.wav" id="31_xfvwf"]
 
 [sub_resource type="Animation" id="Animation_j5wjh"]
 length = 0.001
@@ -2838,7 +2838,7 @@ volume_db = -15.0
 stream = ExtResource("26_5b14r")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="Music" unique_id=1056067429]
-stream = ExtResource("25_vaj68")
+stream = ExtResource("31_xfvwf")
 
 [connection signal="pressed" from="UI/Canvas/MainMenu/VBoxContainer/Play" to="UI/Canvas" method="_on_play_button_pressed"]
 [connection signal="pressed" from="UI/Canvas/MainMenu/VBoxContainer/Play" to="Music" method="_on_button_pressed"]
