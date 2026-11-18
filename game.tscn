@@ -2446,7 +2446,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("9_vaj68"), ExtResource("8_f1jbl"), ExtResource("12_5b14r"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("7_vaj68"), ExtResource("6_f1jbl"), ExtResource("5_qhcbd")])
+levels = Array[PackedScene]([ExtResource("9_vaj68"), ExtResource("5_qhcbd"), ExtResource("8_f1jbl"), ExtResource("12_5b14r"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("6_f1jbl"), ExtResource("7_vaj68")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
@@ -2815,32 +2815,6 @@ metadata/_edit_lock_ = true
 
 [node name="FadeAnimator" type="AnimationPlayer" parent="UI/Canvas" unique_id=1517131298]
 libraries/ = SubResource("AnimationLibrary_36jdj")
-
-[node name="LevelSelect" type="ColorRect" parent="UI/Canvas" unique_id=1604199907]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -387.0
-offset_top = -241.5
-offset_right = 387.0
-offset_bottom = 241.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0351, 0.061634988, 0.09, 0.8745098)
-
-[node name="Button" type="Button" parent="UI/Canvas/LevelSelect" unique_id=1571187927]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 37.5
-grow_horizontal = 0
-text = "x
-"
 
 [node name="AmandasMarker" type="Marker2D" parent="." unique_id=347590872]
 
