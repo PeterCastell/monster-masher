@@ -23,3 +23,4 @@ func activate() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interactable.interacted.connect(activate)
+	interactable.interact_group = "LEVER"

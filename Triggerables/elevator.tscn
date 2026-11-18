@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_o4ge6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
-size = Vector2(236.25, 52.5)
+size = Vector2(236.25, 52.25)
 
 [node name="elevator" type="Node2D" unique_id=717193406]
 script = ExtResource("1_wt8u6")
@@ -12,7 +12,7 @@ script = ExtResource("1_wt8u6")
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=213036135]
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=831543831]
-position = Vector2(-115.99999, 1)
+position = Vector2(-116, 0)
 scale = Vector2(1.8359375, 0.421875)
 texture = ExtResource("2_o4ge6")
 centered = false
@@ -32,6 +32,6 @@ texture = ExtResource("2_o4ge6")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=525258301]
-position = Vector2(0, 27)
+position = Vector2(0, 26.125)
 shape = SubResource("RectangleShape2D_5lrfx")
 debug_color = Color(0.798942, 0.37423036, 0.5193092, 0.41960785)

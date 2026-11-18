@@ -6,10 +6,15 @@
 [ext_resource type="Script" uid="uid://u23t3bhkkv5h" path="res://world.gd" id="2_vef74"]
 [ext_resource type="PackedScene" uid="uid://coow1va1buh2r" path="res://Part/broom/broom.tscn" id="4_xex6t"]
 [ext_resource type="PackedScene" uid="uid://bm5vvxaeo3lq5" path="res://Part/claws/claws.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://b7sscnndalysk" path="res://level/LEvel6/level_6.tscn" id="5_i2p71"]
 [ext_resource type="PackedScene" uid="uid://bxfh3r80gk2dp" path="res://level/level1/level_1.tscn" id="5_qhcbd"]
+[ext_resource type="PackedScene" uid="uid://dk01ddfqjvkw5" path="res://level/level7/level_7.tscn" id="5_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://bw0skd8dla8k8" path="res://level/level2/level_2.tscn" id="6_f1jbl"]
 [ext_resource type="Script" uid="uid://b4gjgt2m8vb8n" path="res://canvas.gd" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://cesoqag6n3mo7" path="res://level/level3/level_3.tscn" id="7_vaj68"]
+[ext_resource type="PackedScene" uid="uid://bbfmnlgo0yirv" path="res://level/WallJumpHell/level_4.tscn" id="8_f1jbl"]
+[ext_resource type="PackedScene" uid="uid://df6spyix7w3ot" path="res://level/TheSwap/level_5.tscn" id="9_vaj68"]
+[ext_resource type="PackedScene" uid="uid://dlgdh1qi6x7ul" path="res://level/run/run.tscn" id="12_5b14r"]
 [ext_resource type="Texture2D" uid="uid://bxid48k3fed5b" path="res://Assets/refresh-icon-design-vector.jpg" id="13_5b14r"]
 [ext_resource type="Shader" uid="uid://dq10lsjhdovi0" path="res://fogShader.gdshader" id="15_e8heu"]
 [ext_resource type="Shader" uid="uid://cjoxnpdaq7gp2" path="res://lightning.gdshader" id="15_e36ub"]
@@ -20,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://4s0nk2droxn4" path="res://Assets/button.png" id="19_f1jbl"]
 [ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="20_vaj68"]
 [ext_resource type="Script" uid="uid://dyb7wtjdnft7e" path="res://music.gd" id="23_vaj68"]
-[ext_resource type="AudioStream" uid="uid://cbkyx7egqehaw" path="res://Assets/Audio/pno_scary_castle.mp3" id="24_i2p71"]
+[ext_resource type="AudioStream" uid="uid://w0webxmvr8l5" path="res://Assets/Audio/Intro_Piano_Scary_Castle.wav" id="25_vaj68"]
 [ext_resource type="AudioStream" uid="uid://cwp85qhl5ywt2" path="res://Assets/Audio/scary_castle.mp3" id="25_xa8c5"]
 [ext_resource type="AudioStream" uid="uid://oo75n2bhj3p5" path="res://Assets/Audio/thunderClap.mp3" id="26_5b14r"]
 
@@ -2441,7 +2446,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("5_qhcbd"), ExtResource("6_f1jbl"), ExtResource("7_vaj68")])
+levels = Array[PackedScene]([ExtResource("12_5b14r"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("9_vaj68"), ExtResource("5_qhcbd"), ExtResource("6_f1jbl"), ExtResource("7_vaj68"), ExtResource("8_f1jbl")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
@@ -2550,9 +2555,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -400.0
-offset_top = -254.0
+offset_top = -277.0
 offset_right = 423.00146
-offset_bottom = 39.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -2570,17 +2575,39 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -295.0
-offset_top = -16.0
-offset_right = 310.0
-offset_bottom = 64.0
+offset_left = -353.0
+offset_top = -30.0
+offset_right = 252.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
 theme_override_fonts/normal_font = ExtResource("18_hb5m1")
-theme_override_font_sizes/normal_font_size = 50
-text = "By Alissya, Amanda, J, Peter"
-horizontal_alignment = 1
+theme_override_font_sizes/normal_font_size = 55
+text = "cyanAlmonds (Alissya)
+Okapi (Amanda) "
+vertical_alignment = 1
+
+[node name="Credits2" type="RichTextLabel" parent="UI/Canvas/MainMenu" unique_id=423442344]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 58.0
+offset_top = -29.0
+offset_right = 663.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/normal_font = ExtResource("18_hb5m1")
+theme_override_font_sizes/normal_font_size = 55
+text = "Just_Jay (Jay)
+King_Awesome (Peter) "
 vertical_alignment = 1
 
 [node name="StartLightning" type="ColorRect" parent="UI/Canvas/MainMenu" unique_id=1146001665]
@@ -2693,18 +2720,11 @@ metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Canvas/MainMenu" unique_id=1133297720]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = 70.0
-offset_right = 32.0
-offset_bottom = 126.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
+offset_left = 487.00003
+offset_top = 394.00003
+offset_right = 551.0
+offset_bottom = 450.00003
+scale = Vector2(2.2846515, 2.5599988)
 alignment = 1
 
 [node name="Play" type="TextureButton" parent="UI/Canvas/MainMenu/VBoxContainer" unique_id=833158980]
@@ -2785,6 +2805,8 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -2804,7 +2826,7 @@ stream = ExtResource("25_xa8c5")
 stream = ExtResource("26_5b14r")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="Music" unique_id=1056067429]
-stream = ExtResource("24_i2p71")
+stream = ExtResource("25_vaj68")
 
 [connection signal="pressed" from="UI/Canvas/MainMenu/VBoxContainer/Play" to="UI/Canvas" method="_on_play_button_pressed"]
 [connection signal="pressed" from="UI/Canvas/MainMenu/VBoxContainer/Play" to="Music" method="_on_button_pressed"]

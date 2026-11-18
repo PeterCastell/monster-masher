@@ -49,6 +49,7 @@ func _process(delta):
 
 func restart_level() -> void:
 	enter_level(level_index)
+	bottom_ui_hint.text = ""
 
 func next_level() -> void:
 	if level_index+1 >= len(levels):
@@ -56,6 +57,7 @@ func next_level() -> void:
 	enter_level(level_index + 1)
 
 func enter_level(index: int) -> void:
+	bottom_ui_hint.text = ""
 	player.reset()
 	if level != null:
 		level.queue_free()

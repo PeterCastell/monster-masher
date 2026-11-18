@@ -1,0 +1,108 @@
+[gd_scene format=4 uid="uid://dk01ddfqjvkw5"]
+
+[ext_resource type="Script" uid="uid://hm7tbmj7wyuv" path="res://level/level.gd" id="1_lubfk"]
+[ext_resource type="PackedScene" uid="uid://b0ips500up8u4" path="res://level/level_tilemap.tscn" id="2_ee2co"]
+[ext_resource type="PackedScene" uid="uid://c2o1whvxgeof2" path="res://PartSpawnPoint/part_spawn_point.tscn" id="3_ur877"]
+[ext_resource type="PackedScene" uid="uid://dky20xm2e4b1m" path="res://PlayerSpawnPoint/player_spawn_point.tscn" id="4_eweex"]
+[ext_resource type="PackedScene" uid="uid://d1pog1i3vl12w" path="res://PlayerExitPoint/player_exit.tscn" id="5_0dhek"]
+[ext_resource type="PackedScene" uid="uid://dj42i5esxuehp" path="res://Activators/buttonPart.tscn" id="6_4u2kg"]
+[ext_resource type="PackedScene" uid="uid://b7wqnunvq53q" path="res://Triggerables/rising_wall.tscn" id="7_nh0xb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1x62"]
+resource_local_to_scene = true
+size = Vector2(128.5, 329)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u2kg"]
+resource_local_to_scene = true
+size = Vector2(126.1949, 345.0304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh0xb"]
+resource_local_to_scene = true
+size = Vector2(126.1949, 345.0304)
+
+[node name="Level1" type="Node2D" unique_id=2123833430 node_paths=PackedStringArray("spawn", "exit")]
+script = ExtResource("1_lubfk")
+spawn = NodePath("PlayerSpawnPoint")
+exit = NodePath("PlayerExit")
+
+[node name="LevelTilemap" parent="." unique_id=724246898 instance=ExtResource("2_ee2co")]
+tile_map_data = PackedByteArray("AAACAAEAAAAMABoAAAABAAEAAAAMABoAAAAAAAEAAAAMABoAAAD8/wEAAAAMABoAAAD9/wEAAAAMABoAAAD+/wEAAAAMABoAAAD//wEAAAAMABoAAAAHAP//AAAeACcAAAD+//7/AAAeACcAAAD///7/AAAeACcAAAAAAP7/AAAeACcAAAAGAAAAAAAeACcAAAAHAAAAAAAeACcAAAAIAAAAAAAeACcAAAAJAAAAAAAeACcAAAAIAP//AAAeACcAAAAJAP//AAAeACcAAAD7/wEAAAAMABoAAAD8//7/AAAeACcAAAD8////AAAeACcAAAD8/wAAAAAeACcAAAD9//7/AAAeACcAAAD9////AAAeACcAAAD9/wAAAAAeACcAAAD+////AAAeACcAAAD+/wAAAAAeACcAAAD/////AAAeACcAAAD//wAAAAAeACcAAAAAAP//AAAeACcAAAAAAAAAAAAeACcAAAABAP7/AAAeACcAAAABAP//AAAeACcAAAABAAAAAAAeACcAAAACAP7/AAAeACcAAAACAP//AAAeACcAAAACAAAAAAAeACcAAAADAP7/AAAeACcAAAADAP//AAAeACcAAAADAAAAAAAeACcAAAAEAP7/AAAeACcAAAAEAP//AAAeACcAAAAEAAAAAAAeACcAAAAFAP7/AAAeACcAAAAFAP//AAAeACcAAAAFAAAAAAAeACcAAAAHAP7/AAAeACcAAAAIAP7/AAAeACcAAAAKAP//AAAeACcAAAAKAAAAAAAeACcAAAALAP//AAAeACcAAAALAAAAAAAeACcAAAALAAEAAAAMABoAAAAMAAEAAAAMABoAAAANAAEAAAAMABoAAAAOAAEAAAAMABoAAAAOAAAAAAAMABoAAAAOAP//AAAMABoAAAAOAP7/AAAMABoAAAAOAP3/AAAMABoAAAAOAPz/AAAMABoAAAAOAPv/AAAMABoAAAAOAPr/AAAMABoAAAAOAPn/AAAMABoAAAAOAPj/AAAMABoAAAAOAPf/AAAMABoAAAD6/wEAAAAMABoAAAD5/wEAAAAMABoAAAD4/wEAAAAMABoAAAD3/wEAAAAMABoAAAD3/wAAAAAMABoAAAD3////AAAMABoAAAD3//7/AAAMABoAAAD3//3/AAAMABoAAAD3//n/AAAMABoAAAD3//j/AAAMABoAAAD3//f/AAAMABoAAAD3//b/AAAMABoAAAAOAPb/AAAMABoAAAD4//3/AAAMABoAAAD5//3/AAAMABoAAAD6//3/AAAMABoAAAD7//3/AAAMABoAAAD8//3/AAAMABoAAAD9//3/AAAMABoAAAD+//3/AAAMABoAAAD///3/AAAMABoAAAAAAP3/AAAMABoAAAABAP3/AAAMABoAAAD///n/AAAMABoAAAAAAPn/AAAMABoAAAABAPn/AAAMABoAAAACAPn/AAAMABoAAAADAPn/AAAMABoAAAAEAPn/AAAMABoAAAAFAPn/AAAMABoAAAAGAPn/AAAMABoAAAAHAPn/AAAMABoAAAAIAPn/AAAMABoAAAAJAPn/AAAMABoAAAAKAPn/AAAMABoAAAALAPn/AAAMABoAAAAMAPn/AAAMABoAAAANAPn/AAAMABoAAAD3//X/AAAMABoAAAD4//X/AAAMABoAAAD5//X/AAAMABoAAAD6//X/AAAMABoAAAD7//X/AAAMABoAAAD8//X/AAAMABoAAAD///X/AAAMABoAAAAOAPX/AAAMABoAAAAOAPT/AAAMABoAAAAOAPP/AAAMABoAAAAOAPL/AAAMABoAAAAOAPH/AAAMABoAAAANAPH/AAAMABoAAAAMAPH/AAAMABoAAAALAPH/AAAMABoAAAAKAPH/AAAMABoAAAAJAPH/AAAMABoAAAAIAPH/AAAMABoAAAAHAPH/AAAMABoAAAAGAPH/AAAMABoAAAAFAPH/AAAMABoAAAAEAPH/AAAMABoAAAADAPH/AAAMABoAAAACAPH/AAAMABoAAAABAPH/AAAMABoAAAAAAPH/AAAMABoAAAD///H/AAAMABoAAAD+//H/AAAMABoAAAD9//H/AAAMABoAAAD8//H/AAAMABoAAAD7//H/AAAMABoAAAD6//H/AAAMABoAAAD5//H/AAAMABoAAAD4//H/AAAMABoAAAD3//H/AAAMABoAAAD3//L/AAAMABoAAAD3//P/AAAMABoAAAD3//T/AAAMABoAAAD///j/AAAMABoAAAD///f/AAAMABoAAAD///b/AAAMABoAAAD8//n/AAAMABoAAAD8//j/AAAMABoAAAD8//f/AAAMABoAAAD8//b/AAAMABoAAAD7//n/AAAMABoAAAD7//j/AAAMABoAAAD7//f/AAAMABoAAAD7//b/AAAMABoAAAD6//b/AAAMABoAAAD5//b/AAAMABoAAAD4//b/AAAMABoAAAD4//f/AAAMABoAAAD4//j/AAAMABoAAAD4//n/AAAMABoAAAD5//n/AAAMABoAAAD5//j/AAAMABoAAAD5//f/AAAMABoAAAD6//f/AAAMABoAAAD6//j/AAAMABoAAAD6//n/AAAMABoAAAAMAP//AAAMABoAAAAKAP3/AAAMABoAAAAJAP3/AAAMABoAAAAIAP3/AAAMABoAAAAKAAEAAAAMABoAAAD9//n/AAAMABoAAAD+//n/AAAMABoAAAD+//j/AAAMABoAAAD9//j/AAAMABoAAAD9//f/AAAMABoAAAD9//b/AAAMABoAAAD+//b/AAAMABoAAAD+//X/AAAMABoAAAD+//f/AAAMABoAAAD9//X/AAAMABoAAAD2//3/AAAMABoAAAD1//3/AAAMABoAAAD0//3/AAAMABoAAADz//3/AAAMABoAAADy//3/AAAMABoAAADx//v/AAAMABoAAADx//r/AAAMABoAAADx//n/AAAMABoAAADw//z/AAAMABoAAADx//z/AAAMABoAAADx//3/AAAMABoAAADy//n/AAAMABoAAADz//n/AAAMABoAAAD0//n/AAAMABoAAAD1//n/AAAMABoAAAD2//n/AAAMABoAAAD2//j/AAAMABoAAAD1//j/AAAMABoAAAD1//f/AAAMABoAAAD0//j/AAAMABoAAADz//j/AAAMABoAAADy//j/AAAMABoAAADx//j/AAAMABoAAADx//f/AAAMABoAAADy//f/AAAMABoAAADz//f/AAAMABoAAAD0//b/AAAMABoAAAD1//b/AAAMABoAAAD2//b/AAAMABoAAAD0//f/AAAMABoAAAD2//f/AAAMABoAAADz//b/AAAMABoAAADy//b/AAAMABoAAADx//b/AAAMABoAAAA=")
+
+[node name="PartSpawnPoint" parent="." unique_id=146965731 instance=ExtResource("3_ur877")]
+position = Vector2(-229, 35)
+part_type = 1
+
+[node name="PartSpawnPoint2" parent="." unique_id=1183363024 instance=ExtResource("3_ur877")]
+position = Vector2(-146, 35)
+part_type = 2
+
+[node name="PartSpawnPoint3" parent="." unique_id=39096015 instance=ExtResource("3_ur877")]
+position = Vector2(-300, 35)
+
+[node name="PlayerSpawnPoint" parent="." unique_id=1087440668 instance=ExtResource("4_eweex")]
+position = Vector2(-463, 66)
+
+[node name="PlayerExit" parent="." unique_id=1897218805 instance=ExtResource("5_0dhek")]
+position = Vector2(-833, -324)
+
+[node name="ButtonPart" parent="." unique_id=1203900194 instance=ExtResource("6_4u2kg")]
+position = Vector2(66, 63)
+scale = Vector2(1, 1)
+
+[node name="ButtonPart2" parent="." unique_id=485578135 instance=ExtResource("6_4u2kg")]
+position = Vector2(0, -199)
+scale = Vector2(1, 1)
+
+[node name="ButtonPart3" parent="." unique_id=800989291 instance=ExtResource("6_4u2kg")]
+position = Vector2(-229, -197)
+scale = Vector2(1, 1)
+
+[node name="RisingWall" parent="." unique_id=705945485 instance=ExtResource("7_nh0xb")]
+position = Vector2(905, -225)
+rotation = -1.5707964
+target = Vector2(0, 0)
+start_point = Vector2(0, -250)
+
+[node name="AnimatableBody2D" parent="RisingWall" index="0" unique_id=1551159104]
+position = Vector2(1.5258789e-05, -250)
+
+[node name="Sprite2D" parent="RisingWall/AnimatableBody2D" index="0" unique_id=831543831]
+position = Vector2(-26.993557, -75.00001)
+scale = Vector2(1.4530747, 2.5585938)
+
+[node name="CollisionShape2D" parent="RisingWall/AnimatableBody2D" index="1" unique_id=525258301]
+position = Vector2(65.44, 90)
+scale = Vector2(1.4530747, 1)
+shape = SubResource("RectangleShape2D_e1x62")
+
+[node name="RisingWall2" parent="." unique_id=1810590775 instance=ExtResource("7_nh0xb")]
+position = Vector2(-461, -389)
+
+[node name="Sprite2D" parent="RisingWall2/AnimatableBody2D" parent_id_path=PackedInt32Array(1810590775, 1551159104) index="0" unique_id=831543831]
+position = Vector2(-41, 0)
+scale = Vector2(1.58485, 1.5498524)
+
+[node name="CollisionShape2D" parent="RisingWall2/AnimatableBody2D" parent_id_path=PackedInt32Array(1810590775, 1551159104) index="1" unique_id=525258301]
+position = Vector2(59, 97.5)
+scale = Vector2(1.5848498, 0.6057438)
+shape = SubResource("RectangleShape2D_4u2kg")
+
+[node name="RisingWall3" parent="." unique_id=1138383613 instance=ExtResource("7_nh0xb")]
+position = Vector2(-667, -388)
+
+[node name="Sprite2D" parent="RisingWall3/AnimatableBody2D" parent_id_path=PackedInt32Array(1138383613, 1551159104) index="0" unique_id=831543831]
+position = Vector2(-41, 0)
+scale = Vector2(1.58485, 1.5498524)
+
+[node name="CollisionShape2D" parent="RisingWall3/AnimatableBody2D" parent_id_path=PackedInt32Array(1138383613, 1551159104) index="1" unique_id=525258301]
+position = Vector2(59, 97.5)
+scale = Vector2(1.5848498, 0.6057438)
+shape = SubResource("RectangleShape2D_nh0xb")
+
+[connection signal="pushed" from="ButtonPart" to="RisingWall" method="rise"]
+[connection signal="pushed" from="ButtonPart2" to="RisingWall2" method="rise"]
+[connection signal="pushed" from="ButtonPart3" to="RisingWall3" method="rise"]
+
+[editable path="RisingWall"]
+[editable path="RisingWall2"]
+[editable path="RisingWall3"]

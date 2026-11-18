@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_5byp8"]
 
 [node name="Button" type="Node2D" unique_id=619135785]
+scale = Vector2(0.5, 0.5)
 
 [node name="ButtonPart" parent="." unique_id=1649173349 instance=ExtResource("1_mfi57")]
+scale = Vector2(0.8541615, 0.7530492)
 
 [node name="BaseSprite" type="Sprite2D" parent="." unique_id=1912039159]
 modulate = Color(0.29, 0.29, 0.29, 1)
-scale = Vector2(2.293351, 0.19178095)
+position = Vector2(64, 0)
+scale = Vector2(1.2991921, 0.03159374)
 texture = ExtResource("2_5byp8")

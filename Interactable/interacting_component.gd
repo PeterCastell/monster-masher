@@ -19,6 +19,7 @@ func _input(event: InputEvent):
 			can_interact = true
 			
 func _process(delta: float) -> void:
+	var change_text = Game.instance.bottom_ui_hint.text != "Hold CTRL to reset"
 	if current_interactions and can_interact:
 		current_interactions.sort_custom(_sort_by_nearest)
 		if current_interactions[0].is_interactable:
@@ -29,12 +30,20 @@ func _process(delta: float) -> void:
 					postfix = " swap"
 				else:
 					postfix = " pick up"
+			if current_interactions[0].interact_group == "LEVER":
+					postfix = " pull"
 			label.text = "E" + postfix
 			label.show() 
+			if (change_text):
+				Game.instance.bottom_ui_hint.text = "Press E to" + postfix
 		else:
 			label.hide()
+			if (change_text):
+				Game.instance.bottom_ui_hint.text = ""
 	else:
 		label.hide()
+		if (change_text):
+				Game.instance.bottom_ui_hint.text = ""
 			
 func _sort_by_nearest(area1, area2):
 	var area1_dist = global_position.distance_to(area1.global_position)
