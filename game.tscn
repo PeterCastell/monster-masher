@@ -2447,7 +2447,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("9_vaj68"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("6_f1jbl"), ExtResource("5_qhcbd")])
+levels = Array[PackedScene]([ExtResource("5_qhcbd"), ExtResource("6_f1jbl"), ExtResource("9_vaj68"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")

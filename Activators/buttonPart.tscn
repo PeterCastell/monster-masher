@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmlotklh0svbw" path="res://Activators/button_part.gd" id="1_pbviu"]
 [ext_resource type="Texture2D" uid="uid://c1om2kfmhgns3" path="res://Activators/monsterButton.png" id="2_pbviu"]
+[ext_resource type="PackedScene" uid="uid://cd3ahk3klf3tx" path="res://Icon/icon.tscn" id="3_6pcco"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we0m4"]
 atlas = ExtResource("2_pbviu")
@@ -15,14 +16,9 @@ size = Vector2(122.07867, 30.038097)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddgu5"]
 atlas = ExtResource("2_pbviu")
-region = Rect2(1, 123, 124, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5lrfx"]
-atlas = ExtResource("2_pbviu")
-region = Rect2(155, 11, 10, 10)
+region = Rect2(1, 123, 127, 23)
 
 [node name="ButtonPart" type="Node2D" unique_id=1203900194]
-scale = Vector2(2, 2)
 script = ExtResource("1_pbviu")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=316419794]
@@ -48,8 +44,7 @@ shape = SubResource("RectangleShape2D_qp288")
 debug_color = Color(0.6039388, 0.532929, 0.2852789, 0.41960785)
 
 [node name="Base" type="Sprite2D" parent="." unique_id=472489708]
-position = Vector2(0, 10.5)
+position = Vector2(0.5, 11.5)
 texture = SubResource("AtlasTexture_ddgu5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Base" unique_id=898745443]
-texture = SubResource("AtlasTexture_5lrfx")
+[node name="Icon" parent="Base" unique_id=1022362824 instance=ExtResource("3_6pcco")]

@@ -1,21 +1,22 @@
 [gd_scene format=3 uid="uid://bkfkekb2y2kpe"]
 
+[ext_resource type="Script" uid="uid://dygforf6wvwil" path="res://grates/grate.gd" id="1_btyw3"]
 [ext_resource type="Texture2D" uid="uid://m2xy80cya7j3" path="res://grates/grate_alebedo.png" id="1_evi4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
-size = Vector2(13.84256, 17.134884)
+size = Vector2(64, 32)
 
 [node name="Grate" type="StaticBody2D" unique_id=162422700]
 collision_layer = 64
 collision_mask = 0
+script = ExtResource("1_btyw3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=809595331]
-position = Vector2(127.50001, 16)
-scale = Vector2(18.42145, 1.8675355)
+position = Vector2(32, 16)
 shape = SubResource("RectangleShape2D_5lrfx")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=296085494]
-offset_right = 256.0
+offset_right = 64.0
 offset_bottom = 32.0
 texture = ExtResource("1_evi4u")
 expand_mode = 1

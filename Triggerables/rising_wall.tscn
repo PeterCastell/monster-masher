@@ -1,34 +1,48 @@
 [gd_scene format=3 uid="uid://b7wqnunvq53q"]
 
 [ext_resource type="Script" uid="uid://cdeemaqhu3m2k" path="res://Triggerables/rising_wall.gd" id="1_oigfv"]
-[ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_3pbe4"]
-[ext_resource type="PackedScene" uid="uid://drnfoq12yh6s5" path="res://look_at_me!!.tscn" id="3_3pbe4"]
+[ext_resource type="Texture2D" uid="uid://cg6pkppyefj7h" path="res://NinePatchTiles.png" id="3_4obpu"]
+[ext_resource type="Texture2D" uid="uid://c4ijir6udcgim" path="res://Triggerables/rising_wall_base.png" id="4_4obpu"]
+[ext_resource type="PackedScene" uid="uid://cd3ahk3klf3tx" path="res://Icon/icon.tscn" id="4_wa602"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
 resource_local_to_scene = true
-size = Vector2(128.5, 329)
+size = Vector2(128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pbe4"]
+atlas = ExtResource("4_4obpu")
+region = Rect2(0, 93, 329, 27)
 
 [node name="RisingWall" type="Node2D" unique_id=705945485]
 script = ExtResource("1_oigfv")
+length = 4
+width = 2
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1551159104]
+position = Vector2(0, 256)
 collision_layer = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=831543831]
-visible = false
-scale = Vector2(1, 2.5625)
-texture = ExtResource("2_3pbe4")
-centered = false
-
-[node name="LookAtMe!!" parent="AnimatableBody2D" unique_id=1414384491 instance=ExtResource("3_3pbe4")]
-offset_bottom = 335.0
+[node name="NinePatchRect" type="NinePatchRect" parent="AnimatableBody2D" unique_id=1414384491]
+z_index = -1
+offset_right = 128.0
+offset_bottom = 256.0
+texture = ExtResource("3_4obpu")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=525258301]
-position = Vector2(64, 165)
+position = Vector2(64, 128)
 shape = SubResource("RectangleShape2D_5lrfx")
 debug_color = Color(0.798942, 0.37423036, 0.5193092, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1005081420]
-position = Vector2(60, -1)
-scale = Vector2(-1.5958076, 0.12978208)
-texture = ExtResource("2_3pbe4")
+[node name="Base" type="Sprite2D" parent="." unique_id=1005081420]
+position = Vector2(64, 5)
+texture = SubResource("AtlasTexture_3pbe4")
+
+[node name="Icon" parent="." unique_id=1022362824 instance=ExtResource("4_wa602")]
+position = Vector2(65, 8)
+index = 0

@@ -1,3 +1,4 @@
+@tool
 extends Activator
 var target : Vector2 = Vector2(0, 26)
 var start_point : Vector2 = Vector2(0, 10.5)
@@ -6,6 +7,14 @@ signal pushed (is_on: bool, duration:float)
 
 @onready var detector: Area2D = $AnimatableBody2D/Detector
 
+@export_range(0, 4, 1) var icon: int = 0:
+	get: return icon
+	set(v):
+		icon = v
+		$Base/Icon.index = icon
+
+
+@export_tool_button("Snap") var snap_btn = func(): position = round(position / 64) * 64
 
 func activate() -> void:
 	is_on = !is_on
@@ -26,6 +35,8 @@ func activate() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint(): return
+	
 	var amount = detector.get_overlapping_bodies().size()
 	if is_on and amount == 0 :
 		activate()
