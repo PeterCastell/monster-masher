@@ -2830,6 +2830,7 @@ script = ExtResource("23_vaj68")
 
 [node name="ScaryCastle" type="AudioStreamPlayer" parent="Music" unique_id=65601101]
 stream = ExtResource("25_xa8c5")
+volume_db = -19.94
 
 [node name="ThunderClap" type="AudioStreamPlayer" parent="Music" unique_id=557502989]
 stream = ExtResource("26_5b14r")
