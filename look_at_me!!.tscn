@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cg6pkppyefj7h" path="res://NinePatchTiles.png" id="1_kxp20"]
 
 [node name="LookAtMe!!" type="NinePatchRect" unique_id=1414384491]
-offset_right = 128.0
-offset_bottom = 128.0
+offset_right = 209.0
+offset_bottom = 212.0
 texture = ExtResource("1_kxp20")
 patch_margin_left = 64
 patch_margin_top = 64

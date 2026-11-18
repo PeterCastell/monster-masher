@@ -36,11 +36,14 @@ var jump_buffer_time: float = 0
 
 #var double_space_time = 0.0
 #const double_space_duration = 0.2
-const dash_speed: float = 900
+const dash_speed: float = 1200
+const dash_speed_floor: float = 1600
+
 var dash_time: float = -1
 var dash_lock_y_time: float = -1
 var dash_lock_y_dur: float = 0.1
-const dash_duration: float = 1.2
+const dash_duration: float = 0.6
+
 
 var animation: String:
 	get: return $AnimatedSprite2D.animation
@@ -102,7 +105,11 @@ func _physics_process(delta: float) -> void:
 	var wall_jump_eligible := left_wall_jump_coyote_time > 0 or right_wall_jump_coyote_time > 0
 	
 	if Input.is_action_just_pressed("dash") and can_dash and dash_time < 0:
-		velocity.x = dash_speed * sign($AnimatedSprite2D.scale.x)
+		if(is_on_floor()):
+			velocity.x = dash_speed_floor * sign($AnimatedSprite2D.scale.x)
+		else:
+			velocity.x = dash_speed * sign($AnimatedSprite2D.scale.x)
+			
 		velocity.y = 0
 		dash_time = dash_duration
 		dash_lock_y_time = dash_lock_y_dur
@@ -130,11 +137,12 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.UP.rotated(-PI/4) * jump_speed
 	
 	# slow down in all directions from friction
-	if is_on_floor():
-		if sign(input) != sign(velocity.x):
-			velocity.x = util.hllerp(velocity.x, 0, ground_friction_hl, delta)
-	else:
-		velocity = util.hllerp(velocity, Vector2.ZERO, air_friction_hl, delta)
+	if (dash_lock_y_time > 0):
+		if is_on_floor():
+			if sign(input) != sign(velocity.x):
+				velocity.x = util.hllerp(velocity.x, 0, ground_friction_hl, delta)
+		else:
+			velocity = util.hllerp(velocity, Vector2.ZERO, air_friction_hl, delta)
 	
 	# slow down y on walls
 	if wall_jump_eligible and velocity.y > 0:

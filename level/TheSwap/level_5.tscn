@@ -12,7 +12,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd3eq"]
 resource_local_to_scene = true
-size = Vector2(128.5, 329)
+size = Vector2(191.25, 318.5)
 
 [node name="Level1" type="Node2D" unique_id=2123833430 node_paths=PackedStringArray("spawn", "exit")]
 position = Vector2(1, 0)
@@ -46,12 +46,25 @@ target = Vector2(500, -728)
 one_way_collision = true
 
 [node name="Grate" parent="." unique_id=162422700 instance=ExtResource("8_rejrq")]
-position = Vector2(279.00003, -160)
-scale = Vector2(2.2149646, 1.6884015)
+position = Vector2(-128, -192)
 
-[node name="Grate2" parent="." unique_id=1174635593 instance=ExtResource("8_rejrq")]
-position = Vector2(580, -287)
-scale = Vector2(0.57496446, 1.6884015)
+[node name="CollisionShape2D" parent="Grate" index="0" unique_id=809595331]
+position = Vector2(368, 16)
+scale = Vector2(67.101456, 1.8675355)
+
+[node name="TextureRect" parent="Grate" index="1" unique_id=296085494]
+offset_right = 832.0
+
+[node name="Grate2" parent="." unique_id=1134759428 instance=ExtResource("8_rejrq")]
+position = Vector2(-128, -313)
+
+[node name="CollisionShape2D" parent="Grate2" index="0" unique_id=809595331]
+position = Vector2(768, 16)
+scale = Vector2(9.141457, 1.8675355)
+
+[node name="TextureRect" parent="Grate2" index="1" unique_id=296085494]
+offset_left = 704.0
+offset_right = 832.0
 
 [node name="ButtonPart" parent="." unique_id=1203900194 instance=ExtResource("7_ja8xx")]
 position = Vector2(515, 62)
@@ -74,14 +87,19 @@ position = Vector2(-40, 0)
 position = Vector2(1.2783456, 0)
 scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" parent="RisingWall/AnimatableBody2D" index="1" unique_id=525258301]
-shape = SubResource("RectangleShape2D_qd3eq")
+[node name="LookAtMe!!" parent="RisingWall/AnimatableBody2D" index="1" unique_id=1414384491]
+offset_left = 7.0
+offset_right = 199.0
+offset_bottom = 320.0
 
-[node name="TileMapLayer" parent="RisingWall/AnimatableBody2D" index="2" unique_id=1887104095]
-tile_map_data = PackedByteArray()
+[node name="CollisionShape2D" parent="RisingWall/AnimatableBody2D" index="2" unique_id=525258301]
+position = Vector2(103.375, 159.75)
+shape = SubResource("RectangleShape2D_qd3eq")
 
 [connection signal="pushed" from="ButtonPart" to="RisingWall" method="rise"]
 [connection signal="pushed" from="ButtonPart2" to="elevator" method="rise"]
 
 [editable path="elevator"]
+[editable path="Grate"]
+[editable path="Grate2"]
 [editable path="RisingWall"]

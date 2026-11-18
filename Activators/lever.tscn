@@ -3,9 +3,27 @@
 [ext_resource type="Script" uid="uid://57mihtorfsah" path="res://Activators/lever.gd" id="1_7n24h"]
 [ext_resource type="PackedScene" uid="uid://cybwehbavjawu" path="res://Interactable/interactable.tscn" id="1_eh5fp"]
 [ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_7n24h"]
+[ext_resource type="Texture2D" uid="uid://j5wvl4cmiorr" path="res://lever.png" id="4_5ckb4"]
+[ext_resource type="Texture2D" uid="uid://c1om2kfmhgns3" path="res://Activators/monsterButton.png" id="5_ic4kh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_flmph"]
 radius = 27.018513
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lrfx"]
+atlas = ExtResource("4_5ckb4")
+region = Rect2(26, 4, 12, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flmph"]
+atlas = ExtResource("4_5ckb4")
+region = Rect2(10, 97, 45, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp288"]
+atlas = ExtResource("4_5ckb4")
+region = Rect2(8, 175, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ku0"]
+atlas = ExtResource("5_ic4kh")
+region = Rect2(155, 11, 10, 10)
 
 [node name="Lever" type="Node2D" unique_id=1250449008]
 script = ExtResource("1_7n24h")
@@ -18,22 +36,34 @@ position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_flmph")
 debug_color = Color(0, 0.6486601, 0.1836029, 0.41960785)
 
-[node name="Base" type="Sprite2D" parent="." unique_id=1698672896]
-position = Vector2(0, 4)
-scale = Vector2(0.3359375, 0.0703125)
-texture = ExtResource("2_7n24h")
-
 [node name="LeverMovable" type="Sprite2D" parent="." unique_id=869758730]
 position = Vector2(-9.536743e-07, 9.536743e-07)
 rotation = -0.7853982
-scale = Vector2(0.035156246, 0.23046874)
 
 [node name="Knob" type="Sprite2D" parent="LeverMovable" unique_id=660964099]
+visible = false
 position = Vector2(-1.8119812e-05, -141.13371)
 scale = Vector2(1.5833331, 0.21610163)
 texture = ExtResource("2_7n24h")
 
 [node name="Handle" type="Sprite2D" parent="LeverMovable" unique_id=823015935]
+visible = false
 position = Vector2(0, -65.66132)
 scale = Vector2(1, 1.0287097)
 texture = ExtResource("2_7n24h")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeverMovable" unique_id=1240270599]
+position = Vector2(1.9073486e-06, -16.970564)
+texture = SubResource("AtlasTexture_5lrfx")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=1698672896]
+position = Vector2(0, 4)
+texture = SubResource("AtlasTexture_flmph")
+
+[node name="Base2" type="Sprite2D" parent="." unique_id=2032931414]
+position = Vector2(0, 17)
+texture = SubResource("AtlasTexture_qp288")
+
+[node name="Symbol" type="Sprite2D" parent="." unique_id=703419330]
+position = Vector2(0, 17)
+texture = SubResource("AtlasTexture_o2ku0")
