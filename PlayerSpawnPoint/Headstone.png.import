@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vauu7ickprh8"
-path="res://.godot/imported/snake_arms.png-0262ccad3e5ae90d64d1f4de86e71ace.ctex"
+uid="uid://r0yt0j02im7"
+path="res://.godot/imported/Headstone.png-ec7c360633db6ee6c879abae4155cf82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/snake_arms.png"
-dest_files=["res://.godot/imported/snake_arms.png-0262ccad3e5ae90d64d1f4de86e71ace.ctex"]
+source_file="res://PlayerSpawnPoint/Headstone.png"
+dest_files=["res://.godot/imported/Headstone.png-ec7c360633db6ee6c879abae4155cf82.ctex"]
 
 [params]
 

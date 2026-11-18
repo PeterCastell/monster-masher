@@ -20,6 +20,7 @@ collision_mask = 129
 script = ExtResource("1_pcb5a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1471925491]
+z_index = 2
 position = Vector2(9.536743e-07, 0.99999976)
 texture = SubResource("AtlasTexture_ajqhv")
 

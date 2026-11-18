@@ -15,7 +15,7 @@ size = Vector2(32, 28)
 radius = 25.0
 
 [node name="Bat" type="CharacterBody2D" unique_id=783174198]
-z_index = 9
+z_index = 2
 collision_layer = 8
 collision_mask = 129
 script = ExtResource("1_y8qpl")

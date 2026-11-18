@@ -22,6 +22,7 @@ script = ExtResource("1_ajqhv")
 metadata/_custom_type_script = "uid://d2ic57pahlrn1"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=638148352]
+z_index = 2
 texture = SubResource("AtlasTexture_pgeld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004827731]
