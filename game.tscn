@@ -2446,7 +2446,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("5_qhcbd"), ExtResource("12_5b14r"), ExtResource("9_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("6_f1jbl"), ExtResource("7_vaj68"), ExtResource("8_f1jbl")])
+levels = Array[PackedScene]([ExtResource("8_f1jbl"), ExtResource("5_qhcbd"), ExtResource("9_vaj68"), ExtResource("12_5b14r"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("6_f1jbl"), ExtResource("7_vaj68")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
@@ -2568,46 +2568,46 @@ text = "Monster Masher!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Credits" type="RichTextLabel" parent="UI/Canvas/MainMenu" unique_id=1006557614]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Canvas/MainMenu" unique_id=1821444707]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -353.0
-offset_top = -30.0
-offset_right = 252.0
-offset_bottom = 50.0
+offset_left = -509.0
+offset_top = -45.5
+offset_right = 509.0
+offset_bottom = 45.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Credits" type="RichTextLabel" parent="UI/Canvas/MainMenu/HBoxContainer" unique_id=1006557614]
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 18
 theme_override_fonts/normal_font = ExtResource("18_hb5m1")
 theme_override_font_sizes/normal_font_size = 55
-text = "cyanAlmonds (Alissya)
-Okapi (Amanda) "
+text = " cyanAlmonds (Alissya)
+ Okapi (Amanda) "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="Credits2" type="RichTextLabel" parent="UI/Canvas/MainMenu" unique_id=423442344]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 58.0
-offset_top = -29.0
-offset_right = 663.0
-offset_bottom = 51.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Credits2" type="RichTextLabel" parent="UI/Canvas/MainMenu/HBoxContainer" unique_id=423442344]
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 18
 theme_override_fonts/normal_font = ExtResource("18_hb5m1")
 theme_override_font_sizes/normal_font_size = 55
-text = "Just_Jay (Jay)
-King_Awesome (Peter) "
+text = " Just_Jay (Jay)
+ King_Awesome (Peter) "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="StartLightning" type="ColorRect" parent="UI/Canvas/MainMenu" unique_id=1146001665]
@@ -2642,6 +2642,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("15_hb5m1")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect3" type="ColorRect" parent="UI/Canvas/MainMenu/Lightning" unique_id=1009932219]
 visible = false
@@ -2810,6 +2811,7 @@ offset_right = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="FadeAnimator" type="AnimationPlayer" parent="UI/Canvas" unique_id=1517131298]
 libraries/ = SubResource("AnimationLibrary_36jdj")
