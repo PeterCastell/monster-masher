@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://drnfoq12yh6s5"]
+
+[ext_resource type="Texture2D" uid="uid://cg6pkppyefj7h" path="res://NinePatchTiles.png" id="1_kxp20"]
+
+[node name="LookAtMe!!" type="NinePatchRect" unique_id=1414384491]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_kxp20")
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
