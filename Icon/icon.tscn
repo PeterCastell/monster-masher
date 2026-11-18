@@ -4,8 +4,9 @@
 [ext_resource type="Script" uid="uid://ctqeh34dhmonl" path="res://Icon/icon.gd" id="2_6l5kg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mq0dr"]
+resource_local_to_scene = true
 atlas = ExtResource("1_ujf5s")
-region = Rect2(155, 11, 10, 10)
+region = Rect2(155, 44, 10, 10)
 
 [node name="Icon" type="Sprite2D" unique_id=1022362824]
 texture = SubResource("AtlasTexture_mq0dr")

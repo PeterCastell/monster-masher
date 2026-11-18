@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://m2xy80cya7j3" path="res://grates/grate_alebedo.png" id="1_evi4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
+resource_local_to_scene = true
 size = Vector2(64, 32)
 
 [node name="Grate" type="StaticBody2D" unique_id=162422700]

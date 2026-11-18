@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bxfh3r80gk2dp" path="res://level/level1/level_1.tscn" id="5_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://dk01ddfqjvkw5" path="res://level/level7/level_7.tscn" id="5_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://bw0skd8dla8k8" path="res://level/level2/level_2.tscn" id="6_f1jbl"]
+[ext_resource type="PackedScene" uid="uid://dwb87kh6j7oae" path="res://level/levels/level_brian_3.tscn" id="7_36jdj"]
 [ext_resource type="Script" uid="uid://b4gjgt2m8vb8n" path="res://canvas.gd" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://cesoqag6n3mo7" path="res://level/level3/level_3.tscn" id="7_vaj68"]
 [ext_resource type="PackedScene" uid="uid://bbfmnlgo0yirv" path="res://level/WallJumpHell/level_4.tscn" id="8_f1jbl"]
@@ -2447,7 +2448,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("5_qhcbd"), ExtResource("6_f1jbl"), ExtResource("9_vaj68"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71")])
+levels = Array[PackedScene]([ExtResource("5_qhcbd"), ExtResource("6_f1jbl"), ExtResource("7_36jdj"), ExtResource("9_vaj68"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
