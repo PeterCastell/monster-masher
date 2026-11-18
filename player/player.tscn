@@ -251,7 +251,7 @@ script = ExtResource("1_rkbax")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860374097]
 material = SubResource("ShaderMaterial_g1dw6")
 sprite_frames = SubResource("SpriteFrames_uagv5")
-animation = &"claws_slide"
+animation = &"claws_up"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=676142568]

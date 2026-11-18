@@ -44,6 +44,7 @@ var dash_lock_y_time: float = -1
 var dash_lock_y_dur: float = 0.1
 const dash_duration: float = 0.6
 
+var wall_jumping : bool = false
 
 var animation: String:
 	get: return $AnimatedSprite2D.animation
@@ -79,6 +80,7 @@ func _physics_process(delta: float) -> void:
 	
 	var anim: String = ""
 	
+	
 	var input := Input.get_axis("left", "right")
 	if (dash_lock_y_time > 0):
 		anim = "dash"
@@ -89,8 +91,12 @@ func _physics_process(delta: float) -> void:
 	
 	if can_wall_jump and input < 0 and len($WallJumpLeft.get_overlapping_bodies()) > 0:
 		left_wall_jump_coyote_time = coyote_duration
+		wall_jumping = true
 	else:
 		left_wall_jump_coyote_time -= delta
+	if is_on_floor():
+		wall_jumping = false
+	
 	
 	if can_wall_jump and input > 0 and len($WallJumpRight.get_overlapping_bodies()) > 0:
 		right_wall_jump_coyote_time = coyote_duration
@@ -161,6 +167,9 @@ func _physics_process(delta: float) -> void:
 	if position.y > 1000:
 		kill()
 	
+	if wall_jumping and anim == "":
+		anim = "claws_up"
+		
 	if not is_on_floor() and anim == "":
 		anim = "up" if velocity.y < 0 else "down"
 	
