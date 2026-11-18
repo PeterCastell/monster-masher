@@ -11,7 +11,7 @@ extends Triggerable
 			$AnimatableBody2D.position = Vector2.UP * length * 64 if !normally_open else Vector2.ZERO
 		).call_deferred()
 
-@export_range(2, 99, 1) var length: int:
+@export_range(2, 200, 1) var length: int:
 	get: return length
 	set(v):
 		length = v

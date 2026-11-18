@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b7sscnndalysk" path="res://level/LEvel6/level_6.tscn" id="5_i2p71"]
 [ext_resource type="PackedScene" uid="uid://bxfh3r80gk2dp" path="res://level/level1/level_1.tscn" id="5_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://dk01ddfqjvkw5" path="res://level/level7/level_7.tscn" id="5_xa8c5"]
+[ext_resource type="PackedScene" uid="uid://ovtpk60buvsa" path="res://level/level_wolf.tscn" id="5_xfvwf"]
 [ext_resource type="PackedScene" uid="uid://bw0skd8dla8k8" path="res://level/level2/level_2.tscn" id="6_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://dwb87kh6j7oae" path="res://level/levels/level_brian_3.tscn" id="7_36jdj"]
 [ext_resource type="Script" uid="uid://b4gjgt2m8vb8n" path="res://canvas.gd" id="7_j5wjh"]
@@ -28,8 +29,8 @@
 [ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="20_vaj68"]
 [ext_resource type="Script" uid="uid://dyb7wtjdnft7e" path="res://music.gd" id="23_vaj68"]
 [ext_resource type="AudioStream" uid="uid://w0webxmvr8l5" path="res://Assets/Audio/Intro_Piano_Scary_Castle.wav" id="25_vaj68"]
-[ext_resource type="AudioStream" uid="uid://cwp85qhl5ywt2" path="res://Assets/Audio/scary_castle.mp3" id="25_xa8c5"]
 [ext_resource type="AudioStream" uid="uid://oo75n2bhj3p5" path="res://Assets/Audio/thunderClap.mp3" id="26_5b14r"]
+[ext_resource type="AudioStream" uid="uid://bv7iv4sjjx4o" path="res://Scary_Castle.wav" id="28_36jdj"]
 
 [sub_resource type="Animation" id="Animation_j5wjh"]
 length = 0.001
@@ -2448,7 +2449,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("5_qhcbd"), ExtResource("6_f1jbl"), ExtResource("7_36jdj"), ExtResource("9_vaj68"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71")])
+levels = Array[PackedScene]([ExtResource("5_xfvwf"), ExtResource("7_36jdj"), ExtResource("5_qhcbd"), ExtResource("6_f1jbl"), ExtResource("9_vaj68"), ExtResource("12_5b14r"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("8_f1jbl")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
@@ -2830,8 +2831,8 @@ libraries/ = SubResource("AnimationLibrary_36jdj")
 script = ExtResource("23_vaj68")
 
 [node name="ScaryCastle" type="AudioStreamPlayer" parent="Music" unique_id=65601101]
-stream = ExtResource("25_xa8c5")
-volume_db = -19.94
+stream = ExtResource("28_36jdj")
+volume_db = -15.0
 
 [node name="ThunderClap" type="AudioStreamPlayer" parent="Music" unique_id=557502989]
 stream = ExtResource("26_5b14r")

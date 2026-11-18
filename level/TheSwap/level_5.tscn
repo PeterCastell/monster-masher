@@ -36,7 +36,7 @@ position = Vector2(-311, -652)
 
 [node name="elevator" parent="." unique_id=717193406 instance=ExtResource("6_kxcv6")]
 position = Vector2(422, 99)
-target = Vector2(-42, -256)
+target = Vector2(450, -718)
 start_point = Vector2(-42, 0)
 
 [node name="CollisionShape2D" parent="elevator/AnimatableBody2D" parent_id_path=PackedInt32Array(717193406, 213036135) index="4" unique_id=525258301]
@@ -47,20 +47,21 @@ position = Vector2(515, 62)
 icon = 4
 
 [node name="ButtonPart2" parent="." unique_id=1288557135 instance=ExtResource("7_ja8xx")]
-position = Vector2(110, 61)
+position = Vector2(189, 61)
 duration = 4.0
 
 [node name="Grate" parent="." unique_id=162422700 instance=ExtResource("8_rejrq")]
 position = Vector2(-128, -192)
-size = 14
+size = 13
 
 [node name="Grate2" parent="." unique_id=443094553 instance=ExtResource("8_rejrq")]
 position = Vector2(640, -320)
 size = 2
 
 [node name="RisingWall" parent="." unique_id=705945485 instance=ExtResource("2_kib4q")]
-position = Vector2(768, 64)
+position = Vector2(704, 64)
 normally_open = true
+width = 3
 
 [connection signal="pushed" from="ButtonPart" to="RisingWall" method="rise"]
 [connection signal="pushed" from="ButtonPart2" to="elevator" method="rise"]
