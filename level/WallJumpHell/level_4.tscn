@@ -99,7 +99,7 @@ scale = Vector2(1, 1)
 duration = 8.0
 
 [node name="ButtonPart2" parent="." unique_id=135714182 instance=ExtResource("7_vxfnh")]
-position = Vector2(921, 56)
+position = Vector2(921, 61)
 scale = Vector2(1, 1)
 duration = 30.0
 

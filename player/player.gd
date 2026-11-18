@@ -36,11 +36,11 @@ var jump_buffer_time: float = 0
 
 #var double_space_time = 0.0
 #const double_space_duration = 0.2
-const dash_speed: float = 800
+const dash_speed: float = 900
 var dash_time: float = -1
 var dash_lock_y_time: float = -1
 var dash_lock_y_dur: float = 0.1
-const dash_duration: float = 0.6
+const dash_duration: float = 1.2
 
 var animation: String:
 	get: return $AnimatedSprite2D.animation

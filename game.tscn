@@ -15,11 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://bbfmnlgo0yirv" path="res://level/WallJumpHell/level_4.tscn" id="8_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://df6spyix7w3ot" path="res://level/TheSwap/level_5.tscn" id="9_vaj68"]
 [ext_resource type="PackedScene" uid="uid://dlgdh1qi6x7ul" path="res://level/run/run.tscn" id="12_5b14r"]
-[ext_resource type="Texture2D" uid="uid://bxid48k3fed5b" path="res://Assets/refresh-icon-design-vector.jpg" id="13_5b14r"]
 [ext_resource type="Shader" uid="uid://dq10lsjhdovi0" path="res://fogShader.gdshader" id="15_e8heu"]
 [ext_resource type="Shader" uid="uid://cjoxnpdaq7gp2" path="res://lightning.gdshader" id="15_e36ub"]
 [ext_resource type="Script" uid="uid://du0xncvlgemjy" path="res://lightning.gd" id="15_hb5m1"]
+[ext_resource type="Texture2D" uid="uid://cxfryj2crhl41" path="res://ctrl.png" id="16_bnpwn"]
 [ext_resource type="Texture2D" uid="uid://bb2fxbk7mu6gt" path="res://new_noise_texture_2d.tres" id="16_rvswv"]
+[ext_resource type="FontFile" uid="uid://6cy5ijy3g3ys" path="res://upheavtt.ttf" id="17_36jdj"]
 [ext_resource type="Texture2D" uid="uid://bmfoqohq0ye25" path="res://level/tiles/mc.webp" id="17_boyg6"]
 [ext_resource type="FontFile" uid="uid://cunne1d5bjbud" path="res://Assets/CreeperPixelRegular-DMYx.ttf" id="18_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://4s0nk2droxn4" path="res://Assets/button.png" id="19_f1jbl"]
@@ -2446,7 +2447,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("9_vaj68"), ExtResource("5_qhcbd"), ExtResource("8_f1jbl"), ExtResource("12_5b14r"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("6_f1jbl"), ExtResource("7_vaj68")])
+levels = Array[PackedScene]([ExtResource("7_vaj68"), ExtResource("9_vaj68"), ExtResource("5_qhcbd"), ExtResource("8_f1jbl"), ExtResource("12_5b14r"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("6_f1jbl")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
@@ -2504,18 +2505,24 @@ offset_bottom = 96.0
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 64.0
 
 [node name="TextureRect" type="TextureRect" parent="UI/Canvas/GUI/IconHolder" unique_id=460459670]
 layout_mode = 2
-texture = ExtResource("13_5b14r")
+texture = ExtResource("16_bnpwn")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="UI/Canvas/GUI/IconHolder/TextureRect" unique_id=1105274915]
 layout_mode = 0
-offset_top = 40.0
-offset_right = 160.0
-offset_bottom = 110.0
+offset_left = 3.0
+offset_top = 63.0
+offset_right = 75.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("17_36jdj")
+theme_override_font_sizes/font_size = 16
 text = "Hold 
 control 
 to reset"

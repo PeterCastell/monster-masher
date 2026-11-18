@@ -1,6 +1,6 @@
 extends Activator
-var target : Vector2 = Vector2(0, 0)
-var start_point : Vector2 = Vector2(0, 0)
+var target : Vector2 = Vector2(0, 26)
+var start_point : Vector2 = Vector2(0, 10.5)
 signal pushed (is_on: bool, duration:float)
 
 

@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cdeemaqhu3m2k" path="res://Triggerables/rising_wall.gd" id="1_wt8u6"]
 [ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_o4ge6"]
+[ext_resource type="Texture2D" uid="uid://dj0pf2fe147c6" path="res://Triggerables/elevator.png" id="2_ys68l"]
+[ext_resource type="Texture2D" uid="uid://4hjm51ml8a6s" path="res://Triggerables/chains.png" id="4_vd8pa"]
+[ext_resource type="Texture2D" uid="uid://c1om2kfmhgns3" path="res://Activators/monsterButton.png" id="5_r3pxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
-size = Vector2(236.25, 52.25)
+size = Vector2(256, 31.125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lrfx"]
+atlas = ExtResource("5_r3pxe")
+region = Rect2(155, 11, 10, 10)
 
 [node name="elevator" type="Node2D" unique_id=717193406]
 script = ExtResource("1_wt8u6")
@@ -12,12 +19,17 @@ script = ExtResource("1_wt8u6")
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=213036135]
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=831543831]
-position = Vector2(-116, 0)
-scale = Vector2(1.8359375, 0.421875)
-texture = ExtResource("2_o4ge6")
+position = Vector2(-128, 0)
+texture = ExtResource("2_ys68l")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="AnimatableBody2D" unique_id=911482980]
+position = Vector2(-128, 0)
+texture = ExtResource("2_ys68l")
 centered = false
 
 [node name="Chains" type="Sprite2D" parent="AnimatableBody2D" unique_id=219798524]
+visible = false
 position = Vector2(-115.99999, -1.0000038)
 rotation = -1.0318018
 scale = Vector2(1.8451649, 0.06121203)
@@ -25,6 +37,7 @@ texture = ExtResource("2_o4ge6")
 centered = false
 
 [node name="Chains2" type="Sprite2D" parent="AnimatableBody2D" unique_id=954429430]
+visible = false
 position = Vector2(111, 4)
 rotation = -2.132487
 scale = Vector2(1.8451653, 0.06121201)
@@ -32,6 +45,14 @@ texture = ExtResource("2_o4ge6")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=525258301]
-position = Vector2(0, 26.125)
+position = Vector2(0, 15.5625)
 shape = SubResource("RectangleShape2D_5lrfx")
 debug_color = Color(0.798942, 0.37423036, 0.5193092, 0.41960785)
+
+[node name="Sprite2D3" type="Sprite2D" parent="AnimatableBody2D" unique_id=786572554]
+position = Vector2(0, -95)
+texture = ExtResource("4_vd8pa")
+
+[node name="Symbol" type="Sprite2D" parent="AnimatableBody2D" unique_id=1324350776]
+position = Vector2(0, -170)
+texture = SubResource("AtlasTexture_5lrfx")

@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://coow1va1buh2r"]
 
 [ext_resource type="Script" uid="uid://dd21af5lhmpgn" path="res://Part/broom/broom.gd" id="1_pcb5a"]
-[ext_resource type="Texture2D" uid="uid://8ytvc0aooix5" path="res://Part/broom/pngtree-cleaning-tool-house-broom-png-image_11711463.png" id="2_edchp"]
+[ext_resource type="Texture2D" uid="uid://b8cjwhimibf3o" path="res://Part/power_items.png" id="2_pcb5a"]
 [ext_resource type="PackedScene" uid="uid://cybwehbavjawu" path="res://Interactable/interactable.tscn" id="3_n5j5l"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajqhv"]
+atlas = ExtResource("2_pcb5a")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t23mh"]
-size = Vector2(48, 28)
+size = Vector2(32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_or04t"]
 radius = 29.274563
@@ -17,10 +21,10 @@ script = ExtResource("1_pcb5a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1471925491]
 position = Vector2(9.536743e-07, 0.99999976)
-scale = Vector2(0.13611111, 0.06666666)
-texture = ExtResource("2_edchp")
+texture = SubResource("AtlasTexture_ajqhv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=690913151]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_t23mh")
 
 [node name="Interactable" parent="." unique_id=2110887254 instance=ExtResource("3_n5j5l")]
