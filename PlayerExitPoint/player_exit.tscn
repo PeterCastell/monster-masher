@@ -1,25 +1,23 @@
 [gd_scene format=3 uid="uid://d1pog1i3vl12w"]
 
-[ext_resource type="Texture2D" uid="uid://b6h00swudwfpe" path="res://PartSpawnPoint/pngtree-plain-funeral-gravestone-png-image_16720893.png" id="1_lt8hm"]
 [ext_resource type="Script" uid="uid://dyqxt5m5no1to" path="res://PlayerExitPoint/player_exit.gd" id="1_xdjig"]
+[ext_resource type="Texture2D" uid="uid://dovdbir1whpsg" path="res://PlayerExitPoint/MONSTERimagen.png" id="2_2v6tn"]
 [ext_resource type="PackedScene" uid="uid://cybwehbavjawu" path="res://Interactable/interactable.tscn" id="3_2v6tn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lrfx"]
-size = Vector2(118, 76)
+size = Vector2(118, 110)
 
 [node name="PlayerExit" type="Node2D" unique_id=1897218805]
 script = ExtResource("1_xdjig")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1488088469]
-position = Vector2(5.9604645e-08, 5.9604645e-08)
-rotation = 3.1415927
-scale = Vector2(0.07570255, 0.063446246)
-texture = ExtResource("1_lt8hm")
+position = Vector2(1, 24)
+texture = ExtResource("2_2v6tn")
 
 [node name="Interactable" parent="." unique_id=2110887254 instance=ExtResource("3_2v6tn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1453564034]
-position = Vector2(0, 46)
+position = Vector2(0, 29)
 shape = SubResource("RectangleShape2D_5lrfx")
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

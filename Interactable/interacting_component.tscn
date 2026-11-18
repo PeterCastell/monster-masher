@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bv3dfx0l2wila"]
 
 [ext_resource type="Script" uid="uid://3cfvs7yvp2mo" path="res://Interactable/interacting_component.gd" id="1_uxqes"]
+[ext_resource type="FontFile" uid="uid://6cy5ijy3g3ys" path="res://upheavtt.ttf" id="2_fwc1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxqes"]
 radius = 52.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_5lrfx"]
+font = ExtResource("2_fwc1o")
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -34,6 +36,7 @@ offset_right = 20.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 25
 text = "E"
 label_settings = SubResource("LabelSettings_5lrfx")
 horizontal_alignment = 1
