@@ -30,7 +30,7 @@
 [ext_resource type="Script" uid="uid://dyb7wtjdnft7e" path="res://music.gd" id="23_vaj68"]
 [ext_resource type="AudioStream" uid="uid://w0webxmvr8l5" path="res://Assets/Audio/Intro_Piano_Scary_Castle.wav" id="25_vaj68"]
 [ext_resource type="AudioStream" uid="uid://oo75n2bhj3p5" path="res://Assets/Audio/thunderClap.mp3" id="26_5b14r"]
-[ext_resource type="AudioStream" uid="uid://bv7iv4sjjx4o" path="res://Scary_Castle.wav" id="28_36jdj"]
+[ext_resource type="AudioStream" uid="uid://uyxm6axdb2yp" path="res://Assets/Scary_Castle_Looped.wav" id="29_xfvwf"]
 
 [sub_resource type="Animation" id="Animation_j5wjh"]
 length = 0.001
@@ -2831,7 +2831,7 @@ libraries/ = SubResource("AnimationLibrary_36jdj")
 script = ExtResource("23_vaj68")
 
 [node name="ScaryCastle" type="AudioStreamPlayer" parent="Music" unique_id=65601101]
-stream = ExtResource("28_36jdj")
+stream = ExtResource("29_xfvwf")
 volume_db = -15.0
 
 [node name="ThunderClap" type="AudioStreamPlayer" parent="Music" unique_id=557502989]
