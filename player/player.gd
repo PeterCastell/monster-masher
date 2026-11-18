@@ -42,7 +42,9 @@ var dash_lock_y_time: float = -1
 var dash_lock_y_dur: float = 0.1
 const dash_duration: float = 0.6
 
-
+var animation: String:
+	get: return $AnimatedSprite2D.animation
+	set(v): $AnimatedSprite2D.animation = v
 
 func drop_item():
 	if (held_part != null):
@@ -71,9 +73,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor() and dash_lock_y_time < 0:
 		velocity += Vector2.DOWN * gravity * delta
 	
+	var anim_overridden := false
+	
 	var input := Input.get_axis("left", "right")
 	if (dash_lock_y_time > 0):
+		animation = "dash"
 		input = 0
+		anim_overridden = true
 		
 	if input:
 		$AnimatedSprite2D.scale.x = sign(input)  # dash depends on the direction of this
@@ -138,12 +144,17 @@ func _physics_process(delta: float) -> void:
 	velocity.x = util.hllerp(velocity.x, input * max_speed, (ground_accel_hl if is_on_floor() else air_accel_hl), delta)
 	
 	if can_flutter && Input.is_action_pressed("up"):
+		animation = "flutter"
+		anim_overridden = true
 		velocity.y = min(velocity.y, flutter_descent_speed)
 	
 	move_and_slide()
 	
 	if position.y > 1000:
 		kill()
+	
+	if !anim_overridden:
+		animation = "running" if input != 0 else "idle"
 
 
 func kill() -> void:
