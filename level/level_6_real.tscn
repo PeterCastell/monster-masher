@@ -34,6 +34,6 @@ position = Vector2(1020, -384)
 target = Vector2(-433, 0)
 
 [node name="PlayerExit" parent="." unique_id=1897218805 instance=ExtResource("6_46g87")]
-position = Vector2(131, -805)
+position = Vector2(128, -804)
 
 [connection signal="flipped" from="Lever" to="elevator" method="rise"]

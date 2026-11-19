@@ -20,7 +20,7 @@ tile_map_data = PackedByteArray("AAAGAAAAAQABAAIAAAAFAAAAAQABAAIAAAAEAAAAAQAFAAE
 position = Vector2(-275, -1)
 
 [node name="PlayerExit" parent="." unique_id=1897218805 instance=ExtResource("4_22u2o")]
-position = Vector2(236, -839)
+position = Vector2(239, -788)
 
 [node name="RisingWall" parent="." unique_id=705945485 instance=ExtResource("5_2xwcc")]
 normally_open = true
