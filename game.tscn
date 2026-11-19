@@ -6,19 +6,20 @@
 [ext_resource type="Script" uid="uid://u23t3bhkkv5h" path="res://world.gd" id="2_vef74"]
 [ext_resource type="PackedScene" uid="uid://coow1va1buh2r" path="res://Part/broom/broom.tscn" id="4_xex6t"]
 [ext_resource type="PackedScene" uid="uid://bm5vvxaeo3lq5" path="res://Part/claws/claws.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://dygnjsr4iow7i" path="res://level/level_1_learn_movement.tscn" id="5_082n1"]
 [ext_resource type="PackedScene" uid="uid://b7sscnndalysk" path="res://level/level_basic_with.tscn" id="5_i2p71"]
 [ext_resource type="PackedScene" uid="uid://bxfh3r80gk2dp" path="res://level/level_push_grate.tscn" id="5_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://dk01ddfqjvkw5" path="res://level/level_All.tscn" id="5_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://ovtpk60buvsa" path="res://level/level_4_witch.tscn" id="5_xfvwf"]
-[ext_resource type="PackedScene" uid="uid://bw0skd8dla8k8" path="res://level/level_5_real.tscn" id="6_f1jbl"]
-[ext_resource type="PackedScene" uid="uid://dwb87kh6j7oae" path="res://level/level_6.tscn" id="7_36jdj"]
+[ext_resource type="PackedScene" uid="uid://bw0skd8dla8k8" path="res://level/level_3_learn_dropping.tscn" id="6_f1jbl"]
+[ext_resource type="PackedScene" uid="uid://dwb87kh6j7oae" path="res://level/level_7_puzzle.tscn" id="7_36jdj"]
 [ext_resource type="Script" uid="uid://b4gjgt2m8vb8n" path="res://canvas.gd" id="7_j5wjh"]
-[ext_resource type="PackedScene" uid="uid://cesoqag6n3mo7" path="res://level/level_6_real.tscn" id="7_vaj68"]
-[ext_resource type="PackedScene" uid="uid://bxaunb3gtos8t" path="res://level/level_3_real.tscn" id="8_7knny"]
+[ext_resource type="PackedScene" uid="uid://cesoqag6n3mo7" path="res://level/level_6_red_herring.tscn" id="7_vaj68"]
+[ext_resource type="PackedScene" uid="uid://bxaunb3gtos8t" path="res://level/level_5_levers_puzzle.tscn" id="8_7knny"]
 [ext_resource type="PackedScene" uid="uid://bbfmnlgo0yirv" path="res://level/WallJumpHell/level_4.tscn" id="8_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://df6spyix7w3ot" path="res://level/level_last.tscn" id="9_vaj68"]
 [ext_resource type="PackedScene" uid="uid://dlgdh1qi6x7ul" path="res://level/level_run.tscn" id="12_5b14r"]
-[ext_resource type="PackedScene" uid="uid://btafisblv14es" path="res://level/level_2_real.tscn" id="15_dhpj7"]
+[ext_resource type="PackedScene" uid="uid://btafisblv14es" path="res://level/level_2_learn_items.tscn" id="15_dhpj7"]
 [ext_resource type="Shader" uid="uid://dq10lsjhdovi0" path="res://fogShader.gdshader" id="15_e8heu"]
 [ext_resource type="Shader" uid="uid://cjoxnpdaq7gp2" path="res://lightning.gdshader" id="15_e36ub"]
 [ext_resource type="Script" uid="uid://du0xncvlgemjy" path="res://lightning.gd" id="15_hb5m1"]
@@ -2451,7 +2452,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("5_qhcbd"), ExtResource("5_xfvwf"), ExtResource("15_dhpj7"), ExtResource("8_7knny"), ExtResource("5_xfvwf"), ExtResource("7_36jdj"), ExtResource("6_f1jbl"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("9_vaj68")])
+levels = Array[PackedScene]([ExtResource("5_082n1"), ExtResource("15_dhpj7"), ExtResource("8_7knny"), ExtResource("5_xfvwf"), ExtResource("7_36jdj"), ExtResource("6_f1jbl"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("9_vaj68"), ExtResource("5_qhcbd"), null])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
