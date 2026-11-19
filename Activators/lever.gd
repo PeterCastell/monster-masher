@@ -1,10 +1,21 @@
+@tool
 extends Activator
-
+class_name Leverl
 #func activate(on: bool) -> void:
 
 signal flipped (is_on: bool, dur: float)
 
 @onready var interactable: Interactable = $Interactable
+
+@export_range(0, 4, 1) var icon: int = 0:
+	get: return icon
+	set(v):
+		icon = v
+		$Icon.index = icon
+
+
+@export_tool_button("Snap") var snap_btn = func(): position = round(position / 64) * 64
+
 
 func activate() -> void:
 	is_on = !is_on

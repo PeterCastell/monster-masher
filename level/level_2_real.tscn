@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b7wqnunvq53q" path="res://Triggerables/rising_wall.tscn" id="5_2xwcc"]
 [ext_resource type="PackedScene" uid="uid://dj42i5esxuehp" path="res://Activators/buttonPart.tscn" id="6_564nb"]
 [ext_resource type="PackedScene" uid="uid://c2o1whvxgeof2" path="res://PartSpawnPoint/part_spawn_point.tscn" id="7_scyar"]
+[ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="8_8v7sf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m8thx"]
+font = ExtResource("8_8v7sf")
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Level1" type="Node2D" unique_id=2123833430 node_paths=PackedStringArray("spawn", "exit")]
 script = ExtResource("1_tqjhn")
@@ -32,5 +38,16 @@ duration = 0.5
 
 [node name="PartSpawnPoint" parent="." unique_id=146965731 instance=ExtResource("7_scyar")]
 position = Vector2(-143, -20)
+
+[node name="Label" type="Label" parent="." unique_id=1549438572]
+offset_left = 300.0
+offset_top = -213.0
+offset_right = 443.0
+offset_bottom = -173.0
+text = "Space
+while moving into a wall
+to Wall Jump"
+label_settings = SubResource("LabelSettings_m8thx")
+horizontal_alignment = 1
 
 [connection signal="pushed" from="ButtonPart" to="RisingWall" method="rise"]

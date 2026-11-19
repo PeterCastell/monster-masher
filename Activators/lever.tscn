@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cybwehbavjawu" path="res://Interactable/interactable.tscn" id="1_eh5fp"]
 [ext_resource type="Texture2D" uid="uid://2sjfb6af0ywe" path="res://icon.svg" id="2_7n24h"]
 [ext_resource type="Texture2D" uid="uid://j5wvl4cmiorr" path="res://lever.png" id="4_5ckb4"]
+[ext_resource type="PackedScene" uid="uid://cd3ahk3klf3tx" path="res://Icon/icon.tscn" id="5_delce"]
 [ext_resource type="Texture2D" uid="uid://c1om2kfmhgns3" path="res://Activators/monsterButton.png" id="5_ic4kh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_flmph"]
@@ -21,7 +22,8 @@ region = Rect2(10, 97, 45, 15)
 atlas = ExtResource("4_5ckb4")
 region = Rect2(8, 175, 48, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o2ku0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xt3g"]
+resource_local_to_scene = true
 atlas = ExtResource("5_ic4kh")
 region = Rect2(155, 11, 10, 10)
 
@@ -64,6 +66,7 @@ texture = SubResource("AtlasTexture_flmph")
 position = Vector2(0, 17)
 texture = SubResource("AtlasTexture_qp288")
 
-[node name="Symbol" type="Sprite2D" parent="." unique_id=703419330]
+[node name="Icon" parent="." unique_id=1022362824 instance=ExtResource("5_delce")]
 position = Vector2(0, 17)
-texture = SubResource("AtlasTexture_o2ku0")
+texture = SubResource("AtlasTexture_8xt3g")
+index = 0
