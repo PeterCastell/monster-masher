@@ -4,10 +4,16 @@
 [ext_resource type="Script" uid="uid://hm7tbmj7wyuv" path="res://level/level.gd" id="1_yhj7x"]
 [ext_resource type="PackedScene" uid="uid://dj42i5esxuehp" path="res://Activators/buttonPart.tscn" id="4_6nilq"]
 [ext_resource type="PackedScene" uid="uid://b7wqnunvq53q" path="res://Triggerables/rising_wall.tscn" id="6_qpbu3"]
+[ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="9_syvqf"]
 [ext_resource type="PackedScene" uid="uid://dky20xm2e4b1m" path="res://PlayerSpawnPoint/player_spawn_point.tscn" id="10_6lp2w"]
 [ext_resource type="PackedScene" uid="uid://bkfkekb2y2kpe" path="res://grates/grate.tscn" id="10_upitb"]
 [ext_resource type="PackedScene" uid="uid://d1pog1i3vl12w" path="res://PlayerExitPoint/player_exit.tscn" id="11_4wcru"]
 [ext_resource type="PackedScene" uid="uid://c2o1whvxgeof2" path="res://PartSpawnPoint/part_spawn_point.tscn" id="12_4wcru"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nvdlx"]
+font = ExtResource("9_syvqf")
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Level2" type="Node2D" unique_id=862776646 node_paths=PackedStringArray("spawn", "exit")]
 script = ExtResource("1_yhj7x")
@@ -37,5 +43,15 @@ length = 3
 [node name="Grate" parent="." unique_id=162422700 instance=ExtResource("10_upitb")]
 position = Vector2(-512, -256)
 size = 5
+
+[node name="Label" type="Label" parent="." unique_id=1976496830]
+offset_left = -420.0
+offset_top = -415.0
+offset_right = -277.0
+offset_bottom = -355.0
+text = "S
+to Drop Item"
+label_settings = SubResource("LabelSettings_nvdlx")
+horizontal_alignment = 1
 
 [connection signal="pushed" from="ButtonPart" to="RisingWall" method="rise"]

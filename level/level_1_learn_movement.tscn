@@ -5,6 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dky20xm2e4b1m" path="res://PlayerSpawnPoint/player_spawn_point.tscn" id="3_vvg84"]
 [ext_resource type="PackedScene" uid="uid://d1pog1i3vl12w" path="res://PlayerExitPoint/player_exit.tscn" id="4_du7fr"]
 [ext_resource type="PackedScene" uid="uid://cbqsfaq3kdg8d" path="res://Spike/spike.tscn" id="5_kxiu1"]
+[ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="6_dgswm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_45h8h"]
+font = ExtResource("6_dgswm")
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Level1" type="Node2D" unique_id=2123833430 node_paths=PackedStringArray("spawn", "exit")]
 script = ExtResource("1_ka8bb")
@@ -22,3 +28,13 @@ position = Vector2(-306, -277)
 
 [node name="Spike" parent="." unique_id=1438937012 instance=ExtResource("5_kxiu1")]
 position = Vector2(57, 0)
+
+[node name="Label" type="Label" parent="." unique_id=1517497990]
+offset_left = -71.0
+offset_top = -201.0
+offset_right = 72.0
+offset_bottom = -141.0
+text = "WAD/Space
+to Move"
+label_settings = SubResource("LabelSettings_45h8h")
+horizontal_alignment = 1

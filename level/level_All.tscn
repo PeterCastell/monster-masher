@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://d1pog1i3vl12w" path="res://PlayerExitPoint/player_exit.tscn" id="5_0dhek"]
 [ext_resource type="PackedScene" uid="uid://dj42i5esxuehp" path="res://Activators/buttonPart.tscn" id="6_4u2kg"]
 [ext_resource type="PackedScene" uid="uid://b7wqnunvq53q" path="res://Triggerables/rising_wall.tscn" id="7_nh0xb"]
+[ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="8_nxhsf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u56vw"]
+font = ExtResource("8_nxhsf")
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Level1" type="Node2D" unique_id=2123833430 node_paths=PackedStringArray("spawn", "exit")]
 script = ExtResource("1_lubfk")
@@ -43,7 +49,7 @@ position = Vector2(-300, 35)
 position = Vector2(-463, 66)
 
 [node name="PlayerExit" parent="." unique_id=1897218805 instance=ExtResource("5_0dhek")]
-position = Vector2(-833, -324)
+position = Vector2(-833, -276)
 
 [node name="ButtonPart" parent="." unique_id=1203900194 instance=ExtResource("6_4u2kg")]
 position = Vector2(64, 0)
@@ -58,6 +64,17 @@ position = Vector2(-229, -197)
 position = Vector2(896, -192)
 rotation = -1.5707964
 width = 3
+
+[node name="Label" type="Label" parent="." unique_id=1818914063]
+offset_left = 248.0
+offset_top = -184.0
+offset_right = 391.0
+offset_bottom = -124.0
+text = "Hold Space
+with bat
+to Glide"
+label_settings = SubResource("LabelSettings_u56vw")
+horizontal_alignment = 1
 
 [connection signal="pushed" from="ButtonPart" to="RisingWall" method="rise"]
 [connection signal="pushed" from="ButtonPart2" to="RisingWall2" method="rise"]

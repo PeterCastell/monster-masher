@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bm5vvxaeo3lq5" path="res://Part/claws/claws.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://dygnjsr4iow7i" path="res://level/level_1_learn_movement.tscn" id="5_082n1"]
 [ext_resource type="PackedScene" uid="uid://b7sscnndalysk" path="res://level/level_basic_with.tscn" id="5_i2p71"]
-[ext_resource type="PackedScene" uid="uid://bxfh3r80gk2dp" path="res://level/level_push_grate.tscn" id="5_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://dk01ddfqjvkw5" path="res://level/level_All.tscn" id="5_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://ovtpk60buvsa" path="res://level/level_4_witch.tscn" id="5_xfvwf"]
 [ext_resource type="PackedScene" uid="uid://bw0skd8dla8k8" path="res://level/level_3_learn_dropping.tscn" id="6_f1jbl"]
@@ -2452,7 +2451,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("5_082n1"), ExtResource("15_dhpj7"), ExtResource("8_7knny"), ExtResource("5_xfvwf"), ExtResource("7_36jdj"), ExtResource("6_f1jbl"), ExtResource("7_vaj68"), ExtResource("5_xa8c5"), ExtResource("5_i2p71"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("9_vaj68"), ExtResource("5_qhcbd"), null])
+levels = Array[PackedScene]([ExtResource("5_082n1"), ExtResource("15_dhpj7"), ExtResource("6_f1jbl"), ExtResource("5_xfvwf"), ExtResource("8_7knny"), ExtResource("7_36jdj"), ExtResource("7_vaj68"), ExtResource("5_i2p71"), ExtResource("5_xa8c5"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("9_vaj68")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
@@ -2528,8 +2527,7 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("17_36jdj")
 theme_override_font_sizes/font_size = 16
-text = "Hold 
-control 
+text = "Hold R
 to reset"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Canvas" unique_id=2084483398]
@@ -2566,17 +2564,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
+offset_left = -481.0
 offset_top = -277.0
-offset_right = 423.00146
+offset_right = 471.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 34
 theme_override_fonts/normal_font = ExtResource("18_hb5m1")
-theme_override_font_sizes/normal_font_size = 168
-text = "Monster Masher!"
+theme_override_font_sizes/normal_font_size = 136
+text = "Ziggy's Dungeon Escape"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2733,10 +2731,10 @@ metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Canvas/MainMenu" unique_id=1133297720]
 layout_mode = 1
-offset_left = 487.00003
-offset_top = 394.00003
-offset_right = 551.0
-offset_bottom = 450.00003
+offset_left = 487.00006
+offset_top = 359.00003
+offset_right = 551.00006
+offset_bottom = 415.00003
 scale = Vector2(2.2846515, 2.5599988)
 alignment = 1
 

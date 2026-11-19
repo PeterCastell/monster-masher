@@ -38,7 +38,7 @@ position = Vector2(898, -318)
 target = Vector2(850, 0)
 
 [node name="PlayerExit" parent="." unique_id=1897218805 instance=ExtResource("7_ei5bd")]
-position = Vector2(2586, -885)
+position = Vector2(2589, -724)
 
 [node name="ButtonPart" parent="." unique_id=1203900194 instance=ExtResource("10_hm6ol")]
 position = Vector2(769, -69)

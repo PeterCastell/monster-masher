@@ -53,7 +53,7 @@ func restart_level() -> void:
 
 func next_level() -> void:
 	if level_index+1 >= len(levels):
-		return # TODO return to title
+		get_tree().reload_current_scene()
 	enter_level(level_index + 1)
 
 func enter_level(index: int) -> void:
