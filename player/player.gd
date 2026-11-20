@@ -19,7 +19,7 @@ const enemy_above_jump = -100
 var can_wall_jump: bool = false
 var can_flutter: bool = false
 var can_dash: bool = false
-
+var has_touched_ground_after_dash = true
 
 const flutter_descent_speed = 100
 
@@ -96,7 +96,7 @@ func _physics_process(delta: float) -> void:
 		left_wall_jump_coyote_time -= delta
 	if is_on_floor():
 		wall_jumping = false
-	
+		has_touched_ground_after_dash = true
 	
 	if can_wall_jump and input > 0 and len($WallJumpRight.get_overlapping_bodies()) > 0:
 		right_wall_jump_coyote_time = coyote_duration
@@ -110,7 +110,7 @@ func _physics_process(delta: float) -> void:
 	
 	var wall_jump_eligible := left_wall_jump_coyote_time > 0 or right_wall_jump_coyote_time > 0
 	
-	if Input.is_action_just_pressed("dash") and can_dash and dash_time < 0:
+	if Input.is_action_just_pressed("dash") and can_dash and dash_time < 0 and has_touched_ground_after_dash:
 		if(is_on_floor()):
 			velocity.x = dash_speed_floor * sign($AnimatedSprite2D.scale.x)
 		else:
@@ -119,6 +119,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 		dash_time = dash_duration
 		dash_lock_y_time = dash_lock_y_dur
+		has_touched_ground_after_dash = false
 	else: 
 		dash_time -= delta
 		dash_lock_y_time -= delta
