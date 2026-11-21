@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://1o1cb8d2yvka"]
+
+[ext_resource type="Texture2D" uid="uid://cpasc2cwn5u1q" path="res://Assets/button (1).png" id="1_j8bpn"]
+[ext_resource type="Texture2D" uid="uid://b0rucvj4apuxb" path="res://Assets/button (1)click.png" id="2_k1cd6"]
+[ext_resource type="FontFile" uid="uid://6cy5ijy3g3ys" path="res://upheavtt.ttf" id="2_shs6u"]
+[ext_resource type="Script" uid="uid://c6q6u0g5xkbxv" path="res://level_button.gd" id="2_txyvr"]
+
+[node name="LevelButton" type="TextureButton" unique_id=1318412657]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 0
+texture_normal = ExtResource("1_j8bpn")
+texture_pressed = ExtResource("2_k1cd6")
+script = ExtResource("2_txyvr")
+
+[node name="Label" type="Label" parent="." unique_id=454029760]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 66.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_shs6u")
+theme_override_font_sizes/font_size = 55
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

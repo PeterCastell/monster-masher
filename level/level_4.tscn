@@ -30,7 +30,7 @@ position = Vector2(464, -532)
 
 [node name="ButtonPart" parent="." unique_id=1203900194 instance=ExtResource("7_vxfnh")]
 position = Vector2(35, 190)
-duration = 12.0
+duration = 2.0
 
 [node name="RisingWall" parent="." unique_id=705945485 instance=ExtResource("2_76r83")]
 position = Vector2(-256, 64)

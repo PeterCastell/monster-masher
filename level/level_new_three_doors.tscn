@@ -43,8 +43,8 @@ rotation = -1.5707964
 length = 2
 
 [node name="RisingWallR" parent="." unique_id=1403010262 instance=ExtResource("5_bm4jw")]
-position = Vector2(65, -320)
-rotation = -1.5707964
+position = Vector2(-64, -448)
+rotation = 1.5707964
 normally_open = true
 length = 2
 

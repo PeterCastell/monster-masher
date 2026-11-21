@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dygnjsr4iow7i" path="res://level/level_1_learn_movement.tscn" id="5_082n1"]
 [ext_resource type="PackedScene" uid="uid://bxfh3r80gk2dp" path="res://level/level_new_learn_bat.tscn" id="5_aa0lp"]
 [ext_resource type="PackedScene" uid="uid://b7sscnndalysk" path="res://level/level_basic_with.tscn" id="5_i2p71"]
+[ext_resource type="PackedScene" uid="uid://b2qetlidfq343" path="res://level/level_new_glide_to_win.tscn" id="5_iu0sx"]
 [ext_resource type="PackedScene" uid="uid://dk01ddfqjvkw5" path="res://level/level_All.tscn" id="5_xa8c5"]
 [ext_resource type="PackedScene" uid="uid://dk47dvowohpag" path="res://level/level_new_pushing.tscn" id="5_xex6t"]
 [ext_resource type="PackedScene" uid="uid://ovtpk60buvsa" path="res://level/level_4_witch.tscn" id="5_xfvwf"]
@@ -17,7 +18,7 @@
 [ext_resource type="Script" uid="uid://b4gjgt2m8vb8n" path="res://canvas.gd" id="7_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://cesoqag6n3mo7" path="res://level/level_6_red_herring.tscn" id="7_vaj68"]
 [ext_resource type="PackedScene" uid="uid://bxaunb3gtos8t" path="res://level/level_5_levers_puzzle.tscn" id="8_7knny"]
-[ext_resource type="PackedScene" uid="uid://bbfmnlgo0yirv" path="res://level/WallJumpHell/level_4.tscn" id="8_f1jbl"]
+[ext_resource type="PackedScene" uid="uid://bbfmnlgo0yirv" path="res://level/level_4.tscn" id="8_f1jbl"]
 [ext_resource type="PackedScene" uid="uid://df6spyix7w3ot" path="res://level/level_last.tscn" id="9_vaj68"]
 [ext_resource type="PackedScene" uid="uid://dlgdh1qi6x7ul" path="res://level/level_run.tscn" id="12_5b14r"]
 [ext_resource type="PackedScene" uid="uid://btafisblv14es" path="res://level/level_2_learn_items.tscn" id="15_dhpj7"]
@@ -31,11 +32,15 @@
 [ext_resource type="Texture2D" uid="uid://bmfoqohq0ye25" path="res://level/tiles/mc.webp" id="17_boyg6"]
 [ext_resource type="FontFile" uid="uid://cunne1d5bjbud" path="res://Assets/CreeperPixelRegular-DMYx.ttf" id="18_hb5m1"]
 [ext_resource type="Texture2D" uid="uid://4s0nk2droxn4" path="res://Assets/button.png" id="19_f1jbl"]
-[ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="20_vaj68"]
 [ext_resource type="Script" uid="uid://dyb7wtjdnft7e" path="res://music.gd" id="23_vaj68"]
 [ext_resource type="AudioStream" uid="uid://oo75n2bhj3p5" path="res://Assets/Audio/thunderClap.mp3" id="26_5b14r"]
 [ext_resource type="AudioStream" uid="uid://uyxm6axdb2yp" path="res://Assets/Scary_Castle_Looped.wav" id="29_xfvwf"]
 [ext_resource type="AudioStream" uid="uid://bccpvqfuuippa" path="res://Assets/Scary_Castle_Menu_Loop.wav" id="31_xfvwf"]
+[ext_resource type="Script" uid="uid://dwyo1xbp3pxqx" path="res://levels_button.gd" id="32_4v2jo"]
+[ext_resource type="Script" uid="uid://dgdvbdhm77v3u" path="res://level_select.gd" id="33_iu0sx"]
+[ext_resource type="Texture2D" uid="uid://cpasc2cwn5u1q" path="res://Assets/button (1).png" id="34_r62pu"]
+[ext_resource type="Texture2D" uid="uid://b0rucvj4apuxb" path="res://Assets/button (1)click.png" id="35_klri6"]
+[ext_resource type="Script" uid="uid://cymlrqh5k1eaj" path="res://exitButton.gd" id="36_klri6"]
 
 [sub_resource type="Animation" id="Animation_j5wjh"]
 length = 0.001
@@ -77,7 +82,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(176, 70), Vector2(166, 50), Vector2(156, 70)]
+"values": [Vector2(110, 70), Vector2(99, 50), Vector2(80, 70)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhcbd"]
@@ -2454,7 +2459,7 @@ part_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("4_xex6t")
 })
 bottom_ui_hint = NodePath("UI/Canvas/ResetText/Label")
-levels = Array[PackedScene]([ExtResource("5_aa0lp"), ExtResource("5_xex6t"), ExtResource("17_082n1"), ExtResource("5_082n1"), ExtResource("15_dhpj7"), ExtResource("6_f1jbl"), ExtResource("5_xfvwf"), ExtResource("8_7knny"), ExtResource("7_36jdj"), ExtResource("7_vaj68"), ExtResource("5_i2p71"), ExtResource("5_xa8c5"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("9_vaj68")])
+levels = Array[PackedScene]([ExtResource("5_xex6t"), ExtResource("5_iu0sx"), ExtResource("5_aa0lp"), ExtResource("17_082n1"), ExtResource("5_082n1"), ExtResource("15_dhpj7"), ExtResource("6_f1jbl"), ExtResource("5_xfvwf"), ExtResource("8_7knny"), ExtResource("7_36jdj"), ExtResource("7_vaj68"), ExtResource("5_i2p71"), ExtResource("5_xa8c5"), ExtResource("12_5b14r"), ExtResource("8_f1jbl"), ExtResource("9_vaj68")])
 
 [node name="World" type="Node2D" parent="." unique_id=1718165157]
 script = ExtResource("2_vef74")
@@ -2497,10 +2502,22 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="UI/Canvas/ResetText" unique_id=81958276]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("17_36jdj")
 text = "hi"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GUI" type="Control" parent="UI/Canvas" unique_id=1154597694]
 layout_mode = 3
@@ -2537,6 +2554,7 @@ to reset"
 libraries/ = SubResource("AnimationLibrary_hve3p")
 
 [node name="MainMenu" type="TextureRect" parent="UI/Canvas" unique_id=2031109267]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2567,17 +2585,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -481.0
-offset_top = -277.0
-offset_right = 471.0
-offset_bottom = 16.0
+offset_left = -466.0
+offset_top = -254.0
+offset_right = 486.00342
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 34
 theme_override_fonts/normal_font = ExtResource("18_hb5m1")
 theme_override_font_sizes/normal_font_size = 136
-text = "Ziggy's Dungeon Escape"
+text = "Ziggy's Dungeon Escape!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2616,7 +2634,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 18
 theme_override_fonts/normal_font = ExtResource("18_hb5m1")
 theme_override_font_sizes/normal_font_size = 55
-text = " Just_Jay (Jay)
+text = " Just_Jay (Matias)
  King_Awesome (Peter) "
 fit_content = true
 scroll_active = false
@@ -2732,34 +2750,169 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Canvas/MainMenu" unique_id=1133297720]
-layout_mode = 1
-offset_left = 487.00006
-offset_top = 359.00003
-offset_right = 551.00006
-offset_bottom = 415.00003
-scale = Vector2(2.2846515, 2.5599988)
-alignment = 1
-
-[node name="Play" type="TextureButton" parent="UI/Canvas/MainMenu/VBoxContainer" unique_id=833158980]
-layout_mode = 2
-texture_normal = ExtResource("19_f1jbl")
-
-[node name="Label" type="Label" parent="UI/Canvas/MainMenu/VBoxContainer/Play" unique_id=780013591]
+[node name="Play" type="TextureButton" parent="UI/Canvas/MainMenu" unique_id=833158980]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -9.0
-offset_right = 32.0
-offset_bottom = 9.0
+offset_left = -125.5
+offset_top = 71.0
+offset_right = 125.5
+offset_bottom = 132.15997
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("20_vaj68")
+texture_normal = ExtResource("19_f1jbl")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Canvas/MainMenu/Play" unique_id=780013591]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -23.579987
+offset_right = 57.5
+offset_bottom = 20.420013
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("17_36jdj")
+theme_override_font_sizes/font_size = 47
 text = "Play"
+horizontal_alignment = 1
+
+[node name="Play2" type="TextureButton" parent="UI/Canvas/MainMenu" unique_id=1115186184]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = 145.0
+offset_right = 125.5
+offset_bottom = 206.15997
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("19_f1jbl")
+stretch_mode = 0
+script = ExtResource("32_4v2jo")
+
+[node name="Label" type="Label" parent="UI/Canvas/MainMenu/Play2" unique_id=1266297369]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -23.579987
+offset_right = 57.5
+offset_bottom = 20.420013
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("17_36jdj")
+theme_override_font_sizes/font_size = 47
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="Play3" type="TextureButton" parent="UI/Canvas/MainMenu" unique_id=2020487264]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = 221.0
+offset_right = 125.5
+offset_bottom = 282.15997
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("19_f1jbl")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Canvas/MainMenu/Play3" unique_id=855125396]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -23.579987
+offset_right = 57.5
+offset_bottom = 20.420013
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("17_36jdj")
+theme_override_font_sizes/font_size = 47
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="UI/Canvas/MainMenu" unique_id=625337224]
+visible = false
+layout_mode = 0
+offset_left = -13.0
+offset_top = 7.0
+offset_right = 1137.0
+offset_bottom = 654.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.17269999, 0.12539999, 0.22, 0.6745098)
+
+[node name="GridContainer" type="GridContainer" parent="UI/Canvas/MainMenu/ColorRect" unique_id=1830744791]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.0
+offset_top = -69.0
+offset_right = 368.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
+columns = 9
+script = ExtResource("33_iu0sx")
+
+[node name="TextureButton" type="TextureButton" parent="UI/Canvas/MainMenu/ColorRect" unique_id=604371239]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 87.0
+offset_right = 1004.0
+offset_bottom = 151.0
+texture_normal = ExtResource("34_r62pu")
+texture_pressed = ExtResource("35_klri6")
+script = ExtResource("36_klri6")
+
+[node name="Label" type="Label" parent="UI/Canvas/MainMenu/ColorRect/TextureButton" unique_id=1733867978]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -23.579987
+offset_right = 57.5
+offset_bottom = 20.420013
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("17_36jdj")
+theme_override_font_sizes/font_size = 47
+text = "x"
 horizontal_alignment = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="UI/Canvas" unique_id=96092096]
@@ -2802,7 +2955,11 @@ stream = ExtResource("26_5b14r")
 [node name="MenuMusic" type="AudioStreamPlayer" parent="Music" unique_id=1056067429]
 stream = ExtResource("31_xfvwf")
 
-[connection signal="pressed" from="UI/Canvas/MainMenu/VBoxContainer/Play" to="UI/Canvas" method="_on_play_button_pressed"]
-[connection signal="pressed" from="UI/Canvas/MainMenu/VBoxContainer/Play" to="Music" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Canvas/MainMenu/Play" to="UI/Canvas" method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/Canvas/MainMenu/Play" to="Music" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Canvas/MainMenu/Play2" to="UI/Canvas/MainMenu/Play2" method="_on_pressed"]
+[connection signal="pressed" from="UI/Canvas/MainMenu/Play3" to="UI/Canvas" method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/Canvas/MainMenu/Play3" to="Music" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Canvas/MainMenu/ColorRect/TextureButton" to="UI/Canvas/MainMenu/ColorRect/TextureButton" method="_on_pressed"]
 [connection signal="timeout" from="UI/Canvas/Timer" to="UI/Canvas" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="UI/Canvas/FadeAnimator" to="UI/Canvas" method="_on_fade_animator_animation_finished"]

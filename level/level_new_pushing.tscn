@@ -22,7 +22,7 @@ tile_map_data = PackedByteArray("AAADAAAAAQADAAAAAAACAAAAAQACAAAAAAD//wAAAQACAAA
 
 [node name="elevator" parent="." unique_id=717193406 instance=ExtResource("3_gwy2t")]
 position = Vector2(383, -443)
-target = Vector2(0, 532)
+target = Vector2(0, 538)
 
 [node name="Lever" parent="." unique_id=1250449008 instance=ExtResource("4_0ou16")]
 position = Vector2(-247, -205)

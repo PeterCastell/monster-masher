@@ -12,6 +12,7 @@ enum Parts {
 
 @export var part_scenes: Dictionary[Parts, PackedScene]
 @export var bottom_ui_hint : Label
+@onready var main_menu: Control = %MainMenu
 
 @export var levels: Array[PackedScene]
 
@@ -55,6 +56,7 @@ func next_level() -> void:
 	if level_index+1 >= len(levels):
 		get_tree().reload_current_scene()
 	enter_level(level_index + 1)
+	
 
 func enter_level(index: int) -> void:
 	bottom_ui_hint.text = ""

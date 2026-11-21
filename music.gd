@@ -12,3 +12,9 @@ func _on_button_pressed() -> void:
 	menu_music.stop()
 	$ScaryCastle.play()
 	pass # Replace with function body.
+
+
+func level_pressed():
+	$ThunderClap.play()
+	menu_music.stop()
+	$ScaryCastle.play()

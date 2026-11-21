@@ -7,17 +7,17 @@ class_name PartSpawner
 
 var spawnedPart : Part
 
-# laggy but idc
+
 func _ready() -> void:
-	spawnPart()
+	spawnPart.call_deferred()
 
 func spawnPart():
 	var part = game.instance.part_scenes[part_type].instantiate()
+	part.global_position = $SpawnLocation.global_position
 
 	game.instance.world.parts.add_child(part)
 
 	
-	part.global_position = $SpawnLocation.global_position
 	
 	spawnedPart = part
 
