@@ -9,11 +9,16 @@ var icon_holder: HBoxContainer:
 	
 var played = false
 @onready var start_lightning: ColorRect = $MainMenu/StartLightning
+@onready var time_label: Label = $TimeLabel
 
 func _ready():
 	# pause
 	get_tree().paused = true
 	
+	if Game.instance.won:
+		# visibilize
+		time_label.visible = true
+		time_label.text = Game.instance.win_time
 	
 func _process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE) and can_view_operation_screen:
@@ -27,6 +32,8 @@ func _process(delta: float) -> void:
 			operation_toggled = false
 
 func _on_play_button_pressed() -> void:
+	Game.instance.is_speedrunning = true
+	Game.instance.play_time = 0
 	start_lightning.visible = true
 	$Timer.start(0.25)
 	await $Timer.timeout

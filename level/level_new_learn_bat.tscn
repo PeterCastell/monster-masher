@@ -8,6 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://d1pog1i3vl12w" path="res://PlayerExitPoint/player_exit.tscn" id="5_83uie"]
 [ext_resource type="PackedScene" uid="uid://c2o1whvxgeof2" path="res://PartSpawnPoint/part_spawn_point.tscn" id="6_uu8n2"]
 [ext_resource type="PackedScene" uid="uid://b7wqnunvq53q" path="res://Triggerables/rising_wall.tscn" id="7_nm8qj"]
+[ext_resource type="FontFile" uid="uid://dl03p4rsvjl53" path="res://Assets/Jersey10-Regular.ttf" id="9_no10h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e7lww"]
+font = ExtResource("9_no10h")
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Level1" type="Node2D" unique_id=2123833430 node_paths=PackedStringArray("spawn", "exit")]
 script = ExtResource("1_yt8c7")
@@ -40,5 +46,16 @@ part_type = 1
 position = Vector2(1, -832)
 rotation = -1.5707964
 length = 3
+
+[node name="Label" type="Label" parent="." unique_id=2120456681]
+offset_left = -1020.0
+offset_top = -1070.0
+offset_right = -877.0
+offset_bottom = -1010.0
+text = "Hold Space
+with bat
+to Glide"
+label_settings = SubResource("LabelSettings_e7lww")
+horizontal_alignment = 1
 
 [connection signal="flipped" from="Lever" to="RisingWall" method="rise"]
